@@ -1,2 +1,2 @@
-# Matchstick
-OIC U22用 マッチスティック
+# Match
+OIC U22用 マッチ
