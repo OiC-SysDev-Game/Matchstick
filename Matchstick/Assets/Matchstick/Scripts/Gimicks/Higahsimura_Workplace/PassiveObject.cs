@@ -10,6 +10,7 @@ public class PassiveObject : MonoBehaviour, IIgnitable
 	// Á‰Î
 	[SerializeField] private UnityEvent FireExtinguishing = new UnityEvent();
 
+	// 
 	public void Ignition()
 	{
 		Debug.Log("PassiveObject -> Fire");

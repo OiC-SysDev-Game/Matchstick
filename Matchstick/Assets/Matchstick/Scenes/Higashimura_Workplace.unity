@@ -470,6 +470,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lanthanum
       objectReference: {fileID: 0}
+    - target: {fileID: 1227186981395413650, guid: b65ee036fe416c84c92281a08de32139, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1227186981395413651, guid: b65ee036fe416c84c92281a08de32139, type: 3}
       propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.size
       value: 5
