@@ -7,8 +7,8 @@ using UnityEngine;
 public class Gimic_PitHall : MonoBehaviour
 {
     [SerializeField] private bool OnFire = false;//ギミックに火が点いているか
-    [SerializeField] public float BurnSpeed = 3.0f;
-
+    [SerializeField] public float BurnSpeed = 0.8f;
+    [SerializeField] float propaty = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,25 +18,25 @@ public class Gimic_PitHall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //燃えているとき
         if (OnFire == true)
         {
-            Vector3 vector;
-            if (transform.localScale.y < 0)
+            if (propaty > 1.0f)
             {
                 //オブジェクトの大きさが0以下になったら
-                //オブジェクトを非アクティブにする
-                vector = new Vector3(0.0f, 0.0f, 0.0f);
+                //オブジェクトを非アクティブにする 
                 gameObject.SetActive(false);
+                GetComponent<Renderer>().sharedMaterial.SetFloat("_Threshold", 0.0f);
             }
             else
             {
                 //オブジェクトを小さくする
-                vector = new Vector3(transform.localScale.x, transform.localScale.y - (BurnSpeed * Time.deltaTime), 0.0f);
+                propaty += (BurnSpeed * Time.deltaTime);
+                GetComponent<Renderer>().sharedMaterial.SetFloat("_Threshold", propaty);
             }
 
             //オブジェクトの大きさを更新
-            gameObject.transform.localScale = vector;
         }
     }
 
@@ -45,7 +45,7 @@ public class Gimic_PitHall : MonoBehaviour
         // 衝突した相手にPlayerタグが付いているとき
         if (collision.gameObject.tag == "Player")
         {
-            if (!OnFire) Debug.Log(gameObject.transform.name + "に火が点いた！");
+            if(!OnFire)Debug.Log(gameObject.transform.name + "に火が点いた！");
             OnFire = true;
         }
     }
