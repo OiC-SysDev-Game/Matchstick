@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3777047317089152870}
   - component: {fileID: 3777047317089152888}
   - component: {fileID: 3777047317089152871}
+  - component: {fileID: 7745611751629443912}
   m_Layer: 11
   m_Name: Point Light 2D Sensor
   m_TagString: Untagged
@@ -61,3 +62,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebugLog: 1
+--- !u!50 &7745611751629443912
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3777047317089152868}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
