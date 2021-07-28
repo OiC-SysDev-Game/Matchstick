@@ -59,34 +59,36 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        //移動
+        rigidbody2d.velocity = new Vector2(speed * directionX, rigidbody2d.velocity.y);
+
+        //向き判断
         if (directionX < 0)
         {
-            rigidbody2d.velocity = new Vector2(-speed, rigidbody2d.velocity.y);
-            //playerReverce = true;
-            transform.localScale = new Vector2(-1,1);
+            if (canJumpFlg)
+            {
+                playerReverce = true;
+            }
         }
         else if (directionX > 0)
         {
-            rigidbody2d.velocity = new Vector2(speed, rigidbody2d.velocity.y);
-            transform.localScale = new Vector2(1,1);
-            //playerReverce = false;
+            if (canJumpFlg)
+            {
+                playerReverce = false;
+            }
+
+        }
+
+        //向き変え処理
+        if(playerReverce)
+        {
+            transform.localScale = new Vector2(-1, 1);
         }
         else
         {
-            rigidbody2d.velocity = new Vector2(0, rigidbody2d.velocity.y);
+            transform.localScale = new Vector2(1, 1);
         }
 
-        // if(playerReverce)
-        // {
-        //     transform.Rotate(0.0f,180.0f,0.0f);
-        // }
-        // else
-        // {
-        //     // if(rigidbody2d.velocity.x > 0)
-        //     // {
-        //     //     rigidbody2d.velocity.x =
-        //     // }
-        // }
     }
 
     private void CheckCanJump()

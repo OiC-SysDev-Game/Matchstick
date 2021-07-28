@@ -1,7 +1,0 @@
-注意事項
-　PointLight2DSensor.cs内で名前検索しているのでPrefab名を変更する場合注意が必要
-
-
-PointLigth2DController.csの役割
-　子オブジェクトにあるColliderの半径をゲーム実行時にライトの光が届く範囲と同じ半径を設定する
-　よって、インスペクター上で変更を加えても反映されない
