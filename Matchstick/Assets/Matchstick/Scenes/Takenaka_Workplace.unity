@@ -295,6 +295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68bcfad1a2f9e94da61ef100375e2a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftFloorHeight: 0
+  rightFloorHeight: 0
 --- !u!1 &826488882
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,15 +332,9 @@ MonoBehaviour:
   - {fileID: 2526281372999453737, guid: 5e0356f94ff046246bedd20daab38e92, type: 3}
   - {fileID: 7689911108628965668, guid: f6d4043f03521504080db6439502d259, type: 3}
   - {fileID: 4278624668613356933, guid: 7d446824b5b537942a722b04ca43e844, type: 3}
-  StageObjectsLv2:
-  - {fileID: 0}
-  - {fileID: 0}
-  StageObjectsLv3:
-  - {fileID: 0}
-  - {fileID: 0}
   generate: 0
   reset: 0
-  stageSize: 12
+  stageSize: 10
 --- !u!4 &826488884
 Transform:
   m_ObjectHideFlags: 0
