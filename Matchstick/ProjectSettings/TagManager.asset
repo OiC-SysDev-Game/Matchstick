@@ -15,10 +15,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - LightCollider
+  - LightSensor
   - 
   - 
   - 
