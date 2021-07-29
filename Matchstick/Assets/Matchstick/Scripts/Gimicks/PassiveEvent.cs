@@ -9,6 +9,7 @@ public class PassiveEvent : MonoBehaviour, IIgnitable
 	[SerializeField] private UnityEvent Ignished = new UnityEvent();
 
 	[SerializeField] private bool DebugLog = true;
+	[SerializeField] private bool DebugIgnished = false;
 	// 
 	public void Ignition()
 	{
@@ -18,4 +19,14 @@ public class PassiveEvent : MonoBehaviour, IIgnitable
 		}
 		Ignished.Invoke();
 	}
+
+	public void Update()
+	{
+		if (DebugIgnished)
+		{
+			DebugIgnished = false;
+			this.Ignished.Invoke();
+		}
+	}
+
 }
