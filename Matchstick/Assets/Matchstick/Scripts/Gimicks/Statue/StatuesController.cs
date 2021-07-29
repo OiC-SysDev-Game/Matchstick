@@ -41,7 +41,16 @@ public class StatuesController : MonoBehaviour
                 playerAnswer.Clear(); // クリアフラグの代わり
 				if (DebugLog) { Debug.Log("GimmickClear"); }
 			}
-		}
+			else
+			{
+                playerAnswer.Clear();
+                foreach(var obj in StatueList)
+				{
+                    obj.transform.Find("Point Light 2D").gameObject.SetActive(false);
+				}
+                if (DebugLog) { Debug.Log("GimmickMistake"); }
+            }
+        }
 	}
 
 
