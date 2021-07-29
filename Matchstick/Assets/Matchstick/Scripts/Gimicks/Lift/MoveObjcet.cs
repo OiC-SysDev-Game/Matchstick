@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-
 public class MoveObjcet : MonoBehaviour
 {
     enum MoveType
@@ -18,6 +15,7 @@ public class MoveObjcet : MonoBehaviour
     [Header("移動経路設定")]
     [SerializeField]
     private float speed = 1.0f;
+    public bool IsMove = true;
     [SerializeField]
     private List<GameObject> movePoint;
 
@@ -28,7 +26,6 @@ public class MoveObjcet : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("start");
         rb = GetComponent<Rigidbody2D>();
 
         // 空白を削除
@@ -51,12 +48,14 @@ public class MoveObjcet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        switch (moveType)
+        if (IsMove)
         {
-            case MoveType.RoundTrip: RoundTrip(); break;
-            case MoveType.Loop: Loop(); break;
+            switch (moveType)
+            {
+                case MoveType.RoundTrip: RoundTrip(); break;
+                case MoveType.Loop: Loop(); break;
+            }
         }
-
     }
 
     private void RoundTrip()
@@ -64,7 +63,6 @@ public class MoveObjcet : MonoBehaviour
         if (movePoint.Count > 1 && rb != null)
         {
             int nextPoint = nowPoint + (returnPoint ? -1 : 1);
-            Debug.Log(nowPoint + " -> " + nextPoint);
             //目標ポイントとの誤差がわずかになるまで移動
             if (Vector2.Distance(transform.position, movePoint[nextPoint].transform.position) > 0.1f)
             {
@@ -98,7 +96,6 @@ public class MoveObjcet : MonoBehaviour
 			{
                 nextPoint = 0;
 			}
-            Debug.Log(nowPoint + " -> " + nextPoint);
             //目標ポイントとの誤差がわずかになるまで移動
             if (Vector2.Distance(transform.position, movePoint[nextPoint].transform.position) > 0.1f)
             {
