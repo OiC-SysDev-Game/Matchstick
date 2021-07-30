@@ -10,7 +10,7 @@ public class LightaMatch : MonoBehaviour
     [SerializeField]
     private float lightTimeSeconds = 10;
     [SerializeField]
-    private LightMatch playerIgnite;
+    private PlayerIgniteMatch playerIgnite;
 
     private float lightTime = 0;
     private bool  onFire = false;

@@ -13,8 +13,8 @@ public class Tester : MonoBehaviour
 
 	void CallInterface()
 	{
-		var obj = Object.GetComponent<IIgnitable>();
-		obj.Ignition();
+		var interfac = Object.GetComponent<IIgnitable>();
+		interfac.Ignition();
 	}
 
 
