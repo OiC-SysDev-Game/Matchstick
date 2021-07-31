@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -15,7 +15,7 @@ public class StatuesController : MonoBehaviour
 
     [SerializeField] private bool DebugLog = true;
 
-    // ‘œ‚ª“_“”‚µ‚½‚çA‘œ‘¤‚©‚çŒÄ‚Î‚ê‚é
+    // åƒãŒç‚¹ç¯ã—ãŸã‚‰ã€åƒå´ã‹ã‚‰å‘¼ã°ã‚Œã‚‹
     public void StatueIgnited(int No)
 	{
         playerAnswer.Add(No);
@@ -25,9 +25,9 @@ public class StatuesController : MonoBehaviour
 	{
         StatueList = new List<GameObject>();
         playerAnswer = new List<int>();
-        // ‘œ‚Ìæ“¾
+        // åƒã®å–å¾—
         this.GetStatues();
-        // –â‘è‚Ìì¬
+        // å•é¡Œã®ä½œæˆ
         this.CreateQuestion();
     }
 
@@ -38,7 +38,7 @@ public class StatuesController : MonoBehaviour
 			if (answer.SequenceEqual(playerAnswer))
 			{
                 GimmickClear.Invoke();
-                playerAnswer.Clear(); // ƒNƒŠƒAƒtƒ‰ƒO‚Ì‘ã‚í‚è
+                playerAnswer.Clear(); // ã‚¯ãƒªã‚¢ãƒ•ãƒ©ã‚°ã®ä»£ã‚ã‚Š
 				if (DebugLog) { Debug.Log("GimmickClear"); }
 			}
 			else

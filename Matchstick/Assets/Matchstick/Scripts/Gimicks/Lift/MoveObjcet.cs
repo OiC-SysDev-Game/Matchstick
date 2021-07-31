@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +12,7 @@ public class MoveObjcet : MonoBehaviour
 
     [SerializeField]
     private MoveType moveType;
-    [Header("ˆÚ“®Œo˜Hİ’è")]
+    [Header("ç§»å‹•çµŒè·¯è¨­å®š")]
     [SerializeField]
     private float speed = 1.0f;
     public bool IsMove = true;
@@ -28,7 +28,7 @@ public class MoveObjcet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        // ‹ó”’‚ğíœ
+        // ç©ºç™½ã‚’å‰Šé™¤
 		for (int i = movePoint.Count - 1; i >= 0; i--)
 		{
             if(movePoint[i] == null)
@@ -39,7 +39,7 @@ public class MoveObjcet : MonoBehaviour
 
         if (movePoint != null && movePoint.Count > 0 && rb != null)
         {
-            // ƒXƒ^[ƒg’n“_‚Ì‹L˜^
+            // ã‚¹ã‚¿ãƒ¼ãƒˆåœ°ç‚¹ã®è¨˜éŒ²
             startPointObject = new GameObject("StartPointObject");
             startPointObject.transform.position = this.gameObject.transform.position;
             movePoint.Insert(0, startPointObject);
@@ -63,22 +63,22 @@ public class MoveObjcet : MonoBehaviour
         if (movePoint.Count > 1 && rb != null)
         {
             int nextPoint = nowPoint + (returnPoint ? -1 : 1);
-            //–Ú•Wƒ|ƒCƒ“ƒg‚Æ‚ÌŒë·‚ª‚í‚¸‚©‚É‚È‚é‚Ü‚ÅˆÚ“®
+            //ç›®æ¨™ãƒã‚¤ãƒ³ãƒˆã¨ã®èª¤å·®ãŒã‚ãšã‹ã«ãªã‚‹ã¾ã§ç§»å‹•
             if (Vector2.Distance(transform.position, movePoint[nextPoint].transform.position) > 0.1f)
             {
-                //Œ»İ’n‚©‚çŸ‚Ìƒ|ƒCƒ“ƒg‚Ö‚ÌƒxƒNƒgƒ‹‚ğì¬
+                //ç¾åœ¨åœ°ã‹ã‚‰æ¬¡ã®ãƒã‚¤ãƒ³ãƒˆã¸ã®ãƒ™ã‚¯ãƒˆãƒ«ã‚’ä½œæˆ
                 Vector2 toVector = Vector2.MoveTowards(transform.position, movePoint[nextPoint].transform.position, speed * Time.deltaTime);
 
-                //Ÿ‚Ìƒ|ƒCƒ“ƒg‚ÖˆÚ“®
+                //æ¬¡ã®ãƒã‚¤ãƒ³ãƒˆã¸ç§»å‹•
                 rb.MovePosition(toVector);
             }
-            //Ÿ‚Ìƒ|ƒCƒ“ƒg‚ğ‚P‚Âi‚ß‚é
+            //æ¬¡ã®ãƒã‚¤ãƒ³ãƒˆã‚’ï¼‘ã¤é€²ã‚ã‚‹
             else
             {
                 rb.MovePosition(movePoint[nextPoint].transform.position);
                 nowPoint = nowPoint + (returnPoint ? -1 : 1);
 
-                //Œ»İ’n‚ª”z—ñ‚ÌÅŒã‚¾‚Á‚½ê‡
+                //ç¾åœ¨åœ°ãŒé…åˆ—ã®æœ€å¾Œã ã£ãŸå ´åˆ
                 if (0 >= nowPoint || nowPoint + 1 >= movePoint.Count)
                 {
                     returnPoint = !returnPoint;
@@ -96,16 +96,16 @@ public class MoveObjcet : MonoBehaviour
 			{
                 nextPoint = 0;
 			}
-            //–Ú•Wƒ|ƒCƒ“ƒg‚Æ‚ÌŒë·‚ª‚í‚¸‚©‚É‚È‚é‚Ü‚ÅˆÚ“®
+            //ç›®æ¨™ãƒã‚¤ãƒ³ãƒˆã¨ã®èª¤å·®ãŒã‚ãšã‹ã«ãªã‚‹ã¾ã§ç§»å‹•
             if (Vector2.Distance(transform.position, movePoint[nextPoint].transform.position) > 0.1f)
             {
-                //Œ»İ’n‚©‚çŸ‚Ìƒ|ƒCƒ“ƒg‚Ö‚ÌƒxƒNƒgƒ‹‚ğì¬
+                //ç¾åœ¨åœ°ã‹ã‚‰æ¬¡ã®ãƒã‚¤ãƒ³ãƒˆã¸ã®ãƒ™ã‚¯ãƒˆãƒ«ã‚’ä½œæˆ
                 Vector2 toVector = Vector2.MoveTowards(transform.position, movePoint[nextPoint].transform.position, speed * Time.deltaTime);
 
-                //Ÿ‚Ìƒ|ƒCƒ“ƒg‚ÖˆÚ“®
+                //æ¬¡ã®ãƒã‚¤ãƒ³ãƒˆã¸ç§»å‹•
                 rb.MovePosition(toVector);
             }
-            //Ÿ‚Ìƒ|ƒCƒ“ƒg‚ğ‚P‚Âi‚ß‚é
+            //æ¬¡ã®ãƒã‚¤ãƒ³ãƒˆã‚’ï¼‘ã¤é€²ã‚ã‚‹
             else
             {
                 rb.MovePosition(movePoint[nextPoint].transform.position);
