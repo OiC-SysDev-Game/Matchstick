@@ -12,12 +12,18 @@ public class LightaMatch : MonoBehaviour
     [SerializeField]
     private PlayerIgniteMatch playerIgnite;
 
+    private PointLigth2DController pointLigth2DController;
     private float lightTime = 0;
     private bool  onFire = false;
+
+    //揺らめき用
+    private float maxOuterRadius;
+    private float time;
 
     // Start is called before the first frame update
     void Start()
     {
+        maxOuterRadius = pointLight.pointLightOuterRadius;
         if(!playerIgnite.GetLightMatchFlg())
         {
             pointLight.intensity = 0;
@@ -58,8 +64,9 @@ public class LightaMatch : MonoBehaviour
                     playerIgnite.SetLightMatchFlg(false);
                 }
             }
-
+            //揺らめき
+            time += Time.deltaTime;
+            pointLight.pointLightOuterRadius = maxOuterRadius + Mathf.Sin(time) * 0.1f;
         }
     }
-
 }

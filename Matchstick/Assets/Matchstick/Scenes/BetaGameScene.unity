@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &224069592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.01
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -609,9 +609,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6886506683215465143, guid: a2b8877b55291ad4c84046604fdc33c4, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
+    - target: {fileID: 6886506683570875968, guid: a2b8877b55291ad4c84046604fdc33c4, type: 3}
+      propertyPath: m_ShadowIntensity
+      value: 0.602
+      objectReference: {fileID: 0}
+    - target: {fileID: 6886506683570875968, guid: a2b8877b55291ad4c84046604fdc33c4, type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2b8877b55291ad4c84046604fdc33c4, type: 3}

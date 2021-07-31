@@ -21,7 +21,7 @@ public class PointLigth2DController : MonoBehaviour
 	public void SetLightOuterRadius(float Radius)
 	{
 		if(Radius < 0) { return; }
-		light.pointLightOuterRadius = Radius;
+		//light.pointLightOuterRadius = Radius;
 		collider.radius =  Radius;
 		colliderObject.transform.localScale = new Vector3(1.0f / transform.lossyScale.x, 1.0f / transform.lossyScale.y, 1);
 		}
