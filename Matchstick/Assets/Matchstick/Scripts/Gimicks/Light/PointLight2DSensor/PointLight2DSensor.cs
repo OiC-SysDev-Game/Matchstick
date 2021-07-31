@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
@@ -6,7 +6,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class PointLight2DSensor : MonoBehaviour
 {
 	[SerializeField] private bool DebugLog = true;
-	// Š´’m‚µ‚Ä‚¢‚éŒõŒ¹
+	// æ„ŸçŸ¥ã—ã¦ã„ã‚‹å…‰æº
 	private List<GameObject> PointLight2DObjectList;
 
 	PointLight2DSensor()

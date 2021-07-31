@@ -1,11 +1,11 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
 public class CanteraController : MonoBehaviour, IIgnitable
 {
-	// “_‰Îƒtƒ‰ƒO
+	// ç‚¹ç«ãƒ•ãƒ©ã‚°
 	public bool IsIgnished = false;
 
 	[SerializeField] private bool DebugLog = true;
