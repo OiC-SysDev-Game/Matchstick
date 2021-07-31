@@ -15,14 +15,25 @@ public class PointLigth2DController : MonoBehaviour
 		collider = colliderObject.GetComponent<CircleCollider2D>();
 		light = gameObject.GetComponent<Light2D>();
 
-		SetLightOuterRadius(light.pointLightOuterRadius);
+		this.ColliderController();
 	}
 
-	public void SetLightOuterRadius(float Radius)
+	private void Update()
 	{
-		if(Radius < 0) { return; }
-		//light.pointLightOuterRadius = Radius;
-		collider.radius =  Radius;
-		colliderObject.transform.localScale = new Vector3(1.0f / transform.lossyScale.x, 1.0f / transform.lossyScale.y, 1);
+		this.ColliderController(); 
+	}
+
+	public void ColliderController()
+	{
+		if(light.intensity > 0.001f)
+		{
+			if (!colliderObject.activeSelf) { colliderObject.SetActive(true); }
+			collider.radius = light.pointLightOuterRadius * Mathf.Min(light.intensity, 1);
+			colliderObject.transform.localScale = new Vector3(1.0f / transform.lossyScale.x, 1.0f / transform.lossyScale.y, 1);
 		}
+		else
+		{
+			colliderObject.SetActive(false);
+		}
+	}
 }

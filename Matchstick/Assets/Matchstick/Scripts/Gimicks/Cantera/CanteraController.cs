@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.Experimental.Rendering.Universal;
+
 
 public class CanteraController : MonoBehaviour, IIgnitable
 {
@@ -18,11 +20,11 @@ public class CanteraController : MonoBehaviour, IIgnitable
 
 	private IEnumerator IgnishedLightAnimation()
 	{
-		var light = transform.Find("Point Light 2D").GetComponent<PointLigth2DController>();
-		
+		var light = transform.Find("Point Light 2D").GetComponent<Light2D>();
 		for (float i = 0; i < 3; i+= 0.1f)
 		{
-			light.SetLightOuterRadius(i);
+			light.pointLightOuterRadius = i;
+
 			yield return new WaitForSeconds(0.1f);
 		}
 	}
