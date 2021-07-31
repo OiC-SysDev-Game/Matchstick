@@ -13,7 +13,7 @@ public class StageGenerator : MonoBehaviour
 
     void Start()
     {
-
+        Generate();
     }
 
     void Update()
@@ -49,7 +49,6 @@ public class StageGenerator : MonoBehaviour
         }
         //cellBoundsで位置とサイズ取得
         //Debug.Log("cellBounds:" + StageObjects[3].cellBounds.ToString());
-
     }
 
     void Reset()
