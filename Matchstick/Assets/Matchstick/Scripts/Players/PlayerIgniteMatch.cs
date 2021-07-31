@@ -21,7 +21,7 @@ public class PlayerIgniteMatch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //�L�[�̎擾
+        //キーの取得
         if(Input.GetKey(KeyCode.Z))
         {
             lightMatchFlg = true;

@@ -143,6 +143,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   DebugLog: 1
+  DebugIgnished: 0
 --- !u!1001 &8637641869438871265
 PrefabInstance:
   m_ObjectHideFlags: 0
