@@ -12,6 +12,8 @@ public class PlayerIgniteMatch : MonoBehaviour
     [SerializeField]
     public void SetLightMatchFlg(bool islight) { lightMatchFlg = islight; }
 
+    [SerializeField] private Transform igniteCheck;
+    [SerializeField] private LayerMask layerGimick;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +28,24 @@ public class PlayerIgniteMatch : MonoBehaviour
         {
             lightMatchFlg = true;
         }
+
+        //ギミック着火用コード
+        if(lightMatchFlg && Input.GetKeyDown(KeyCode.X))
+        {
+            var collider = Physics2D.OverlapBox(igniteCheck.position, igniteCheck.localScale,0,layerGimick);
+            if(collider != null)
+            {
+                var igniteGimick = collider.gameObject.GetComponent<IIgnitable>(); 
+                if(igniteGimick != null)
+                {
+                    igniteGimick.Ignition();
+                }
+            }
+        }
+        
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(igniteCheck.position, igniteCheck.localScale);
     }
 }
