@@ -24,13 +24,13 @@ public class PlayerIgniteMatch : MonoBehaviour
     void Update()
     {
         //キーの取得
-        if(Input.GetKey(KeyCode.Z))
+        if(Input.GetKey(KeyCode.Space) && !lightMatchFlg)
         {
             lightMatchFlg = true;
         }
 
         //ギミック着火用コード
-        if(lightMatchFlg && Input.GetKeyDown(KeyCode.X))
+        if(lightMatchFlg && Input.GetKeyDown(KeyCode.Z))
         {
             var collider = Physics2D.OverlapBox(igniteCheck.position, igniteCheck.localScale,0,layerGimick);
             if(collider != null)

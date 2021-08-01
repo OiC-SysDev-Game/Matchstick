@@ -11,6 +11,8 @@ public class LightaMatch : MonoBehaviour
     private float lightTimeSeconds = 10;
     [SerializeField]
     private PlayerIgniteMatch playerIgnite;
+    [SerializeField]
+    private float defaultLightIntensity = 0.89f;
 
     private PointLigth2DController pointLigth2DController;
     private float lightTime = 0;
@@ -41,32 +43,49 @@ public class LightaMatch : MonoBehaviour
         {
             if(!onFire)
             {
-                pointLight.intensity += 0.005f;
-                if (pointLight.intensity > 0.89f)
-                {
-                    pointLight.intensity = 0.89f;
-                    onFire = true;
-                    lightTime = lightTimeSeconds * 100;
-                }
+                //着火開始処理
+                IgnitionStart();
             }
+
             if(lightTime > 0 && onFire)
             {
+                //着火中処理
                 lightTime--;
-                pointLight.intensity -= 0.0000002f * lightTime;
+                pointLight.intensity -= 0.000001f * lightTime;
             }
             else if(lightTime <= 0 && onFire)
             {
-                pointLight.intensity -= 0.005f;
-                if(pointLight.intensity <= 0)
-                {
-                    pointLight.intensity = 0;
-                    onFire = false;
-                    playerIgnite.SetLightMatchFlg(false);
-                }
+                //着火終了処理
+                IgnitionEnd();
             }
             //揺らめき
             time += Time.deltaTime;
             pointLight.pointLightOuterRadius = maxOuterRadius + Mathf.Sin(time) * 0.1f;
         }
     }
+
+
+    private void IgnitionStart()
+    {
+        pointLight.intensity += 0.005f;
+        if (pointLight.intensity > defaultLightIntensity)
+        {
+            pointLight.intensity = defaultLightIntensity;
+            onFire = true;
+            lightTime = lightTimeSeconds * 100;
+        }
+    }
+
+    private void IgnitionEnd()
+    {
+        pointLight.intensity -= 0.007f;
+        if (pointLight.intensity <= 0)
+        {
+            pointLight.intensity = 0;
+            onFire = false;
+            playerIgnite.SetLightMatchFlg(false);
+        }
+    }
+
 }
+
