@@ -17,7 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private float groundCheckRadius;
     [SerializeField]
     private LayerMask layerGround;
-
+    [SerializeField]
+    private PlayerCanteraCheck CanteraShowCheck;
 
     private float directionX;
     private bool jumpFlg;
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidbody2d = GetComponent<Rigidbody2D>();
         }
+
     }
 
     // Update is called once per frame
@@ -59,6 +61,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        
+
         //移動
         rigidbody2d.velocity = new Vector2(speed * directionX, rigidbody2d.velocity.y);
 
@@ -93,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckCanJump()
     {
-        if(groundedFlg && rigidbody2d.velocity.y <= 0)
+        if(groundedFlg)
         {
             canJumpFlg = true;
         }
@@ -112,7 +116,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if(jumpFlg && canJumpFlg)
         {
-            rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpForce);
+            if (CanteraShowCheck.GetPlayerCanteraShowFlg())
+            {
+                rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpForce * 0.5f);
+            }
+            else
+            {
+                rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpForce);
+            }
         }
     }
     
