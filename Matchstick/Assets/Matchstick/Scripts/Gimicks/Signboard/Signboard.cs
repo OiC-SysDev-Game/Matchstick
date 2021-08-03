@@ -10,6 +10,7 @@ public class Signboard : MonoBehaviour
 	[SerializeField] private PointLight2DSensor LightSensor;
 
 	private TMP_Text tmpText;
+	private Color textColor;
 
 	private void Awake()
 	{
@@ -20,11 +21,12 @@ public class Signboard : MonoBehaviour
 		}
 
 		tmpText = transform.Find("Canvas/Text").GetComponent<TMP_Text>();
+		textColor = tmpText.color;
 	}
 
 	private void Update()
 	{
-		tmpText.color = LightSensor.GetLightColor();
+		tmpText.color = textColor * LightSensor.GetLightColor();
 	}
 
 	public void indication()
