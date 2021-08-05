@@ -13,6 +13,8 @@ public class LightaMatch : MonoBehaviour
     private PlayerIgniteMatch playerIgnite;
     [SerializeField]
     private float defaultLightIntensity = 0.89f;
+    [SerializeField]
+    private PlayerCanteraCheck playerCanteraCheck;
 
     private PointLigth2DController pointLigth2DController;
     private float lightTime = 0;
@@ -41,23 +43,35 @@ public class LightaMatch : MonoBehaviour
     {
         if (playerIgnite.GetLightMatchFlg())
         {
+           
+
             if(!onFire)
             {
                 //着火開始処理
                 IgnitionStart();
             }
 
-            if(lightTime > 0 && onFire)
+            //カンテラを持っているときマッチを消す
+            if (playerCanteraCheck.GetPlayerCanteraShowFlg() == true)
+            {
+                pointLight.intensity = 0;
+                onFire = false;
+                playerIgnite.SetLightMatchFlg(false);
+            }
+
+            if (lightTime > 0 && onFire)
             {
                 //着火中処理
                 lightTime--;
                 pointLight.intensity -= 0.000001f * lightTime;
+                
             }
             else if(lightTime <= 0 && onFire)
             {
                 //着火終了処理
                 IgnitionEnd();
             }
+            
             //揺らめき
             time += Time.deltaTime;
             pointLight.pointLightOuterRadius = maxOuterRadius + Mathf.Sin(time) * 0.1f;
