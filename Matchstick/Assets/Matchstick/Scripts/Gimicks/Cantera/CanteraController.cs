@@ -7,14 +7,10 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class CanteraController : MonoBehaviour, IIgnitable
 {
-	// 点火フラグ
-	public bool IsIgnished = false;
-
 	[SerializeField] private bool DebugLog = true;
 
 	public void Ignition()
 	{
-		IsIgnished = true;
 		StartCoroutine("IgnishedLightAnimation");
 	}
 
