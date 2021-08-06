@@ -589,7 +589,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 713973187}
-  StageObjects:
+  startRoom: {fileID: 7992546029280039077, guid: 25de9d0437b232f4c890511e9a242704, type: 3}
+  goalRoom: {fileID: 0}
+  stageObjects:
   - {fileID: 7992546029280039077, guid: 25de9d0437b232f4c890511e9a242704, type: 3}
   - {fileID: 2526281372999453737, guid: 5e0356f94ff046246bedd20daab38e92, type: 3}
   - {fileID: 7689911108628965668, guid: f6d4043f03521504080db6439502d259, type: 3}
