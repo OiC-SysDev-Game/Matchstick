@@ -1470,6 +1470,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1227186981395413652, guid: b65ee036fe416c84c92281a08de32139, type: 3}
   m_PrefabInstance: {fileID: 1227186980276580496}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1137794135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5565834493035886866, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
+  m_PrefabInstance: {fileID: 1240973246}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854686584b839634c8604ec7c20732c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1175718674 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8107149321584456694, guid: f88c30bc17f9bc4488410feb72db573f, type: 3}
@@ -1538,8 +1549,16 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5565834493035886866, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
+      propertyPath: AnimTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565834493035886866, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565834493035886866, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
+      propertyPath: ActiveDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8637641870812604238, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1575,27 +1594,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8637641871026051717, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8637641871026051717, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8637641871026051717, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1137794135}
     - target: {fileID: 8637641871026051717, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8637641871026051717, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: Play
+      value: StartAnimation
       objectReference: {fileID: 0}
     - target: {fileID: 8637641871026051717, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UnityEngine.Animator, UnityEngine
+      value: ThornAnimation, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8637641871026051717, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
