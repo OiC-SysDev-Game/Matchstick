@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596015817730913230}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.9, y: -45.04, z: 0}
-  m_LocalScale: {x: 3.534828, y: 3.534828, z: 3.534828}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8290143744853682964}
   m_Father: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: af2a592558553544aa83fe2bb9ff3028, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f0aa1a6c9bef7764caa05d236ecabcff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,19 +106,46 @@ MonoBehaviour:
   m_SelfShadows: 0
   m_ApplyToSortingLayers: 00000000
   m_ShapePath:
-  - {x: -0.3275306, y: -0.37831658, z: 0}
-  - {x: 0.29928216, y: -0.39525855, z: 0}
-  - {x: 0.30613545, y: 0.16739729, z: 0}
-  - {x: 0.24626926, y: 0.45640677, z: 0}
-  - {x: -0.016947668, y: 0.4472856, z: 0}
-  - {x: -0.0011545188, y: 0.2116359, z: 0}
-  - {x: 0.098708354, y: 0.17018372, z: 0}
-  - {x: 0.051603217, y: 0.03263642, z: 0}
-  - {x: -0.13304885, y: 0.13438317, z: 0}
-  - {x: -0.04166524, y: -0.024429267, z: 0}
-  m_ShapePathHash: -1378861198
+  - {x: -0.08492832, y: -0.31050855, z: 0}
+  - {x: -0.024577996, y: -0.31084093, z: 0}
+  - {x: 0.052149545, y: -0.14632611, z: 0}
+  - {x: 0.15013187, y: -0.29288346, z: 0}
+  - {x: 0.25397292, y: -0.2836414, z: 0}
+  - {x: 0.2890427, y: -0.21063954, z: 0}
+  - {x: 0.30933493, y: -0.10692544, z: 0}
+  - {x: 0.2910901, y: -0.017112201, z: 0}
+  - {x: 0.20781268, y: 0.10965091, z: 0}
+  - {x: 0.20295617, y: 0.14711986, z: 0}
+  - {x: 0.222756, y: 0.23305671, z: 0}
+  - {x: 0.20552672, y: 0.30472794, z: 0}
+  - {x: 0.17443483, y: 0.34593838, z: 0}
+  - {x: 0.12771606, y: 0.36616644, z: 0}
+  - {x: 0.03504041, y: 0.36379766, z: 0}
+  - {x: -0.011720404, y: 0.33089146, z: 0}
+  - {x: -0.04072336, y: 0.29340848, z: 0}
+  - {x: -0.049031828, y: 0.24836372, z: 0}
+  - {x: -0.038020197, y: 0.18138582, z: 0}
+  - {x: -0.013321529, y: 0.15947425, z: 0}
+  - {x: -0.014298351, y: 0.09559789, z: 0}
+  - {x: 0.01697283, y: 0.095425226, z: 0}
+  - {x: 0.06367284, y: 0.028474301, z: 0}
+  - {x: 0.1261409, y: 0.077647984, z: 0}
+  - {x: 0.13084753, y: 0.039897367, z: 0}
+  - {x: 0.10596162, y: -0.025394866, z: 0}
+  - {x: 0.043699574, y: -0.058677696, z: 0}
+  - {x: -0.061186977, y: -0.075773984, z: 0}
+  - {x: -0.10330244, y: -0.069394164, z: 0}
+  - {x: -0.12845488, y: 0.026482144, z: 0}
+  - {x: -0.11614021, y: -0.0752916, z: 0}
+  - {x: -0.13663873, y: -0.08518763, z: 0}
+  - {x: -0.12073116, y: -0.12188173, z: 0}
+  - {x: -0.068071745, y: -0.10466349, z: 0}
+  - {x: 0.00045686917, y: -0.1072956, z: 0}
+  - {x: -0.047342245, y: -0.27050892, z: 0}
+  - {x: -0.08601498, y: -0.29693145, z: 0}
+  m_ShapePathHash: 198128024
   m_Mesh: {fileID: 0}
-  m_InstanceId: 29288
+  m_InstanceId: 28322
 --- !u!114 &3187125278235178550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +217,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.7578125, y: 1.0078125}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1.94, y: 2.58}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -232,11 +259,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8438731034050919666, guid: 97ce0faf4210b864e83cff0841709c0c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.099
+      value: -0.1454
       objectReference: {fileID: 0}
     - target: {fileID: 8438731034050919666, guid: 97ce0faf4210b864e83cff0841709c0c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.329
+      value: 0.116
       objectReference: {fileID: 0}
     - target: {fileID: 8438731034050919666, guid: 97ce0faf4210b864e83cff0841709c0c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -304,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8438731034050919667, guid: 97ce0faf4210b864e83cff0841709c0c, type: 3}
       propertyPath: m_PointLightInnerAngle
-      value: 324.95
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 8438731034050919667, guid: 97ce0faf4210b864e83cff0841709c0c, type: 3}
       propertyPath: m_PointLightInnerRadius
