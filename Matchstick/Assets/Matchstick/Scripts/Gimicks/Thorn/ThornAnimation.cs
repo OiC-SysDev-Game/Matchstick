@@ -15,7 +15,7 @@ public class ThornAnimation : MonoBehaviour
 		StartCoroutine("Animation");
 	}
 
-	private void Awake()
+	private void Start()
 	{
 		position = transform.position;
 		var down = new Vector3(0, transform.lossyScale.y, 0);
