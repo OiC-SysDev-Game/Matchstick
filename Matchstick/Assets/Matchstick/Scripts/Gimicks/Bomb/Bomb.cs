@@ -21,7 +21,7 @@ public class Bomb : MonoBehaviour
 	{
 		IsDeath = false;
 		IsExplosion = false;
-		WaitExplosion = 0;
+		WaitExplosion = 1;
 	}
 
 	private void FixedUpdate()
