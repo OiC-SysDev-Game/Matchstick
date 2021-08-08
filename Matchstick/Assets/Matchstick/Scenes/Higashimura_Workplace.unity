@@ -1358,6 +1358,17 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &1087721931 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5565834493035886866, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
+  m_PrefabInstance: {fileID: 1240973246}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854686584b839634c8604ec7c20732c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1115481630 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1227186981395413651, guid: b65ee036fe416c84c92281a08de32139, type: 3}
@@ -1430,6 +1441,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 591327349}
     m_Modifications:
+    - target: {fileID: 481666160627149358, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2827570793466144767, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
+      propertyPath: AnimTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637641870812604238, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.012
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637641870812604238, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.046
+      objectReference: {fileID: 0}
     - target: {fileID: 8637641870812604239, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -1446,9 +1473,41 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8637641870812604239, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8637641871026051716, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: m_Name
       value: Thorn
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637641871026051717, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
+      propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637641871026051717, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
+      propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637641871026051717, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
+      propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1087721931}
+    - target: {fileID: 8637641871026051717, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
+      propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637641871026051717, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
+      propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: StartAnimation
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637641871026051717, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
+      propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ThornAnimation, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637641871026051717, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
+      propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8637641871026051722, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: m_RootOrder
@@ -1464,11 +1523,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8637641871026051722, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.753
+      value: 4.826
       objectReference: {fileID: 0}
     - target: {fileID: 8637641871026051722, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.276
+      value: -0.189
       objectReference: {fileID: 0}
     - target: {fileID: 8637641871026051722, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: m_LocalPosition.z
