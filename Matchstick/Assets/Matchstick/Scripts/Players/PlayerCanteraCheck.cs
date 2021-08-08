@@ -8,6 +8,8 @@ public class PlayerCanteraCheck : MonoBehaviour
     private GameObject PlayerCantera;
     [SerializeField]
     public bool GetPlayerCanteraShowFlg() { return show; }
+    [SerializeField]
+    private PlayerIgniteMatch playerIgniteMatch;
     
     
     private bool collideFlg = false;
@@ -27,23 +29,35 @@ public class PlayerCanteraCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(collideFlg)
-        {
-            show = true;
-        }
-
         if(show)
         {
             PlayerCantera.SetActive(true);
+        }
+        else
+        {
+            PlayerCantera.SetActive(false);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(LayerMask.LayerToName(collision.gameObject.layer) == "CanteraCollider")
+        if(!playerIgniteMatch.GetLightMatchFlg())
         {
-            collision.gameObject.SetActive(false);
-            collideFlg = true;
+            return;
+        }
+        if(LayerMask.LayerToName(collision.gameObject.layer) == "CanteraCollider" )
+        {
+            if(!show)
+            {
+                collision.gameObject.SetActive(false);
+                show = true;
+            }
+            else
+            {
+                collision.gameObject.SetActive(true);
+                show = false;
+            }
+
         }
     }
 }
