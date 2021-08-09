@@ -91,6 +91,7 @@ MonoBehaviour:
   lightTimeSeconds: 10
   playerIgnite: {fileID: 1115951624811457809}
   defaultLightIntensity: 0.89
+  playerCanteraCheck: {fileID: 0}
 --- !u!114 &7276834348670152003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCantera: {fileID: 2180872510470460744}
+  playerIgniteMatch: {fileID: 0}
 --- !u!1 &2180872510470460744
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482eb66556bcb8e408f835c78fe892ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsIgnished: 0
   DebugLog: 1
 --- !u!95 &2504973037072665153
 Animator:
@@ -554,7 +555,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a5ccfcfb2ffc88d43a413bcf1001b280, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b58e896cc1f48ee41ab07777ae5f3fe7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
