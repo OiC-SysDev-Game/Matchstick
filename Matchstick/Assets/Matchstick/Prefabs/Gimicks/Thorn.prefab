@@ -330,6 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnimTime: 1
+  ActiveDistance: 2
 --- !u!1 &8637641871026051716
 GameObject:
   m_ObjectHideFlags: 0
