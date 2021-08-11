@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4170411065473826238}
   - component: {fileID: 6860457065630129628}
   m_Layer: 6
-  m_Name: RoomPattern02
+  m_Name: TestRoomPattern02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

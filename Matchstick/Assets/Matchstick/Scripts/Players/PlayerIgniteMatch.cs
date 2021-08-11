@@ -14,6 +14,8 @@ public class PlayerIgniteMatch : MonoBehaviour
 
     [SerializeField] private Transform igniteCheck;
     [SerializeField] private LayerMask layerGimick;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,7 @@ public class PlayerIgniteMatch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //キーの取得
+        //マッチ着火
         if(Input.GetKey(KeyCode.Space) && !lightMatchFlg)
         {
             lightMatchFlg = true;
@@ -44,6 +46,9 @@ public class PlayerIgniteMatch : MonoBehaviour
         }
         
     }
+
+
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(igniteCheck.position, igniteCheck.localScale);

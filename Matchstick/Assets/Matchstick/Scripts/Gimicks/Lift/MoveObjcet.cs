@@ -18,11 +18,15 @@ public class MoveObjcet : MonoBehaviour
     public bool IsMove = true;
     [SerializeField]
     private List<GameObject> movePoint;
+    [SerializeField]
+    public Vector2 GetVelocity() { return myVelocity; }
 
     private GameObject startPointObject;
     private Rigidbody2D rb;
     private int nowPoint = 0;
     private bool returnPoint = false;
+    private Vector2 oldPosition = Vector2.zero;
+    private Vector2 myVelocity = Vector2.zero;
 
     private void Start()
     {
@@ -43,6 +47,8 @@ public class MoveObjcet : MonoBehaviour
             startPointObject = new GameObject("StartPointObject");
             startPointObject.transform.position = this.gameObject.transform.position;
             movePoint.Insert(0, startPointObject);
+            oldPosition = rb.position;
+
         }
     }
 
@@ -55,6 +61,9 @@ public class MoveObjcet : MonoBehaviour
                 case MoveType.RoundTrip: RoundTrip(); break;
                 case MoveType.Loop: Loop(); break;
             }
+            //プレイヤーの移動用に位置を記録
+            myVelocity = (rb.position - oldPosition) / Time.deltaTime;
+            oldPosition = rb.position;
         }
     }
 
