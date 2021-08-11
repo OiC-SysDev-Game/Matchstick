@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canJumpFlg;
     private bool playerReverce;
     private string moveLiftTag = "MoveLift";
+    private bool liftCollideFlg = false;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +54,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //キーを取得
-        //directionY = Input.GetAxis("Vertical");
         directionX = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump") && !jumpFlg)
         {
@@ -64,10 +64,10 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate() 
     {
-        //移動処理
-        Move();
         //ジャンプ処理
         Jump();
+        //移動処理
+        Move();
         //地面接触チェック
         CheckSurroundings();
         //ジャンプが可能かチェック
@@ -80,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
         if(collision.collider.tag == moveLiftTag)
         {
              moveObject = collision.gameObject.GetComponent<MoveObjcet>();
+            liftCollideFlg = true;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -87,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.collider.tag == moveLiftTag)
         {
             moveObject = null;
+            liftCollideFlg = false;
         }
     }
 
@@ -94,16 +96,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-
-        //float xSpeed = 0.0f;
-        //float ySpeed = 0.0f;
-        Speed.y += -gravity;
-        if(Speed.y <= -20)
+        //地面についているとき重力をなくす
+        if(groundedFlg && !jumpFlg && Speed.y < 0 && !liftCollideFlg)
         {
-            Speed.y = -20;
+            Speed.y = 0f;
+        }
+        //重力処理
+        Speed.y += -gravity;
+        if (Speed.y <= -15)
+        {
+            Speed.y = -15;
         }
         
-        //ySpeed = -gravity;
+        
+        //リフト分の加算移動量
         Vector2 addVelocity = Vector2.zero;
         if(moveObject != null)
         {
@@ -146,18 +152,6 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector2(1, 1);
         }
 
-        if (jumpFlg && canJumpFlg)
-        {
-            if (CanteraShowCheck.GetPlayerCanteraShowFlg())
-            {
-                Speed.y = jumpForce * 0.5f;
-            }
-            else
-            {
-                Speed.y = jumpForce;
-            }
-        }
-
         //移動
         rigidbody2d.velocity = new Vector2(Speed.x * directionX, Speed.y) + addVelocity;
     }
@@ -182,7 +176,18 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Jump()
     {
-        
+        if (jumpFlg && canJumpFlg)
+        {
+            //カンテラを持っているときジャンプ力半減
+            if (CanteraShowCheck.GetPlayerCanteraShowFlg())
+            {
+                Speed.y = jumpForce * 0.7f;
+            }
+            else
+            {
+                Speed.y = jumpForce;
+            }
+        }
     }
     
 
