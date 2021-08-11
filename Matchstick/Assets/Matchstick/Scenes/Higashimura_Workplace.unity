@@ -1558,7 +1558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5565834493035886866, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: ActiveDistance
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8637641870812604238, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: m_LocalPosition.x
