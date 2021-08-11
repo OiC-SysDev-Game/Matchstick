@@ -7,23 +7,30 @@ public class PassiveEvent : MonoBehaviour, IIgnitable
 {
 	// 発火
 	[SerializeField] private UnityEvent Ignished = new UnityEvent();
-	private bool onFire = false;
 	[SerializeField] private bool DebugLog = true;
 	[SerializeField] private bool DebugIgnished = false;
-	// 
+
+	private Transform canvas;
+
 	public void Ignition()
 	{
-		if(!onFire)
+		if (DebugLog)
 		{
-			if (DebugLog)
-			{
-				Debug.Log("Event Ignished()");
-			}
-			Ignished.Invoke();
+			Debug.Log("Event Ignished()");
+		}
+		Ignished.Invoke();
+	}
+
+	private void Start()
+	{
+		canvas = transform.Find("Canvas");
+		if (canvas)
+		{
+			canvas.gameObject.SetActive(false);
 		}
 	}
 
-	public void Update()
+	private void Update()
 	{
 		if (DebugIgnished)
 		{
@@ -32,4 +39,19 @@ public class PassiveEvent : MonoBehaviour, IIgnitable
 		}
 	}
 
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (canvas)
+		{
+			canvas.gameObject.SetActive(true);
+		}
+	}
+
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		if (canvas)
+		{
+			canvas.gameObject.SetActive(false);
+		}
+	}
 }
