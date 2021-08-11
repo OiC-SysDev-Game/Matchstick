@@ -6,7 +6,9 @@ using UnityEngine.Tilemaps;
 public class StageGenerator : MonoBehaviour
 {
     [SerializeField] private Transform grid;
-    [SerializeField] private Tilemap[] StageObjects;
+    [SerializeField] private Tilemap startRoom;
+    [SerializeField] private Tilemap goalRoom;
+    [SerializeField] private Tilemap[] stageObjects;
     [SerializeField] private bool generate = false;
     [SerializeField] private bool reset = false;
     [SerializeField] private int stageSize = 4;
@@ -35,20 +37,36 @@ public class StageGenerator : MonoBehaviour
     {
         Vector3 pos = new Vector3(0,0,0);
         int floorHeight = 2;
-        for (int i = 0; i < stageSize; i++)
-        {
-            //乱数生成
-            int num = Random.Range(0, StageObjects.Length);
-            Room room = StageObjects[num].GetComponent<Room>();
-            //高さ調整
 
-            Instantiate(StageObjects[num].gameObject,pos,Quaternion.identity,grid);
-            pos.x += StageObjects[num].cellBounds.size.x;
+        if(startRoom)
+        {
+            Room room = startRoom.GetComponent<Room>();
+            Instantiate(startRoom.gameObject,pos,Quaternion.identity,grid);
+            
+            //次の生成位置へ座標更新
+            pos.x += startRoom.cellBounds.size.x;
             pos.y += room.RightFloorHeight - room.LeftFloorHeight;
             floorHeight = room.RightFloorHeight;
         }
-        //cellBoundsで位置とサイズ取得
-        //Debug.Log("cellBounds:" + StageObjects[3].cellBounds.ToString());
+
+        for (int i = 0; i < stageSize; i++)
+        {
+            //乱数生成
+            int num = Random.Range(0, stageObjects.Length);
+            Room room = stageObjects[num].GetComponent<Room>();
+            Instantiate(stageObjects[num].gameObject,pos,Quaternion.identity,grid);
+            
+            //次の生成位置へ座標更新
+            pos.x += stageObjects[num].cellBounds.size.x;
+            pos.y += room.RightFloorHeight - room.LeftFloorHeight;
+            floorHeight = room.RightFloorHeight;
+        }
+
+        if (goalRoom)
+        {
+            Room room = startRoom.GetComponent<Room>();
+            Instantiate(startRoom.gameObject,pos,Quaternion.identity,grid);
+        }
     }
 
     void Reset()
