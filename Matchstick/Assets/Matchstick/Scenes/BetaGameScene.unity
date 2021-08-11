@@ -237,6 +237,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1232848837579100125, guid: b43db238ae292a14bba8b8b48b6f409b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2180872509130168041, guid: b43db238ae292a14bba8b8b48b6f409b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -288,6 +292,10 @@ PrefabInstance:
     - target: {fileID: 2180872509277607602, guid: b43db238ae292a14bba8b8b48b6f409b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386020171630034989, guid: b43db238ae292a14bba8b8b48b6f409b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6891924117352097895, guid: b43db238ae292a14bba8b8b48b6f409b, type: 3}
       propertyPath: playerCanteraCheck
