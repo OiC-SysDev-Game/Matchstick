@@ -54,8 +54,8 @@ private void Update()
 					pos *= -1;
 					var ls = Wolf.transform.lossyScale;
 					Wolf.transform.localScale = new Vector3(-ls.x, ls.y, ls.z);
-					var lightPosition = transform.GetChild(0).transform.position;
-					transform.GetChild(0).transform.position = new Vector3(-lightPosition.x, lightPosition.y, lightPosition.z);
+					var lightPosition = Wolf.transform.GetChild(0).transform.position;
+          Wolf.transform.GetChild(0).transform.position = new Vector3(-lightPosition.x, lightPosition.y, lightPosition.z);
 				}
 				Wolf.transform.position = pos;
 				Timer = GameoverWaitTime;
