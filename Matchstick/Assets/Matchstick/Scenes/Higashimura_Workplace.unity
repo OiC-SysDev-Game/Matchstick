@@ -1483,11 +1483,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854686584b839634c8604ec7c20732c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &1175718674 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8107149321584456694, guid: f88c30bc17f9bc4488410feb72db573f, type: 3}
-  m_PrefabInstance: {fileID: 107801384}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1175718676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8107149321584456695, guid: f88c30bc17f9bc4488410feb72db573f, type: 3}
@@ -3367,6 +3362,10 @@ PrefabInstance:
       propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 4183941740402199714}
+    - target: {fileID: 8541598825742278372, guid: 1f361925ff5c2204eb251bf5e7afa57f, type: 3}
+      propertyPath: GameoverSceneName
+      value: GameOverScene
+      objectReference: {fileID: 0}
     - target: {fileID: 8541598825742278373, guid: 1f361925ff5c2204eb251bf5e7afa57f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3443,7 +3442,7 @@ PrefabInstance:
     - target: {fileID: 8637641871026051717, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1175718674}
+      objectReference: {fileID: 0}
     - target: {fileID: 8637641871026051717, guid: 20b2a62c3378758429f11d2c679784c5, type: 3}
       propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 

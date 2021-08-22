@@ -6,24 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameScene : MonoBehaviour
 {
 	public PointLight2DSensor sensor;
-	public Transform Player;
 	public string GameoverSceneName;
-	public float GameoverWaitTime = 0.5f;
-	public GameObject Wolf;
-
-	private Transform Match;
-	private Transform Cantera;
-	private float Timer;
-	private RaycastHit2D HitLeft;
-	private RaycastHit2D HitRight;
-
-
-	private void Start()
-	{
-		Match = Player.Find("Point Light 2D/Collider");
-		Cantera = Player.Find("Cantera/Point Light 2D/Collider");
-		Timer = 0;
-	}
 
 	private void Update()
 	{
@@ -81,5 +64,4 @@ public class GameScene : MonoBehaviour
 			SceneManager.LoadSceneAsync(GameoverSceneName);
 		}
 	}
-
 }
