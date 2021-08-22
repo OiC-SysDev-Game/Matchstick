@@ -27,11 +27,11 @@ public class ThornAnimation : MonoBehaviour
 		if(!IsActivated && Vector3.Distance(player.transform.position, this.transform.parent.position) <= ActiveDistance)
 		{
 			IsActivated = true;
-			StartCoroutine("Animation");
+			StartCoroutine("GrowAnimation");
 		}
 	}
 
-	private IEnumerator Animation()
+	private IEnumerator GrowAnimation()
 	{
 		var startPosition = transform.position;
 		var time = 0.0f;
