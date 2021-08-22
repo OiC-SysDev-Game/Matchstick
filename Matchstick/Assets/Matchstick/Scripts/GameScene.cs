@@ -28,6 +28,7 @@ private void Update()
 			Wolf.SetActive(false);
 			var ls = Wolf.transform.localScale;
 			Wolf.transform.localScale = new Vector3(Mathf.Abs(ls.x), ls.y, ls.z);
+			
 			return;
 		}
 		
@@ -55,7 +56,7 @@ private void Update()
 					var ls = Wolf.transform.lossyScale;
 					Wolf.transform.localScale = new Vector3(-ls.x, ls.y, ls.z);
 					var lightPosition = Wolf.transform.GetChild(0).transform.position;
-          Wolf.transform.GetChild(0).transform.position = new Vector3(-lightPosition.x, lightPosition.y, lightPosition.z);
+					Wolf.transform.GetChild(0).transform.position = new Vector3(-lightPosition.x, lightPosition.y, lightPosition.z);
 				}
 				Wolf.transform.position = pos;
 				Timer = GameoverWaitTime;
