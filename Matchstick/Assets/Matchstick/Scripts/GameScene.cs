@@ -6,11 +6,22 @@ using UnityEngine.SceneManagement;
 public class GameScene : MonoBehaviour
 {
 	public PointLight2DSensor sensor;
+	public Transform Player;	public string GameoverSceneName;
+	public float GameoverWaitTime = 0.5f;
+	public GameObject Wolf;
 
-	public string GameoverSceneName;
+	private float Timer;
+	private RaycastHit2D HitLeft;
+	private RaycastHit2D HitRight;
 
 
-	private void Update()
+	private void Start()
+	{
+		Timer = 0;
+	}
+
+
+private void Update()
 	{
 		if(Time.time > 0.5 && sensor.GetLightColor() != (Color)Vector4.zero)
 		{
