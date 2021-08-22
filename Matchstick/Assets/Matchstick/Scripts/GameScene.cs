@@ -66,4 +66,5 @@ public class GameScene : MonoBehaviour
 			SceneManager.LoadSceneAsync(GameoverSceneName);
 		}
 	}
+
 }
