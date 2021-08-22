@@ -237,6 +237,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1232848837579100125, guid: b43db238ae292a14bba8b8b48b6f409b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2180872509130168041, guid: b43db238ae292a14bba8b8b48b6f409b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -587,7 +591,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensor: {fileID: 759162075}
+  Player: {fileID: 60690855}
   GameoverSceneName: GameOverScene
+  GameoverWaitTime: 3
+  Wolf: {fileID: 1395428203}
 --- !u!1 &713973185
 GameObject:
   m_ObjectHideFlags: 0

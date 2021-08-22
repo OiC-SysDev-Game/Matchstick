@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameScene : MonoBehaviour
 {
 	public PointLight2DSensor sensor;
+
 	public string GameoverSceneName;
+
 
 	private void Update()
 	{
