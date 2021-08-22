@@ -47,17 +47,19 @@ public class GameScene : MonoBehaviour
 			Debug.DrawRay(Player.position, HitRight.point - (Vector2)Player.position, Color.red, 1, false);
 		}
 
-		if(!HitLeft || !HitRight)
+		if(!HitLeft.collider || !HitRight.collider)
 		{
 			if(Wolf.activeSelf == false)
 			{
 				Wolf.SetActive(true);
 				var pos = Player.position + new Vector3(10 + Wolf.transform.lossyScale.x, 0, 0);
-				if (HitLeft)
+				if (HitLeft.collider == null)
 				{
 					pos *= -1;
 					var ls = Wolf.transform.lossyScale;
 					Wolf.transform.localScale = new Vector3(-ls.x, ls.y, ls.z);
+					var lightPosition = transform.GetChild(0).transform.position;
+					transform.GetChild(0).transform.position = new Vector3(-lightPosition.x, lightPosition.y, lightPosition.z);
 				}
 				Wolf.transform.position = pos;
 				Timer = GameoverWaitTime;
