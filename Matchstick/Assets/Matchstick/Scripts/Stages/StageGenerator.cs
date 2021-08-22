@@ -35,17 +35,17 @@ public class StageGenerator : MonoBehaviour
 
     public void Generate()
     {
-        Vector3 pos = new Vector3(0,0,0);
+        Vector3 pos = new Vector3(-8,-3,0);
         int floorHeight = 2;
 
         if(startRoom)
         {
             Room room = startRoom.GetComponent<Room>();
-            Instantiate(startRoom.gameObject,pos,Quaternion.identity,grid);
+            pos.y += floorHeight - room.LeftFloorHeight;
+            Instantiate(startRoom.gameObject,pos - startRoom.origin,Quaternion.identity,grid);
             
             //次の生成位置へ座標更新
             pos.x += startRoom.cellBounds.size.x;
-            pos.y += room.RightFloorHeight - room.LeftFloorHeight;
             floorHeight = room.RightFloorHeight;
         }
 
@@ -54,18 +54,19 @@ public class StageGenerator : MonoBehaviour
             //乱数生成
             int num = Random.Range(0, stageObjects.Length);
             Room room = stageObjects[num].GetComponent<Room>();
-            Instantiate(stageObjects[num].gameObject,pos,Quaternion.identity,grid);
+            pos.y += floorHeight - room.LeftFloorHeight;
+            Instantiate(stageObjects[num].gameObject,pos - stageObjects[num].origin,Quaternion.identity,grid);
             
             //次の生成位置へ座標更新
             pos.x += stageObjects[num].cellBounds.size.x;
-            pos.y += room.RightFloorHeight - room.LeftFloorHeight;
             floorHeight = room.RightFloorHeight;
         }
 
         if (goalRoom)
         {
             Room room = startRoom.GetComponent<Room>();
-            Instantiate(startRoom.gameObject,pos,Quaternion.identity,grid);
+            pos.y += floorHeight - room.LeftFloorHeight;
+            Instantiate(startRoom.gameObject,pos - startRoom.origin,Quaternion.identity,grid);
         }
     }
 
