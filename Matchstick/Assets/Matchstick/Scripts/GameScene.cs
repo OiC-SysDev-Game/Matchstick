@@ -6,14 +6,19 @@ using UnityEngine.SceneManagement;
 public class GameScene : MonoBehaviour
 {
 	public PointLight2DSensor sensor;
-	public Transform Player;	public string GameoverSceneName;
+	public Transform Player;	
 	public float GameoverWaitTime = 0.5f;
 	public GameObject Wolf;
+	public GameObject GameOverUI;
 
 	private float Timer;
 	private RaycastHit2D HitLeft;
 	private RaycastHit2D HitRight;
 
+	public void changeScene(string SceneName)
+	{
+		SceneManager.LoadSceneAsync(SceneName);
+	}
 
 	private void Start()
 	{
@@ -75,7 +80,8 @@ private void Update()
 		}
 		if (Wolf.activeSelf)
 		{
-			SceneManager.LoadSceneAsync(GameoverSceneName);
+			Player.gameObject.SetActive(false);
+			GameOverUI.SetActive(true);
 		}
 	}
 
