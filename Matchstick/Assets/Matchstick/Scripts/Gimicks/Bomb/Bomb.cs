@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bomb : MonoBehaviour
 {
+	// 爆発の半径
+	public float Radius;
+	public string GameoverSceneName;
 	// 爆発までの時間
-	[SerializeField] private float WaitExplosion;
+	private float WaitExplosion;
 	// 生存フラグ
 	public bool IsDeath { get; private set; }
 
@@ -39,6 +43,11 @@ public class Bomb : MonoBehaviour
 			/// 並ぶ者なき崩壊なり。万象等しく灰塵に帰し、深淵より来たれ！
 			/// これが人類最大の威力の攻撃手段、これこそが究極の攻撃魔法
 			Debug.Log("Exploooooooooooooooooooosion!!!!!");
+			var player = GameObject.Find("Player").transform;
+			if(Vector3.Distance(player.position, this.transform.position) <= Radius)
+			{
+				SceneManager.LoadSceneAsync(GameoverSceneName);
+			}
 		}
 		else if (IsExplosion)
 		{

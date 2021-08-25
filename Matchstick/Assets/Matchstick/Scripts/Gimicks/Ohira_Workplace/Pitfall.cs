@@ -4,7 +4,7 @@ using UnityEngine;
 
 //落とし穴
 //プレイヤーに触れると小さくなって消える
-public class Gimic_PitHall : MonoBehaviour
+public class Pitfall : MonoBehaviour
 {
     [SerializeField] private bool OnFire = false;//ギミックに火が点いているか
     [SerializeField] public float BurnSpeed = 0.8f;
@@ -45,7 +45,10 @@ public class Gimic_PitHall : MonoBehaviour
         // 衝突した相手にPlayerタグが付いているとき
         if (collision.gameObject.tag == "Player")
         {
-            if(!OnFire)Debug.Log(gameObject.transform.name + "に火が点いた！");
+            if(collision.gameObject.GetComponent<PlayerIgniteMatch>().GetLightMatchFlg())
+            {
+                Debug.Log(gameObject.transform.name + "に火が点いた！");
+            }
             OnFire = true;
         }
     }
