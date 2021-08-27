@@ -25,8 +25,11 @@ public class PlayerMovement : MonoBehaviour
     private CapsuleCollider2D playerCollider;
     [SerializeField]
     private PlayerSE PlayerSE;
+    [SerializeField]
+    private Animator anim;
 
     private MoveObjcet moveObject;
+    private PlayerIgniteMatch IgniteMatch;
 
     private Vector2 Speed = Vector2.zero;
     private float directionX;
@@ -54,6 +57,10 @@ public class PlayerMovement : MonoBehaviour
         if(null == playerCollider)
         {
             playerCollider = GetComponent<CapsuleCollider2D>();
+        }
+        if(null == IgniteMatch)
+        {
+            IgniteMatch = GetComponent<PlayerIgniteMatch>();
         }
 
     }
@@ -92,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    //リフトと接触したときの処理
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.collider.tag == moveLiftTag)
@@ -110,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-
+    //移動処理
     private void Move()
     {
         PlayJumpEndSE();
@@ -150,7 +158,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     isMoving = true;
                 }
-                
+                anim.SetBool("walk", true);
+                //マッチ所持時にアニメーション切り替え
+                MatchAnimationSwitching();
+                //カンテラ所持時にアニメーション切り替え
+                CanteraAnimationSwiching();
             }
             Speed.x = speed;
         }
@@ -163,6 +175,12 @@ public class PlayerMovement : MonoBehaviour
                 {
                     isMoving = true;
                 }
+                anim.SetBool("walk", true);
+                //マッチ所持時にアニメーション切り替え
+                MatchAnimationSwitching();
+                //カンテラ所持時にアニメーション切り替え
+                CanteraAnimationSwiching();
+
             }
             Speed.x = speed;
         }
@@ -170,6 +188,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Speed.x = 0.0f;
             isMoving = false;
+            anim.SetBool("walk", false);
+            //マッチ所持時にアニメーション切り替え
+            MatchAnimationSwitching();
+            //カンテラ所持時にアニメーション切り替え
+            CanteraAnimationSwiching();
         }
 
         if(!groundedFlg)
@@ -207,6 +230,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    //ジャンプ可否チェック
     private void CheckCanJump()
     {
         if(groundedFlg)
@@ -225,6 +249,7 @@ public class PlayerMovement : MonoBehaviour
         groundedFlg = Physics2D.OverlapCircle(groundCheck.position,groundCheckRadius,layerGround);
 
     }
+    //ジャンプ処理
     private void Jump()
     {
         if (jumpFlg && canJumpFlg)
@@ -259,7 +284,7 @@ public class PlayerMovement : MonoBehaviour
                 return;
             }
             PlayerSE.PlayFootStepsSE();
-            footStepSETimeSpan = 0.075f;
+            footStepSETimeSpan = 0.068f;
         }
         else if(!jumpFlg)
         {
@@ -267,7 +292,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if(!groundedFlg)
         {
-            footStepSETimeSpan = 0.075f;
+            footStepSETimeSpan = 0.068f;
         }
     }
 
@@ -332,4 +357,28 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+
+    private void MatchAnimationSwitching()
+    {
+        if (IgniteMatch.GetLightMatchFlg())
+        {
+            anim.SetBool("match", true);
+        }
+        else
+        {
+            anim.SetBool("match", false);
+        }
+    }
+    private void CanteraAnimationSwiching()
+    {
+        if (CanteraShowCheck.GetPlayerCanteraShowFlg())
+        {
+            anim.SetBool("cantera", true);
+        }
+        else
+        {
+            anim.SetBool("cantera", false);
+        }
+    }
+
 }
