@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointLight: {fileID: 8753752316135170703}
-  lightTimeSeconds: 3
+  lightTimeSeconds: 10
   playerIgnite: {fileID: 1115951624811457809}
   defaultLightIntensity: 0.89
   playerCanteraCheck: {fileID: 2180872509130168042}
@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 1725310538}
   - component: {fileID: 1725310539}
   - component: {fileID: 1725310546}
+  - component: {fileID: 1849399771}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -220,13 +221,14 @@ MonoBehaviour:
   jumpForce: 15
   gravity: 1
   groundCheck: {fileID: 5395350615352404007}
-  groundCheckRadius: 0.46
+  groundCheckRadius: 0.455
   layerGround:
     serializedVersion: 2
     m_Bits: 64
   CanteraShowCheck: {fileID: 2180872509130168042}
   playerCollider: {fileID: 2875812790703734799}
   PlayerSE: {fileID: 1725310546}
+  anim: {fileID: 1849399771}
   landingPitchAdjust: 0
   fallTime: 0
 --- !u!50 &1681944256407935684
@@ -295,8 +297,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04, y: -0.03}
-  m_Size: {x: 0.94, y: 2.42}
+  m_Offset: {x: -0.03999999, y: -0.10915232}
+  m_Size: {x: 0.94, y: 2.362443}
   m_Direction: 0
 --- !u!114 &2180872509130168042
 MonoBehaviour:
@@ -642,6 +644,25 @@ MonoBehaviour:
   footStepPitchRange: 0.1
   footStepPitchAdjust: 0.1
   canteraPitchAdjust: -0.1
+--- !u!95 &1849399771
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2180872509130168041}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 60e0e9ff99f859845bc04017c1c9988a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2180872510470460744
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,7 +890,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: b58e896cc1f48ee41ab07777ae5f3fe7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
