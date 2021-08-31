@@ -9,13 +9,14 @@ public class FloatingText : MonoBehaviour, IText
 
 	[SerializeField] private PointLight2DSensor LightSensor;
 
-	private GameObject canvas;
+	[SerializeField]private GameObject canvas;
 
 	private void Awake()
 	{
+        MainTextPanel = GameObject.Find("MainTextPanel").GetComponent<MainTextPanel>();
 		if (MainTextPanel == null)
 		{
-			Debug.LogError("MainTextPanel‚ªƒV[ƒ““à‚É‚È‚¢‰Â”\«‚ª‚ ‚è‚Ü‚·");
+            Debug.LogError("MainTextPanelãŒã‚·ãƒ¼ãƒ³å†…ã«ãªã„å¯èƒ½æ€§ãŒã‚ã‚Šã¾ã™");
 			return;
 		}
 
@@ -51,4 +52,9 @@ public class FloatingText : MonoBehaviour, IText
 			MainTextPanel.PrintText(TMP.text);
 		}
 	}
+    public void SetText(string str)
+    {
+        canvas.transform.GetChild(0).GetComponent<TMP_Text>().text = str;
+        canvas.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = str;
+    }
 }
