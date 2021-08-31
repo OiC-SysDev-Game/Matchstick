@@ -1,0 +1,852 @@
+fileFormatVersion: 2
+guid: 99decce16884be04bbea53cbff4faaf0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 952365906168311958
+    second: player_stand_match_0
+  - first:
+      213: 109197940734185297
+    second: player_stand_match_1
+  - first:
+      213: 1212641075236133011
+    second: player_stand_match_2
+  - first:
+      213: -8395932863268320909
+    second: player_stand_match_3
+  - first:
+      213: 3194184659031122010
+    second: player_stand_match_4
+  - first:
+      213: -3023682243103510743
+    second: player_stand_match_5
+  - first:
+      213: 3666584771877023747
+    second: player_stand_match_6
+  - first:
+      213: 5682780655796949799
+    second: player_stand_match_7
+  - first:
+      213: 6295352041460504025
+    second: player_stand_match_8
+  - first:
+      213: 8216589872207433162
+    second: player_stand_match_9
+  - first:
+      213: 7495058069371300064
+    second: player_stand_match_10
+  - first:
+      213: 7304065639193307048
+    second: player_stand_match_11
+  - first:
+      213: -3454547909764945589
+    second: player_stand_match_12
+  - first:
+      213: 7238281767041894406
+    second: player_stand_match_13
+  - first:
+      213: -4695299517608618638
+    second: player_stand_match_14
+  - first:
+      213: 7023047184417194851
+    second: player_stand_match_15
+  - first:
+      213: 3626169639352948798
+    second: player_stand_match_16
+  - first:
+      213: -2642650607811705603
+    second: player_stand_match_17
+  - first:
+      213: -4312000552843303363
+    second: player_stand_match_18
+  - first:
+      213: -1449561619864098864
+    second: player_stand_match_19
+  - first:
+      213: 8485576711127582291
+    second: player_stand_match_20
+  - first:
+      213: 5433464171413011040
+    second: player_stand_match_21
+  - first:
+      213: -3889781953058508922
+    second: player_stand_match_22
+  - first:
+      213: -8596082243451673532
+    second: player_stand_match_23
+  - first:
+      213: -5967416103023920606
+    second: player_stand_match_24
+  - first:
+      213: 7919725987200278712
+    second: player_stand_match_25
+  - first:
+      213: -7030008943713670780
+    second: player_stand_match_26
+  - first:
+      213: 5064496001758878464
+    second: player_stand_match_27
+  - first:
+      213: 5838291480224005826
+    second: player_stand_match_28
+  - first:
+      213: 7059681950323903804
+    second: player_stand_match_29
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 65
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: player_stand_match_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 774
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 690fa5deebb773d00800000000000000
+      internalID: 952365906168311958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 774
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15f4aa3d2f2f38100800000000000000
+      internalID: 109197940734185297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 774
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3985f7112aa24d010800000000000000
+      internalID: 1212641075236133011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 774
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3790dde5b87ab7b80800000000000000
+      internalID: -8395932863268320909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 774
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a506d8c1606045c20800000000000000
+      internalID: 3194184659031122010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 774
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92fa8222509b906d0800000000000000
+      internalID: -3023682243103510743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 774
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30036927c6352e230800000000000000
+      internalID: 3666584771877023747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 774
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7231d35d5ea4dde40800000000000000
+      internalID: 5682780655796949799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 524
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d59847d3559d5750800000000000000
+      internalID: 6295352041460504025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 524
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acd0ff594f0370270800000000000000
+      internalID: 8216589872207433162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 524
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e82dc38a9bc30860800000000000000
+      internalID: 7495058069371300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 524
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a7e04010014d5560800000000000000
+      internalID: 7304065639193307048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_12
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 524
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4964e2aafafe00d0800000000000000
+      internalID: -3454547909764945589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_13
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 524
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60808b4caea837460800000000000000
+      internalID: 7238281767041894406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_14
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 524
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27510ea27f1f6deb0800000000000000
+      internalID: -4695299517608618638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_15
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 524
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3638efb5430e67160800000000000000
+      internalID: 7023047184417194851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 274
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3850f0231eb25230800000000000000
+      internalID: 3626169639352948798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_17
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 274
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df4c9e7064b635bd0800000000000000
+      internalID: -2642650607811705603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_18
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 274
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d36ac78d752b824c0800000000000000
+      internalID: -4312000552843303363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_19
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 274
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d7e5f7036f12ebe0800000000000000
+      internalID: -1449561619864098864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_20
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 274
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 356461d6f03d2c570800000000000000
+      internalID: 8485576711127582291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_21
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 274
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06a72ec40ea876b40800000000000000
+      internalID: 5433464171413011040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_22
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 274
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68fe8323ce7b40ac0800000000000000
+      internalID: -3889781953058508922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_23
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 274
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 444250b5eb494b880800000000000000
+      internalID: -8596082243451673532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22a3058cbaa7f2da0800000000000000
+      internalID: -5967416103023920606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_25
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 24
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b0a08923d488ed60800000000000000
+      internalID: 7919725987200278712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_26
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 24
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489a02ebc14607e90800000000000000
+      internalID: -7030008943713670780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_27
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 24
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00b593fd744b84640800000000000000
+      internalID: 5064496001758878464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_28
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 24
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cef0fd2b27c50150800000000000000
+      internalID: 5838291480224005826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_match_29
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 24
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3d0b4c745709f160800000000000000
+      internalID: 7059681950323903804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

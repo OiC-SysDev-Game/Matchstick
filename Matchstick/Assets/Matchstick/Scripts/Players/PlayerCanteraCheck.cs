@@ -11,8 +11,6 @@ public class PlayerCanteraCheck : MonoBehaviour
     [SerializeField]
     private PlayerIgniteMatch playerIgniteMatch;
     
-    
-    private bool collideFlg = false;
 
     [SerializeField]private bool show = false;
     [SerializeField] private Transform canteraCheck;

@@ -15,10 +15,13 @@ public class LightaMatch : MonoBehaviour
     private float defaultLightIntensity = 0.89f;
     [SerializeField]
     private PlayerCanteraCheck playerCanteraCheck;
+    [SerializeField]
+    private PlayerSE playerSE;
 
-    private PointLigth2DController pointLigth2DController;
     private float lightTime = 0;
     private bool  onFire = false;
+    private bool playFireSE = false;
+
 
     //揺らめき用
     private float maxOuterRadius;
@@ -44,21 +47,26 @@ public class LightaMatch : MonoBehaviour
         if (playerIgnite.GetLightMatchFlg())
         {
            
+            //カンテラを持っているときマッチを消す
+            if (playerCanteraCheck.GetPlayerCanteraShowFlg() == true)
+            {
+                if (playFireSE)
+                {
+                    playerSE.PlayExtinguishingMatchSE();
+                    playFireSE = false;
+                }
+                pointLight.intensity = 0;
+                onFire = false;
+                playerIgnite.SetLightMatchFlg(false);
+                return;
+            }
+
 
             if(!onFire)
             {
                 //着火開始処理
                 IgnitionStart();
             }
-
-            //カンテラを持っているときマッチを消す
-            if (playerCanteraCheck.GetPlayerCanteraShowFlg() == true)
-            {
-                pointLight.intensity = 0;
-                onFire = false;
-                playerIgnite.SetLightMatchFlg(false);
-            }
-
             if (lightTime > 0 && onFire)
             {
                 //着火中処理
@@ -81,6 +89,11 @@ public class LightaMatch : MonoBehaviour
 
     private void IgnitionStart()
     {
+        if(!playFireSE)
+        {
+            playerSE.PlayLightMatchSE();
+            playFireSE = true;
+        }
         pointLight.intensity += 0.005f;
         if (pointLight.intensity > defaultLightIntensity)
         {
@@ -92,6 +105,11 @@ public class LightaMatch : MonoBehaviour
 
     private void IgnitionEnd()
     {
+        if(playFireSE)
+        {
+            playerSE.PlayExtinguishingMatchSE();
+            playFireSE = false;
+        }
         pointLight.intensity -= 0.007f;
         if (pointLight.intensity <= 0)
         {

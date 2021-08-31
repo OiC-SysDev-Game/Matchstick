@@ -1,0 +1,1122 @@
+fileFormatVersion: 2
+guid: 088932a707658204e80f662cd86d07d7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5426992086352664609
+    second: player_stand_0
+  - first:
+      213: -6713635969278435144
+    second: player_stand_1
+  - first:
+      213: -8152492354831192930
+    second: player_stand_2
+  - first:
+      213: -5645684021975253929
+    second: player_stand_3
+  - first:
+      213: -8165341231518857377
+    second: player_stand_4
+  - first:
+      213: -2071477791154956422
+    second: player_stand_5
+  - first:
+      213: -6692393844472728147
+    second: player_stand_6
+  - first:
+      213: 5274665985968424310
+    second: player_stand_7
+  - first:
+      213: 1752084326595806345
+    second: player_stand_8
+  - first:
+      213: 6655529407399074169
+    second: player_stand_9
+  - first:
+      213: 4068065577127153978
+    second: player_stand_10
+  - first:
+      213: -3674104804530789618
+    second: player_stand_11
+  - first:
+      213: 7579747608312378149
+    second: player_stand_12
+  - first:
+      213: 2242852410323771072
+    second: player_stand_13
+  - first:
+      213: -5455840580072263543
+    second: player_stand_14
+  - first:
+      213: 5526746455084040115
+    second: player_stand_15
+  - first:
+      213: -3587505396128949555
+    second: player_stand_16
+  - first:
+      213: -2789774451301575475
+    second: player_stand_17
+  - first:
+      213: -5752189993958001361
+    second: player_stand_18
+  - first:
+      213: -2590551921878634478
+    second: player_stand_19
+  - first:
+      213: 3750950702488247863
+    second: player_stand_20
+  - first:
+      213: -4578458972357511759
+    second: player_stand_21
+  - first:
+      213: 1690151115571180662
+    second: player_stand_22
+  - first:
+      213: 5510503561924541465
+    second: player_stand_23
+  - first:
+      213: 3936539745145685822
+    second: player_stand_24
+  - first:
+      213: 845855738404366422
+    second: player_stand_25
+  - first:
+      213: 522499070963455047
+    second: player_stand_26
+  - first:
+      213: 8231868426089434309
+    second: player_stand_27
+  - first:
+      213: 3317259801723588801
+    second: player_stand_28
+  - first:
+      213: -1708593995941762917
+    second: player_stand_29
+  - first:
+      213: -2213885643824536830
+    second: player_stand_30
+  - first:
+      213: 178135635401453132
+    second: player_stand_31
+  - first:
+      213: -1012410908228708778
+    second: player_stand_32
+  - first:
+      213: -5710240790529915128
+    second: player_stand_33
+  - first:
+      213: -2845218241376943674
+    second: player_stand_34
+  - first:
+      213: -4570614053439128540
+    second: player_stand_35
+  - first:
+      213: 7509016912772007141
+    second: player_stand_36
+  - first:
+      213: -151234425633823580
+    second: player_stand_37
+  - first:
+      213: 8808079204124843399
+    second: player_stand_38
+  - first:
+      213: 2409571489012526527
+    second: player_stand_39
+  - first:
+      213: 203502533813123938
+    second: player_stand_40
+  - first:
+      213: 6241803975380890471
+    second: player_stand_41
+  - first:
+      213: -2791409284076488120
+    second: player_stand_42
+  - first:
+      213: -387656900257656808
+    second: player_stand_43
+  - first:
+      213: 8996082654558955190
+    second: player_stand_44
+  - first:
+      213: -3281042751445208989
+    second: player_stand_45
+  - first:
+      213: 3236542912242835273
+    second: player_stand_46
+  - first:
+      213: -3695765930787681107
+    second: player_stand_47
+  - first:
+      213: 7832394028043574382
+    second: player_stand_48
+  - first:
+      213: -6856402399588572515
+    second: player_stand_49
+  - first:
+      213: 7566147112746233388
+    second: player_stand_50
+  - first:
+      213: 2519601080360459484
+    second: player_stand_51
+  - first:
+      213: -6569086047606491115
+    second: player_stand_52
+  - first:
+      213: -689349663925756459
+    second: player_stand_53
+  - first:
+      213: -3635906928026428782
+    second: player_stand_54
+  - first:
+      213: 6942100710127447665
+    second: player_stand_55
+  - first:
+      213: 4911308354692321304
+    second: player_stand_56
+  - first:
+      213: 4042812695964176490
+    second: player_stand_57
+  - first:
+      213: -4044264134437904214
+    second: player_stand_58
+  - first:
+      213: 1578894013948954358
+    second: player_stand_59
+  - first:
+      213: -5269699107396791294
+    second: player_stand_60
+  - first:
+      213: 8865364873457426350
+    second: player_stand_61
+  - first:
+      213: -5540382132730348472
+    second: player_stand_62
+  - first:
+      213: 2960173117765949955
+    second: player_stand_63
+  - first:
+      213: 1039931225857106969
+    second: player_stand_64
+  - first:
+      213: 9187466650489181798
+    second: player_stand_65
+  - first:
+      213: -1199216704037924145
+    second: player_stand_66
+  - first:
+      213: 6286900725994346461
+    second: player_stand_67
+  - first:
+      213: -609973797586305994
+    second: player_stand_68
+  - first:
+      213: -3805911346898189745
+    second: player_stand_69
+  - first:
+      213: -5094134140802295561
+    second: player_stand_70
+  - first:
+      213: -941774676442593129
+    second: player_stand_71
+  - first:
+      213: 5068967874420140012
+    second: player_stand_72
+  - first:
+      213: 8568392388986114149
+    second: player_stand_73
+  - first:
+      213: -2089798944509521819
+    second: player_stand_74
+  - first:
+      213: -5795318264235180157
+    second: player_stand_75
+  - first:
+      213: -8327171033536046677
+    second: player_stand_76
+  - first:
+      213: 7760310387827313660
+    second: player_stand_77
+  - first:
+      213: 92890021471770638
+    second: player_stand_78
+  - first:
+      213: 4050596659140546778
+    second: player_stand_79
+  - first:
+      213: -2207119796272151625
+    second: player_stand_80
+  - first:
+      213: -1044563686859233310
+    second: player_stand_81
+  - first:
+      213: 5210620024783325883
+    second: player_stand_82
+  - first:
+      213: -3068158202044189805
+    second: player_stand_83
+  - first:
+      213: -1978792411450996614
+    second: player_stand_84
+  - first:
+      213: -4842208341428726771
+    second: player_stand_85
+  - first:
+      213: -1097973483899956755
+    second: player_stand_86
+  - first:
+      213: 8579627930608666035
+    second: player_stand_87
+  - first:
+      213: -1902730151979862094
+    second: player_stand_88
+  - first:
+      213: 6523904157288557371
+    second: player_stand_89
+  - first:
+      213: 6869582811886694980
+    second: player_stand_90
+  - first:
+      213: 8032903005196838268
+    second: player_stand_91
+  - first:
+      213: 479411948062974810
+    second: player_stand_92
+  - first:
+      213: 6985465392349378445
+    second: player_stand_93
+  - first:
+      213: -7364720014280312265
+    second: player_stand_94
+  - first:
+      213: -5302320075781543991
+    second: player_stand_95
+  - first:
+      213: 8910790226063353591
+    second: player_stand_96
+  - first:
+      213: 5759277128681928633
+    second: player_stand_97
+  - first:
+      213: 4567050699661105366
+    second: player_stand_98
+  - first:
+      213: 707491043639329871
+    second: player_stand_99
+  - first:
+      213: 4373644328827088231
+    second: player_stand_100
+  - first:
+      213: 8218876033500037122
+    second: player_stand_101
+  - first:
+      213: -4675952441646257693
+    second: player_stand_102
+  - first:
+      213: 6600491471032192976
+    second: player_stand_103
+  - first:
+      213: -778125004594133696
+    second: player_stand_104
+  - first:
+      213: -6582262970155907855
+    second: player_stand_105
+  - first:
+      213: 3369876014621254767
+    second: player_stand_106
+  - first:
+      213: 3366669427914413851
+    second: player_stand_107
+  - first:
+      213: -6445717310577060513
+    second: player_stand_108
+  - first:
+      213: 302976436695644926
+    second: player_stand_109
+  - first:
+      213: 6236494604895226424
+    second: player_stand_110
+  - first:
+      213: -6123182488962411980
+    second: player_stand_111
+  - first:
+      213: -2306964759045863156
+    second: player_stand_112
+  - first:
+      213: -3989962615993159138
+    second: player_stand_113
+  - first:
+      213: 3324885598081337314
+    second: player_stand_114
+  - first:
+      213: 4849000738317817151
+    second: player_stand_115
+  - first:
+      213: -5476781701226910174
+    second: player_stand_116
+  - first:
+      213: -2268035635999843697
+    second: player_stand_117
+  - first:
+      213: 9047238367171682980
+    second: player_stand_118
+  - first:
+      213: -6097903792750739340
+    second: player_stand_119
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 65
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: player_stand_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 774
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12818e19c8c805b40800000000000000
+      internalID: 5426992086352664609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 774
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b0afd308af54d2a0800000000000000
+      internalID: -6713635969278435144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 774
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9ce234a5678cde80800000000000000
+      internalID: -8152492354831192930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 774
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75cf01c4b4086a1b0800000000000000
+      internalID: -5645684021975253929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 774
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f57c7796961eeae80800000000000000
+      internalID: -8165341231518857377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 774
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7719129ce1a043e0800000000000000
+      internalID: -2071477791154956422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 774
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da5313b9147df13a0800000000000000
+      internalID: -6692393844472728147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 774
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 675cb7294c0633940800000000000000
+      internalID: 5274665985968424310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 524
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 984c54f7967a05810800000000000000
+      internalID: 1752084326595806345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 524
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9791038cbb03d5c50800000000000000
+      internalID: 6655529407399074169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 524
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3198afb61ca47830800000000000000
+      internalID: 4068065577127153978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 524
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e03e2628525f20dc0800000000000000
+      internalID: -3674104804530789618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_12
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 524
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52373906a4ca03960800000000000000
+      internalID: 7579747608312378149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_13
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 524
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ce1af05266302f10800000000000000
+      internalID: 2242852410323771072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_14
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 524
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 980b1a116e5f844b0800000000000000
+      internalID: -5455840580072263543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_15
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 524
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bffee27e92f2bc40800000000000000
+      internalID: 5526746455084040115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 274
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcadfe189de963ec0800000000000000
+      internalID: -3587505396128949555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_17
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 274
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc495badaeab849d0800000000000000
+      internalID: -2789774451301575475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_18
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 274
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f25b3994dad1c20b0800000000000000
+      internalID: -5752189993958001361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_19
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 274
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 210f73c90c28c0cd0800000000000000
+      internalID: -2590551921878634478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_20
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 274
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e50df5acd0e0430800000000000000
+      internalID: 3750950702488247863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_21
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 274
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b53ee582db0670c0800000000000000
+      internalID: -4578458972357511759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_22
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 274
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 674b95c1c7f947710800000000000000
+      internalID: 1690151115571180662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_23
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 274
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91c790e2bcd397c40800000000000000
+      internalID: 5510503561924541465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e378d91aa0661a630800000000000000
+      internalID: 3936539745145685822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_25
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 24
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65861d200551dbb00800000000000000
+      internalID: 845855738404366422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_26
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 24
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7449f30032a404700800000000000000
+      internalID: 522499070963455047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_27
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 24
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cc80de18b87d3270800000000000000
+      internalID: 8231868426089434309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_28
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 24
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c0da6dc636490e20800000000000000
+      internalID: 3317259801723588801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_stand_29
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 24
+        width: 128
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b98a68e20dad948e0800000000000000
+      internalID: -1708593995941762917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
