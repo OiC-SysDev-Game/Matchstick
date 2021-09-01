@@ -8,10 +8,8 @@ public class GameScene : MonoBehaviour
 	public PointLight2DSensor sensor;
 	public GameObject GameOverUI;
 
-	private GameObject player;
+	private Camera camera;
 	private Wolf wolf;
-	private RaycastHit2D HitLeft;
-	private RaycastHit2D HitRight;
 
 	public void changeScene(string SceneName)
 	{
@@ -21,7 +19,7 @@ public class GameScene : MonoBehaviour
 	private void Start()
 	{
 		wolf = GameObject.Find("Wolf").GetComponent<Wolf>();
-		player = GameObject.Find("Player");
+		camera = transform.GetComponent<Camera>();
 	}
 
 
@@ -32,6 +30,7 @@ private void Update()
 			if(GameOverUI.activeSelf == false)
 			{
 				GameOverUI.SetActive(true);
+				camera.orthographicSize *= 0.5f;
 			}
 			return;
 		}		
