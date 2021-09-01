@@ -11,6 +11,7 @@ public class StatuesController : MonoBehaviour
     [SerializeField] private int[] answer;
 
     private List<GameObject> StatueList;
+    private List<GameObject> FloatingTextList;
     private List<int> playerAnswer;
 
     [SerializeField] private bool DebugLog = true;
@@ -24,11 +25,18 @@ public class StatuesController : MonoBehaviour
 	private void Awake()
 	{
         StatueList = new List<GameObject>();
+        FloatingTextList = new List<GameObject>();
         playerAnswer = new List<int>();
+    }
+
+    void Start()
+    {
         // 像の取得
         this.GetStatues();
         // 問題の作成
         this.CreateQuestion();
+        // テキストの取得
+        this.GetFloatingText();
     }
 
 	private void FixedUpdate()
@@ -61,7 +69,7 @@ public class StatuesController : MonoBehaviour
         {
             GameObject child;
 
-            try { child = transform.GetChild(count++).gameObject; }
+            try { child = transform.GetChild(0).GetChild(count++).gameObject; }
             catch { break; }
 
             var statue = child.transform.GetComponent<Statue>();
@@ -70,6 +78,25 @@ public class StatuesController : MonoBehaviour
                 statue.No = count - 1;
                 StatueList.Add(child);
 			}
+        }
+    }
+
+    private void GetFloatingText()
+    {
+        var count = 0;
+        while (true)
+        {
+            GameObject child;
+
+            try { child = transform.GetChild(1).GetChild(count++).gameObject; }
+            catch { break; }
+
+            var floatingText = child.transform.GetComponent<FloatingText>();
+            if (floatingText)
+            {
+                floatingText.SetText((answer[count-1] + 1).ToString());
+                FloatingTextList.Add(child);
+            }
         }
     }
 

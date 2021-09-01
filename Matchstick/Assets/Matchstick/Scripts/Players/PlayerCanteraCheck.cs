@@ -12,7 +12,9 @@ public class PlayerCanteraCheck : MonoBehaviour
     private PlayerIgniteMatch playerIgniteMatch;
     
 
-    private bool show = false;
+    [SerializeField]private bool show = false;
+    [SerializeField] private Transform canteraCheck;
+    [SerializeField] private LayerMask layerGimick;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,35 @@ public class PlayerCanteraCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            var collider = Physics2D.OverlapBox(canteraCheck.position, canteraCheck.localScale, 0, layerGimick);
+            if (collider != null)
+            {
+                Debug.Log("PlayerCanteraCheck");
+                var canteraStand = collider.gameObject.GetComponent<CanteraStand>();
+                if (canteraStand != null)
+                {
+                    if (!show)
+                    {
+                        if (canteraStand.OnCantera)
+                        {
+                            canteraStand.SetOffCantera();
+                            show = true;
+                        }
+                    }
+                    else
+                    {
+                        if (!canteraStand.OnCantera)
+                        {
+                            canteraStand.SetOnCantera();
+                            show = false;
+                        }
+                    }
+                }
+            }
+        }
+
         if(show)
         {
             PlayerCantera.SetActive(true);
@@ -34,28 +65,6 @@ public class PlayerCanteraCheck : MonoBehaviour
         else
         {
             PlayerCantera.SetActive(false);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(!playerIgniteMatch.GetLightMatchFlg())
-        {
-            return;
-        }
-        if(LayerMask.LayerToName(collision.gameObject.layer) == "CanteraCollider" )
-        {
-            if(!show)
-            {
-                collision.gameObject.SetActive(false);
-                show = true;
-            }
-            else
-            {
-                collision.gameObject.SetActive(true);
-                show = false;
-            }
-
         }
     }
 }
