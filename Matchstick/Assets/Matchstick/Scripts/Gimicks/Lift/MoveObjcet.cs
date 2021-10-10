@@ -4,33 +4,41 @@ using UnityEngine;
 
 public class MoveObjcet : MonoBehaviour
 {
+    // 移動の種類を定義
     enum MoveType
     {
         RoundTrip,
         Loop,
     }
 
+    // 移動の種類
     [SerializeField]
     private MoveType moveType;
+    // 移動速度
     [Header("移動経路設定")]
     [SerializeField]
     private float speed = 1.0f;
-    public bool IsMove = true;
+    // 移動フラグ
+    public bool isMove = true;
+    // 移動先の座標リスト
     [SerializeField]
     private List<GameObject> movePoint;
-    [SerializeField]
-    public Vector2 GetVelocity() { return myVelocity; }
-
+    // スタート地点の記録用オブジェクト
     private GameObject startPointObject;
-    private Rigidbody2D rb;
-    private int nowPoint = 0;
+    private Rigidbody2D rigidbody2d;
+    // 現在経由中の座標のリスト番号
+    private int nowPointNo = 0;
+    // 進行方向が行きか帰りかのフラグ
     private bool returnPoint = false;
-    private Vector2 oldPosition = Vector2.zero;
+
+    // プレイヤーの移動用
+    public Vector2 GetVelocity() { return myVelocity; }
     private Vector2 myVelocity = Vector2.zero;
+    private Vector2 oldPosition = Vector2.zero;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
 
         // 空白を削除
 		for (int i = movePoint.Count - 1; i >= 0; i--)
@@ -41,20 +49,20 @@ public class MoveObjcet : MonoBehaviour
 			}
 		}
 
-        if (movePoint != null && movePoint.Count > 0 && rb != null)
+        if (movePoint != null && movePoint.Count > 0 && rigidbody2d != null)
         {
             // スタート地点の記録
             startPointObject = new GameObject("StartPointObject");
             startPointObject.transform.position = this.gameObject.transform.position;
             movePoint.Insert(0, startPointObject);
-            oldPosition = rb.position;
+            oldPosition = rigidbody2d.position;
 
         }
     }
 
     private void FixedUpdate()
     {
-        if (IsMove)
+        if (isMove)
         {
             switch (moveType)
             {
@@ -62,16 +70,16 @@ public class MoveObjcet : MonoBehaviour
                 case MoveType.Loop: Loop(); break;
             }
             //プレイヤーの移動用に位置を記録
-            myVelocity = (rb.position - oldPosition) / Time.deltaTime;
-            oldPosition = rb.position;
+            myVelocity = (rigidbody2d.position - oldPosition) / Time.deltaTime;
+            oldPosition = rigidbody2d.position;
         }
     }
 
     private void RoundTrip()
     {
-        if (movePoint.Count > 1 && rb != null)
+        if (movePoint.Count > 1 && rigidbody2d != null)
         {
-            int nextPoint = nowPoint + (returnPoint ? -1 : 1);
+            int nextPoint = nowPointNo + (returnPoint ? -1 : 1);
             //目標ポイントとの誤差がわずかになるまで移動
             if (Vector2.Distance(transform.position, movePoint[nextPoint].transform.position) > 0.1f)
             {
@@ -79,16 +87,16 @@ public class MoveObjcet : MonoBehaviour
                 Vector2 toVector = Vector2.MoveTowards(transform.position, movePoint[nextPoint].transform.position, speed * Time.deltaTime);
 
                 //次のポイントへ移動
-                rb.MovePosition(toVector);
+                rigidbody2d.MovePosition(toVector);
             }
             //次のポイントを１つ進める
             else
             {
-                rb.MovePosition(movePoint[nextPoint].transform.position);
-                nowPoint = nowPoint + (returnPoint ? -1 : 1);
+                rigidbody2d.MovePosition(movePoint[nextPoint].transform.position);
+                nowPointNo = nowPointNo + (returnPoint ? -1 : 1);
 
                 //現在地が配列の最後だった場合
-                if (0 >= nowPoint || nowPoint + 1 >= movePoint.Count)
+                if (0 >= nowPointNo || nowPointNo + 1 >= movePoint.Count)
                 {
                     returnPoint = !returnPoint;
                 }
@@ -98,9 +106,9 @@ public class MoveObjcet : MonoBehaviour
 
     private void Loop()
     {
-        if (movePoint.Count > 1 && rb != null)
+        if (movePoint.Count > 1 && rigidbody2d != null)
         {
-            int nextPoint = nowPoint + 1;
+            int nextPoint = nowPointNo + 1;
             if(nextPoint >= movePoint.Count)
 			{
                 nextPoint = 0;
@@ -112,15 +120,15 @@ public class MoveObjcet : MonoBehaviour
                 Vector2 toVector = Vector2.MoveTowards(transform.position, movePoint[nextPoint].transform.position, speed * Time.deltaTime);
 
                 //次のポイントへ移動
-                rb.MovePosition(toVector);
+                rigidbody2d.MovePosition(toVector);
             }
             //次のポイントを１つ進める
             else
             {
-                rb.MovePosition(movePoint[nextPoint].transform.position);
-                if(nowPoint++ > movePoint.Count)
+                rigidbody2d.MovePosition(movePoint[nextPoint].transform.position);
+                if(nowPointNo++ > movePoint.Count)
 				{
-                    nowPoint = 0;
+                    nowPointNo = 0;
                 }
             }
         }
