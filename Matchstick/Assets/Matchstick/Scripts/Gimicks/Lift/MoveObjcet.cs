@@ -134,4 +134,21 @@ public class MoveObjcet : MonoBehaviour
         }
     }
 
+	private void OnDrawGizmos()
+	{
+        Gizmos.color = new Color(1f, 0, 1f, 1f);
+        Gizmos.DrawLine(transform.position, movePoint[0].transform.position);
+        Gizmos.DrawSphere(movePoint[0].transform.position, 0.1f);
+        for (int i = 1; i < movePoint.Count; i++)
+		{
+            if(movePoint[i] == null) { continue; }
+            Gizmos.DrawSphere(movePoint[i].transform.position, 0.1f);
+            Gizmos.DrawLine(movePoint[i-1].transform.position, movePoint[i].transform.position);
+        }
+        if(moveType == MoveType.Loop)
+		{
+            if (movePoint[movePoint.Count - 1] == null) { return; }
+            Gizmos.DrawLine(movePoint[movePoint.Count-1].transform.position, transform.position);
+        }
+    }
 }
