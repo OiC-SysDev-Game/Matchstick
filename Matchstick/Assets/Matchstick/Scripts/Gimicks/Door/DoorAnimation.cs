@@ -15,7 +15,7 @@ public class DoorAnimation : MonoBehaviour
 	private IEnumerator OpenAnimation()
 	{
 		var time = 0.0f;
-		var Axis_of_Rotation = transform.Find("Axis_of_Rotation");
+		var rightDoor = transform.Find("Door_Right");
 		Vector3 rotate = new Vector3(0, OpeningAngle, 0);
 		while (time <= OperatingTime)
 		{
@@ -23,9 +23,9 @@ public class DoorAnimation : MonoBehaviour
 			time += Time.deltaTime;
 			var eulerAngles = Vector3.Lerp(Vector3.zero, rotate, time / OperatingTime);
 			var quaternion = Quaternion.Euler(eulerAngles);
-			Axis_of_Rotation.localRotation = quaternion;
+			rightDoor.localRotation = quaternion;
 		}
-		Axis_of_Rotation.localRotation = Quaternion.Euler(rotate);
+		rightDoor.localRotation = Quaternion.Euler(rotate);
 	}
 
 }
