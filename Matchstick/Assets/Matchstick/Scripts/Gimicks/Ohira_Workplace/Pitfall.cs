@@ -27,13 +27,15 @@ public class Pitfall : MonoBehaviour
                 //オブジェクトの大きさが0以下になったら
                 //オブジェクトを非アクティブにする 
                 gameObject.SetActive(false);
-                GetComponent<Renderer>().sharedMaterial.SetFloat("_Threshold", 0.0f);
+                //シェーダが透過に対してうまく対応できてなかったためコメントアウト
+                //GetComponent<Renderer>().sharedMaterial.SetFloat("_Threshold", 0.0f);
             }
             else
             {
                 //オブジェクトを小さくする
                 propaty += (BurnSpeed * Time.deltaTime);
-                GetComponent<Renderer>().sharedMaterial.SetFloat("_Threshold", propaty);
+                //シェーダが透過に対してうまく対応できてなかったためコメントアウト
+                //GetComponent<Renderer>().sharedMaterial.SetFloat("_Threshold", propaty);
             }
 
             //オブジェクトの大きさを更新
