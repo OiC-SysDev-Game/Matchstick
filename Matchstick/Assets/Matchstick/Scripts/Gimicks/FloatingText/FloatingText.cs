@@ -50,10 +50,4 @@ public class FloatingText : MonoBehaviour
 			}
 		}
 	}
-
-    public void SetText(string str)
-    {
-        canvas.transform.GetChild(0).GetComponent<TMP_Text>().text = str;
-        canvas.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = str;
-    }
 }
