@@ -15,6 +15,7 @@ public class PlayerIgniteMatch : MonoBehaviour
     [SerializeField] private Transform igniteCheck;
     [SerializeField] private LayerMask layerGimick;
 
+    float wait = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -25,14 +26,23 @@ public class PlayerIgniteMatch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         //マッチ着火
-        if(Input.GetKey(KeyCode.Space) && !lightMatchFlg)
+        if(Input.GetKeyDown("down"))
         {
-            lightMatchFlg = true;
+            if(wait <= 0)
+            {
+                lightMatchFlg = (lightMatchFlg) ? false : true;
+                wait = 2;
+            }
+        }
+        if (wait > 0)
+        {
+            wait -= 1.5f * Time.deltaTime;
         }
 
         //ギミック着火用コード
-        if(lightMatchFlg && Input.GetKeyDown(KeyCode.Z))
+        if (lightMatchFlg && Input.GetKeyDown(KeyCode.Z))
         {
             var collider = Physics2D.OverlapBox(igniteCheck.position, igniteCheck.localScale,0,layerGimick);
             if(collider != null)
