@@ -88,10 +88,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointLight: {fileID: 8753752316135170703}
-  lightTimeSeconds: 10
+  lightTimeSeconds: 30
   playerIgnite: {fileID: 1115951624811457809}
   defaultLightIntensity: 0.89
   playerCanteraCheck: {fileID: 2180872509130168042}
+  numberOfMatch: 5
   playerSE: {fileID: 1725310546}
 --- !u!114 &7276834348670152003
 MonoBehaviour:
@@ -229,6 +230,7 @@ MonoBehaviour:
   playerCollider: {fileID: 2875812790703734799}
   PlayerSE: {fileID: 1725310546}
   anim: {fileID: 1849399771}
+  Match: {fileID: 6891924117352097895}
   landingPitchAdjust: 0
   fallTime: 0
 --- !u!50 &1681944256407935684
@@ -314,11 +316,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCantera: {fileID: 2180872510470460744}
   playerIgniteMatch: {fileID: 1115951624811457809}
-  show: 0
+  showCantera: 0
   canteraCheck: {fileID: 6697952740202305493}
   layerGimick:
     serializedVersion: 2
     m_Bits: 128
+  lightaMatch: {fileID: 6891924117352097895}
 --- !u!114 &236190220
 MonoBehaviour:
   m_ObjectHideFlags: 0

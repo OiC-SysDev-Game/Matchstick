@@ -22,6 +22,9 @@ public class LightaMatch : MonoBehaviour
 
 
     public bool GetHaveMatch() { return haveMatchFlg; }
+    public bool GetMatchIgnitFlg() { return matchIgnitFlg; }
+
+    public bool GetCanHaveCantera() { return canHaveCanteraFlg; }
 
     private float lightTime = 0;
     private bool  onFire = false;
@@ -29,8 +32,12 @@ public class LightaMatch : MonoBehaviour
     private float matchGauge = 0;
     private bool haveMatchFlg = true;
     private float tmp_lightIntensity = 0;
+    private float tmp_LightOuterRadius = 0;
+    private bool matchIgnitFlg = false;
+    private bool canteraIgnitFlg = false;
+    private bool canHaveCanteraFlg = false;
 
-    private float uTime = 0;
+    private float oneSecond = 0;
 
     //揺らめき用
     private float maxOuterRadius;
@@ -40,7 +47,8 @@ public class LightaMatch : MonoBehaviour
     void Start()
     {
         maxOuterRadius = pointLight.pointLightOuterRadius;
-        if(!playerIgnite.GetLightMatchFlg())
+        tmp_LightOuterRadius = pointLight.pointLightOuterRadius;
+        if (!playerIgnite.GetLightMatchFlg())
         {
             pointLight.intensity = 0;
         }
@@ -53,24 +61,46 @@ public class LightaMatch : MonoBehaviour
     }
     private void FixedUpdate()
     {
-
+        if((numberOfMatch > 1 || numberOfMatch <= 1 && matchGauge < 0))
+        {
+            canHaveCanteraFlg = true;
+        }
+        else
+        {
+            canHaveCanteraFlg = false;
+        }
         //カンテラを持っているときマッチを消す
         if (playerCanteraCheck.GetPlayerCanteraShowFlg() == true)
         {
-            if (playFireSE)
+            if (!canteraIgnitFlg && canHaveCanteraFlg == true)
             {
-                playerSE.PlayExtinguishingMatchSE();
-                playFireSE = false;
+                numberOfMatch--;
+                Debug.Log(numberOfMatch);
+                canteraIgnitFlg = true;
+                if (playerIgnite.GetLightMatchFlg() == true)
+                {
+                    if (playFireSE)
+                    {
+                        playerSE.PlayExtinguishingMatchSE();
+                        playFireSE = false;
+                    }
+                    pointLight.intensity = 0;
+                    onFire = false;
+                    playerIgnite.SetLightMatchFlg(false);
+                }
+                return;
             }
-            pointLight.intensity = 0;
-            onFire = false;
-            playerIgnite.SetLightMatchFlg(false);
-            return;
         }
-        if (matchGauge <= 0 && onFire)
+        else
+        {
+            canteraIgnitFlg = false;
+        }
+        if (matchGauge <= 0 && onFire && playerIgnite.GetLightMatchFlg() == true)
         {
             playerIgnite.SetLightMatchFlg(false);
-            //numberOfMatch--;
+            
+            numberOfMatch--;
+            Debug.Log(numberOfMatch);
         }
         if (numberOfMatch > 0)
         {
@@ -81,6 +111,8 @@ public class LightaMatch : MonoBehaviour
                     if(matchGauge <= 0)
                     {
                         matchGauge = lightTimeSeconds;
+                        pointLight.pointLightOuterRadius = maxOuterRadius;
+                        tmp_LightOuterRadius = pointLight.pointLightOuterRadius;
                         tmp_lightIntensity = defaultLightIntensity;
                         lightTime = lightTimeSeconds * 10;
                     }
@@ -90,16 +122,17 @@ public class LightaMatch : MonoBehaviour
                 if (matchGauge > 0 && onFire)
                 {
                     //着火中処理
-                    uTime += Time.deltaTime * 0.8f;
+                    oneSecond += Time.deltaTime * 0.8f;
                     
-                    if (uTime >= 1)
+                    if (oneSecond >= 1)
                     {
-                        
-                        uTime = 0;
+
+                        oneSecond = 0;
                         matchGauge--;
                         Debug.Log(matchGauge);
                     }
                     pointLight.intensity -= defaultLightIntensity / lightTime;
+                    tmp_LightOuterRadius -= maxOuterRadius / lightTime /2 ;
                 }
             }
             else
@@ -113,13 +146,15 @@ public class LightaMatch : MonoBehaviour
         }
         else
         {
-
+            numberOfMatch = 0;
         }
         
         //揺らめき
-        time += Time.deltaTime;
-        pointLight.pointLightOuterRadius = maxOuterRadius + Mathf.Sin(time) * 0.1f;
+        time += Time.deltaTime * 1.5f;
+        //pointLight.pointLightOuterRadius = maxOuterRadius +  Mathf.Sin(time);
+        pointLight.pointLightOuterRadius = tmp_LightOuterRadius + Mathf.Sin(time) * 0.1f;
         
+
     }
 
 
@@ -129,12 +164,14 @@ public class LightaMatch : MonoBehaviour
         {
             playerSE.PlayLightMatchSE();
             playFireSE = true;
+            matchIgnitFlg = true;
         }
         pointLight.intensity += 0.02f;
         if (pointLight.intensity > tmp_lightIntensity)
         {
             pointLight.intensity = tmp_lightIntensity;
             onFire = true;
+            matchIgnitFlg = false;
             lightTime = lightTimeSeconds * 100;
         }
     }
@@ -153,6 +190,18 @@ public class LightaMatch : MonoBehaviour
         {
             pointLight.intensity = 0;
             onFire = false;
+        }
+    }
+
+    public void CollideWater()
+    {
+        if(!playerIgnite.GetLightMatchFlg())
+        {
+            return;
+        }
+        else
+        {
+            matchGauge = 0;
         }
     }
 

@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
 
     private MoveObjcet moveObject;
     private PlayerIgniteMatch IgniteMatch;
+    [SerializeField]
+    private LightaMatch Match;
 
     private Vector2 Speed = Vector2.zero;
     private float directionX;
@@ -70,6 +72,10 @@ public class PlayerMovement : MonoBehaviour
     {
         //キーを取得
         directionX = Input.GetAxis("Horizontal");
+        if(Match.GetMatchIgnitFlg())
+        {
+            directionX = 0;
+        }
         if (Input.GetButtonDown("Jump") && !jumpFlg)
         {
             jumpFlg = true;
@@ -89,7 +95,8 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate() 
     {
         //ジャンプ処理
-        Jump();
+            Jump();
+        
         //移動処理
         Move();
         //地面接触チェック
@@ -153,16 +160,17 @@ public class PlayerMovement : MonoBehaviour
         {
             if (canJumpFlg)
             {
-                playerReverce = true;
-                if(rigidbody2d.velocity.x < -speed + 2)
-                {
-                    isMoving = true;
-                }
-                anim.SetBool("walk", true);
-                //マッチ所持時にアニメーション切り替え
-                MatchAnimationSwitching();
-                //カンテラ所持時にアニメーション切り替え
-                CanteraAnimationSwiching();
+                    playerReverce = true;
+                
+                    if (rigidbody2d.velocity.x < -speed + 2)
+                    {
+                        isMoving = true;
+                    }
+                    anim.SetBool("walk", true);
+                    //マッチ所持時にアニメーション切り替え
+                    MatchAnimationSwitching();
+                    //カンテラ所持時にアニメーション切り替え
+                    CanteraAnimationSwiching();
             }
             Speed.x = speed;
         }
@@ -180,7 +188,6 @@ public class PlayerMovement : MonoBehaviour
                 MatchAnimationSwitching();
                 //カンテラ所持時にアニメーション切り替え
                 CanteraAnimationSwiching();
-
             }
             Speed.x = speed;
         }

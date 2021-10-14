@@ -7,19 +7,21 @@ public class PlayerCanteraCheck : MonoBehaviour
     [SerializeField]
     private GameObject PlayerCantera;
     [SerializeField]
-    public bool GetPlayerCanteraShowFlg() { return show; }
+    public bool GetPlayerCanteraShowFlg() { return showCantera; }
     [SerializeField]
     private PlayerIgniteMatch playerIgniteMatch;
     
 
-    [SerializeField]private bool show = false;
+    [SerializeField]private bool showCantera = false;
     [SerializeField] private Transform canteraCheck;
     [SerializeField] private LayerMask layerGimick;
+    [SerializeField] private LightaMatch lightaMatch;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        if(!show)
+        if(!showCantera)
         {
             PlayerCantera.SetActive(false);
         }
@@ -38,27 +40,31 @@ public class PlayerCanteraCheck : MonoBehaviour
                 var canteraStand = collider.gameObject.GetComponent<CanteraStand>();
                 if (canteraStand != null)
                 {
-                    if (!show)
+                    //カンテラを持っていないとき
+                    if (!showCantera)
                     {
-                        if (canteraStand.OnCantera)
+                        //カンテラ台にカンテラがある かつ カンテラを持てる条件を満たしているなら
+                        if (canteraStand.OnCantera && lightaMatch.GetCanHaveCantera())
                         {
                             canteraStand.SetOffCantera();
-                            show = true;
+                            showCantera = true;
                         }
                     }
+                    //カンテラを持っているとき
                     else
                     {
+                        //カンテラ台にカンテラが無いなら
                         if (!canteraStand.OnCantera)
                         {
                             canteraStand.SetOnCantera();
-                            show = false;
+                            showCantera = false;
                         }
                     }
                 }
             }
         }
 
-        if(show)
+        if(showCantera)
         {
             PlayerCantera.SetActive(true);
         }
