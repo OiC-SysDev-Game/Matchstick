@@ -8,39 +8,30 @@ public class ObjectCreator : MonoBehaviour
     public float IntervalTime = 1.0f;
     public bool isInfinite;
     public int Value = 1;
+
     public bool isStart { get; protected set; }
-
-    private float timer;
-    private int count;
-
     public void StartCreating() { isStart = true;	}
-
     public void StopCreating() { isStart = false; }
+
+    private int count;
 
     void Start()
     {
-        timer = IntervalTime;
+        isStart = true;
         count = 0;
-        isStart = false;
+
+        //0秒後「IntervalTime秒毎にSpawnEntityメソッドを実行」させる
+        InvokeRepeating("SpawnEntity", 0, IntervalTime);
     }
 
-    private void FixedUpdate()
+    private void SpawnEntity()
     {
-		if (isStart == false) { return; }
-        timer -= Time.deltaTime;
-		if (timer <= 0)
-		{
-			if (isInfinite)
-			{
-                timer = IntervalTime;
-                Instantiate(Object);
-            }
-            else if (count < Value)
-            {
-                ++count;
-                timer = IntervalTime;
-                Instantiate(Object, this.transform);
-            }
+        if (!isStart) return;
+
+        if (isInfinite || count < Value)
+        {
+            Instantiate(Object, this.transform);
+            ++count;
         }
     }
 }
