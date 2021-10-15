@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 public class StatuesController : MonoBehaviour
 {
-    [SerializeField] private UnityEvent GimmickClear = new UnityEvent();
+    [SerializeField] private UnityEvent GimmickClearEvent = new UnityEvent();
     [SerializeField] private int[] answer;
 
     private List<GameObject> StatueList;
@@ -45,7 +45,7 @@ public class StatuesController : MonoBehaviour
 		{
 			if (answer.SequenceEqual(playerAnswer))
 			{
-                GimmickClear.Invoke();
+                GimmickClearEvent.Invoke();
                 playerAnswer.Clear(); // クリアフラグの代わり
 				if (DebugLog) { Debug.Log("GimmickClear"); }
 			}

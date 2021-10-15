@@ -20,14 +20,18 @@ public class PassiveEvent : MonoBehaviour, IIgnitable
 		}
 		Ignished.Invoke();
 	}
-
-	private void Start()
+	private void Awake()
 	{
 		canvas = transform.Find("Canvas");
 		if (canvas)
 		{
 			canvas.gameObject.SetActive(false);
 		}
+
+	}
+
+	private void Start()
+	{
 	}
 
 	private void Update()

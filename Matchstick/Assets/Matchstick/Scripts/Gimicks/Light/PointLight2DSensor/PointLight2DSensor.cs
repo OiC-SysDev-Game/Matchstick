@@ -7,7 +7,7 @@ public class PointLight2DSensor : MonoBehaviour
 {
 	[SerializeField] private bool DebugLog = true;
 	// 感知している光源
-	private List<GameObject> PointLight2DObjectList;
+	public List<GameObject> PointLight2DObjectList { get; protected set; }
 
 	PointLight2DSensor()
 	{
