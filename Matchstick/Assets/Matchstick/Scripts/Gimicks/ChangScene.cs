@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TitleController : MonoBehaviour
+public class ChangScene : MonoBehaviour
 {
-	public void TransitionToScene(string name)
+	public void Chang(string name)
 	{
 		SceneManager.LoadSceneAsync(name);
 	}
+
 }
