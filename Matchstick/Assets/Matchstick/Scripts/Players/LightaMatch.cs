@@ -27,6 +27,9 @@ public class LightaMatch : MonoBehaviour
     private float maxOuterRadius;
     private float time;
 
+    [SerializeField]
+    private Color color = new Color32(236, 218, 208, 0);//追加
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,7 +75,6 @@ public class LightaMatch : MonoBehaviour
                 //着火中処理
                 lightTime--;
                 pointLight.intensity -= 0.000001f * lightTime;
-                
             }
             else if(lightTime <= 0 && onFire)
             {
@@ -89,7 +91,9 @@ public class LightaMatch : MonoBehaviour
 
     private void IgnitionStart()
     {
-        if(!playFireSE)
+        //明かりの色を変更
+        pointLight.color = color;
+        if (!playFireSE)
         {
             playerSE.PlayLightMatchSE();
             playFireSE = true;

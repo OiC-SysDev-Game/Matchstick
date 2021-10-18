@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3069897381203226819}
   - component: {fileID: 8753752316135170703}
   - component: {fileID: 6891924117352097895}
+  - component: {fileID: 6106261955344932612}
   - component: {fileID: 7276834348670152003}
   m_Layer: 0
   m_Name: Point Light 2D
@@ -49,7 +50,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.9245283, g: 0.85303473, b: 0.8155037, a: 1}
+  m_Color: {r: 0.8867924, g: 0.36242563, b: 0.071110725, a: 1}
   m_Intensity: 0.8
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
@@ -93,6 +94,27 @@ MonoBehaviour:
   defaultLightIntensity: 0.89
   playerCanteraCheck: {fileID: 2180872509130168042}
   playerSE: {fileID: 1725310546}
+  color: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &6106261955344932612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232848837579100125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211772eb7f8d8714ebc155575f2e06d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointLight: {fileID: 8753752316135170703}
+  lightTimeSeconds: 60
+  playerIgnite: {fileID: 1115951624811457809}
+  defaultLightIntensity: 0.89
+  playerSE: {fileID: 1725310546}
+  InitialLightSize: 3
+  onCanteraStand: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &7276834348670152003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightMatchFlg: 0
+  lightCanteraFlg: 0
   igniteCheck: {fileID: 6697952740202305493}
   layerGimick:
     serializedVersion: 2
@@ -715,7 +738,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482eb66556bcb8e408f835c78fe892ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BurningTime: 0
   DebugLog: 1
+  DebugIgnished: 0
 --- !u!95 &2504973037072665153
 Animator:
   serializedVersion: 3
@@ -726,7 +751,7 @@ Animator:
   m_GameObject: {fileID: 2180872510470460744}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 673619a4f7663c7438918f1d1d3192d9, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
