@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     private PlayerSE PlayerSE;
     [SerializeField]
     private Animator anim;
+    [SerializeField]
+    private Transform sprite;
 
     private MoveObjcet moveObject;
     private PlayerIgniteMatch IgniteMatch;
@@ -79,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && !jumpFlg)
         {
             jumpFlg = true;
+            anim.SetBool("Jump", true);
         }
         //足音とカンテラSEを鳴らす間隔の処理
         if (footStepSETimeSpan > 0)
@@ -95,8 +98,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate() 
     {
         //ジャンプ処理
-            Jump();
-        
+        Jump();
         //移動処理
         Move();
         //地面接触チェック
@@ -209,11 +211,11 @@ public class PlayerMovement : MonoBehaviour
         //向き変え処理
         if (playerReverce)
         {
-            transform.localScale = new Vector2(-1, 1);
+            sprite.transform.localScale = new Vector2(-1, 1);
         }
         else
         {
-            transform.localScale = new Vector2(1, 1);
+            sprite.transform.localScale = new Vector2(1, 1);
         }
 
 
@@ -242,8 +244,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if(groundedFlg)
         {
+            if(Speed.y <= 0)
+            {
+                anim.SetBool("Jump", false);
+            }
             canJumpFlg = true;
             jumpFlg = false;
+            
         }
         else
         {
@@ -271,6 +278,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Speed.y = jumpForce;
             }
+            
         }
     }
     

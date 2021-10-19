@@ -11,16 +11,24 @@ public class PlayerIgniteMatch : MonoBehaviour
     public bool GetLightMatchFlg() { return lightMatchFlg; }
     [SerializeField]
     public void SetLightMatchFlg(bool islight) { lightMatchFlg = islight; }
+    [SerializeField]
+    private GameObject InteractionText;
 
     [SerializeField] private Transform igniteCheck;
     [SerializeField] private LayerMask layerGimick;
 
+    private PlayerCanteraCheck playerCanteraCheck;
+
     float wait = 2;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (null == playerCanteraCheck)
+        {
+            playerCanteraCheck = GetComponent<PlayerCanteraCheck>();
+        }
     }
 
     // Update is called once per frame
@@ -28,23 +36,35 @@ public class PlayerIgniteMatch : MonoBehaviour
     {
        
         //マッチ着火
-        if(Input.GetKeyDown("down"))
+        if(!playerCanteraCheck.GetPlayerCanteraShowFlg())
         {
-            if(wait <= 0)
+            if (Input.GetKeyDown("down"))
             {
-                lightMatchFlg = (lightMatchFlg) ? false : true;
-                wait = 2;
+                if (wait <= 0)
+                {
+                    lightMatchFlg = (lightMatchFlg) ? false : true;
+                    wait = 2;
+                }
+            }
+            if (wait > 0)
+            {
+                wait -= 1.5f * Time.deltaTime;
             }
         }
-        if (wait > 0)
+        
+        var collider = Physics2D.OverlapBox(igniteCheck.position, igniteCheck.localScale,0,layerGimick);
+        if (collider != null && (lightMatchFlg || playerCanteraCheck.GetPlayerCanteraShowFlg()))
         {
-            wait -= 1.5f * Time.deltaTime;
-        }
 
+            InteractionText.SetActive(true);
+        }
+        else
+        {
+            InteractionText.SetActive(false);
+        }
         //ギミック着火用コード
         if (lightMatchFlg && Input.GetKeyDown(KeyCode.Z))
         {
-            var collider = Physics2D.OverlapBox(igniteCheck.position, igniteCheck.localScale,0,layerGimick);
             if(collider != null)
             {
                 var igniteGimick = collider.gameObject.GetComponent<IIgnitable>(); 
