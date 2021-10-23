@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Statue : MonoBehaviour
 {
+	public AudioSource IgnitedSE;
+	public AudioSource FireExtinguishingSE;
+
 	[HideInInspector]
 	public int No;
 
@@ -19,6 +22,13 @@ public class Statue : MonoBehaviour
 		if (statuesController)
 		{
 			statuesController.StatueIgnited(No);
+			IgnitedSE.Play();
 		}
+	}
+
+	public void FireExtinguishing()
+	{
+		transform.Find("Point Light 2D").gameObject.SetActive(false);
+		FireExtinguishingSE.Play();
 	}
 }

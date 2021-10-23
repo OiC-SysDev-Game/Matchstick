@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8785255185693081015}
   - component: {fileID: 3187125278235178550}
+  - component: {fileID: 5821643183527744268}
+  - component: {fileID: 462715742857612531}
   m_Layer: 0
   m_Name: Statue
   m_TagString: Untagged
@@ -46,7 +48,201 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fa5c5fc6a944741abc9b395af232b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IgnitedSE: {fileID: 5821643183527744268}
+  FireExtinguishingSE: {fileID: 462715742857612531}
   No: 0
+--- !u!82 &5821643183527744268
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596015817730913230}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 55d0aa91d7cb21344bedffdf0ba47411, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &462715742857612531
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596015817730913230}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6e06086236c043048b48a76b06abb6d0, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6332554200592707254
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +384,7 @@ MonoBehaviour:
   - {x: -0.08601498, y: -0.29693145, z: 0}
   m_ShapePathHash: 198128024
   m_Mesh: {fileID: 0}
-  m_InstanceId: 32118
+  m_InstanceId: 21588
 --- !u!1001 &437100927846275046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -388,6 +584,14 @@ PrefabInstance:
       value: 0.035005808
       objectReference: {fileID: 0}
     - target: {fileID: 7684697290283421657, guid: 6a33475d45e648c44b4aab0e5d8b5de1, type: 3}
+      propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684697290283421657, guid: 6a33475d45e648c44b4aab0e5d8b5de1, type: 3}
+      propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684697290283421657, guid: 6a33475d45e648c44b4aab0e5d8b5de1, type: 3}
       propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3187125278235178550}
@@ -396,12 +600,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8290143744853682987}
     - target: {fileID: 7684697290283421657, guid: 6a33475d45e648c44b4aab0e5d8b5de1, type: 3}
+      propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 596015817730913230}
+    - target: {fileID: 7684697290283421657, guid: 6a33475d45e648c44b4aab0e5d8b5de1, type: 3}
+      propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684697290283421657, guid: 6a33475d45e648c44b4aab0e5d8b5de1, type: 3}
       propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Ignited
       objectReference: {fileID: 0}
     - target: {fileID: 7684697290283421657, guid: 6a33475d45e648c44b4aab0e5d8b5de1, type: 3}
       propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684697290283421657, guid: 6a33475d45e648c44b4aab0e5d8b5de1, type: 3}
+      propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7684697290283421657, guid: 6a33475d45e648c44b4aab0e5d8b5de1, type: 3}
       propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -412,8 +628,20 @@ PrefabInstance:
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7684697290283421657, guid: 6a33475d45e648c44b4aab0e5d8b5de1, type: 3}
+      propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684697290283421657, guid: 6a33475d45e648c44b4aab0e5d8b5de1, type: 3}
       propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684697290283421657, guid: 6a33475d45e648c44b4aab0e5d8b5de1, type: 3}
+      propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684697290283421657, guid: 6a33475d45e648c44b4aab0e5d8b5de1, type: 3}
+      propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a33475d45e648c44b4aab0e5d8b5de1, type: 3}

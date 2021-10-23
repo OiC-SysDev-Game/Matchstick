@@ -54,7 +54,7 @@ public class StatuesController : MonoBehaviour
                 playerAnswer.Clear();
                 foreach(var obj in StatueList)
 				{
-                    obj.transform.Find("Point Light 2D").gameObject.SetActive(false);
+                    obj.transform.GetComponent<Statue>().FireExtinguishing();
 				}
                 if (DebugLog) { Debug.Log("GimmickMistake"); }
             }
