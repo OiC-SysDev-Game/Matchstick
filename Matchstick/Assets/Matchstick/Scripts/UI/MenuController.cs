@@ -78,8 +78,12 @@ public class MenuController : MonoBehaviour
             cursorObject.gameObject.SetActive(true);
             _eventSystem.enabled = true;
         }
-        Button button = selectedObject.GetComponent<Button>();
-        CursorMove(button);
+    }
+
+    public void SelectReset()
+    {
+        selectedObject = _eventSystem.firstSelectedGameObject;
+        CursorMove(selectedObject.GetComponent<Button>());
     }
 
     //カーソルを使い終わった時に呼ぶ (複数回呼ばないように)
@@ -123,6 +127,16 @@ public class MenuController : MonoBehaviour
             fadeObject.color = color;
             yield return null;
         }   
+    }
+
+    public void AudioVolumeSave()
+    {
+        AudioManager.Instance.Save();
+    }
+
+    public void AudioVolumeLoad()
+    {
+        AudioManager.Instance.Load();
     }
 
     //アプリケーションの終了

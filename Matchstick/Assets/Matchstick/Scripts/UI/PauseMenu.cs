@@ -43,6 +43,7 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0;
             pauseMenuCanvas.enabled = true;
             menuController.CursorUse();
+            menuController.SelectReset();
         }
     }
 }

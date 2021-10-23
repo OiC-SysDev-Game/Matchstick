@@ -2800,7 +2800,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25a13834588e2e43b6fc646e06a3fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 0}
   groupName: 1
   slider: {fileID: 3766775096680135815}
   volumeMin: -10
@@ -4105,7 +4104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25a13834588e2e43b6fc646e06a3fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 0}
   groupName: 2
   slider: {fileID: 3766775096670614553}
   volumeMin: -10
@@ -4323,6 +4321,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3766775095580178551}
         m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
         m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3766775095614622787}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: AudioVolumeSave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
