@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField]
-    private  Rigidbody2D rigidbody2d;
+    private Rigidbody2D rigidbody2d;
     [SerializeField]
     private float speed = 5f;
     [SerializeField]
@@ -54,15 +54,14 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidbody2d = GetComponent<Rigidbody2D>();
         }
-        if(null == playerCollider)
+        if (null == playerCollider)
         {
             playerCollider = GetComponent<CapsuleCollider2D>();
         }
-        if(null == IgniteMatch)
+        if (null == IgniteMatch)
         {
             IgniteMatch = GetComponent<PlayerIgniteMatch>();
         }
-
     }
 
     // Update is called once per frame
@@ -86,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    void FixedUpdate() 
+    void FixedUpdate()
     {
         //ジャンプ処理
         Jump();
@@ -96,15 +95,15 @@ public class PlayerMovement : MonoBehaviour
         CheckSurroundings();
         //ジャンプが可能かチェック
         CheckCanJump();
-        
+
     }
 
     //リフトと接触したときの処理
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == moveLiftTag)
+        if (collision.collider.tag == moveLiftTag)
         {
-             moveObject = collision.gameObject.GetComponent<MoveObjcet>();
+            moveObject = collision.gameObject.GetComponent<MoveObjcet>();
             liftCollideFlg = true;
         }
     }
@@ -134,11 +133,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Speed.y = -15;
         }
-        
-        
+
+
         //リフト分の加算移動量
         Vector2 addVelocity = Vector2.zero;
-        if(moveObject != null)
+        if (moveObject != null)
         {
             addVelocity = moveObject.GetVelocity();
         }
@@ -146,7 +145,7 @@ public class PlayerMovement : MonoBehaviour
         {
             addVelocity = Vector2.zero;
         }
-        
+
 
         //向き判断
         if (directionX < 0)
@@ -154,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
             if (canJumpFlg)
             {
                 playerReverce = true;
-                if(rigidbody2d.velocity.x < -speed + 2)
+                if (rigidbody2d.velocity.x < -speed + 2)
                 {
                     isMoving = true;
                 }
@@ -184,7 +183,7 @@ public class PlayerMovement : MonoBehaviour
             }
             Speed.x = speed;
         }
-        else if(directionX == 0 )
+        else if (directionX == 0)
         {
             Speed.x = 0.0f;
             isMoving = false;
@@ -195,7 +194,7 @@ public class PlayerMovement : MonoBehaviour
             CanteraAnimationSwiching();
         }
 
-        if(!groundedFlg)
+        if (!groundedFlg)
         {
             isMoving = false;
         }
@@ -216,9 +215,10 @@ public class PlayerMovement : MonoBehaviour
         //足音を鳴らす
         PlayFootStepSE();
         //カンテラを持っているとき
-        if(CanteraShowCheck.GetPlayerCanteraShowFlg())
+        //if(CanteraShowCheck.GetPlayerCanteraShowFlg())
+        if (IgniteMatch.GetLightCanteraFlg())
         {
-            if(!playCanteraGetSEFlg)
+            if (!playCanteraGetSEFlg)
             {
                 PlayCanteraGetSE();
                 playCanteraGetSEFlg = true;
@@ -226,14 +226,12 @@ public class PlayerMovement : MonoBehaviour
             //カンテラSEを鳴らす
             PlayCanteraMoveSE();
         }
-        
-        
     }
 
     //ジャンプ可否チェック
     private void CheckCanJump()
     {
-        if(groundedFlg)
+        if (groundedFlg)
         {
             canJumpFlg = true;
             jumpFlg = false;
@@ -243,10 +241,10 @@ public class PlayerMovement : MonoBehaviour
             canJumpFlg = false;
         }
     }
-     //地面接触チェック
+    //地面接触チェック
     private void CheckSurroundings()
     {
-        groundedFlg = Physics2D.OverlapCircle(groundCheck.position,groundCheckRadius,layerGround);
+        groundedFlg = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, layerGround);
 
     }
     //ジャンプ処理
@@ -256,7 +254,7 @@ public class PlayerMovement : MonoBehaviour
         {
             PlayerSE.PlayJumpStartSE();
             //カンテラを持っているときジャンプ力半減
-            if (CanteraShowCheck.GetPlayerCanteraShowFlg())
+            if (IgniteMatch.GetLightCanteraFlg())
             {
                 Speed.y = jumpForce * 0.7f;
             }
@@ -266,31 +264,32 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    
+
 
     //地面への当たり判定描画
-    private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(groundCheck.position,groundCheckRadius);
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 
     //足音再生
     private void PlayFootStepSE()
     {
-   
-        if(isMoving)
+
+        if (isMoving)
         {
-            if(footStepSETimeSpan > 0)
+            if (footStepSETimeSpan > 0)
             {
                 return;
             }
             PlayerSE.PlayFootStepsSE();
             footStepSETimeSpan = 0.068f;
         }
-        else if(!jumpFlg)
+        else if (!jumpFlg)
         {
             PlayerSE.StopFootStepsSE();
         }
-        if(!groundedFlg)
+        if (!groundedFlg)
         {
             footStepSETimeSpan = 0.068f;
         }
@@ -305,7 +304,7 @@ public class PlayerMovement : MonoBehaviour
     //カンテラ移動音再生
     private void PlayCanteraMoveSE()
     {
-        if(canteraSETimeSpan > 0)
+        if (canteraSETimeSpan > 0)
         {
             return;
         }
@@ -319,12 +318,11 @@ public class PlayerMovement : MonoBehaviour
     private void PlayJumpEndSE()
     {
         //落ちる時間計測
-        if(!groundedFlg && Speed.y < 0)
+        if (!groundedFlg && Speed.y < 0)
         {
             fallTime += Time.deltaTime;
         }
 
-        
         if (!groundedFlg)
         {
             playjumpEndFlg = false;
@@ -352,10 +350,6 @@ public class PlayerMovement : MonoBehaviour
                 landingPitchAdjust = 1.6f;
                 break;
         }
-
-
-
-
     }
 
     private void MatchAnimationSwitching()
@@ -369,9 +363,10 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("match", false);
         }
     }
+
     private void CanteraAnimationSwiching()
     {
-        if (CanteraShowCheck.GetPlayerCanteraShowFlg())
+        if (IgniteMatch.GetLightCanteraFlg())
         {
             anim.SetBool("cantera", true);
         }
@@ -380,5 +375,4 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("cantera", false);
         }
     }
-
 }
