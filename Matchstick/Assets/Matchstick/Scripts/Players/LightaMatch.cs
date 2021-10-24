@@ -110,7 +110,7 @@ public class LightaMatch : MonoBehaviour
         }
 
 
-        if (matchGauge <= 0 && onFire && playerIgnite.GetLightMatchFlg() == true)
+        if (matchGauge <= 0 && onFire && playerIgnite.GetLightMatchFlg() == true && numberOfMatch > 0)
         {
             playerIgnite.SetLightMatchFlg(false);
             
@@ -145,18 +145,14 @@ public class LightaMatch : MonoBehaviour
                     tmp_LightOuterRadius -= maxOuterRadius / lightTime /2 ;
                 }
             }
-            else
-            {
-                if (onFire)
-                {
-                    //着火終了処理
-                    IgnitionEnd();
-                }
-            }
         }
-        else
+        if(!playerIgnite.GetLightMatchFlg() == true)
         {
-            numberOfMatch = 0;
+            if (onFire)
+            {
+                //着火終了処理
+                IgnitionEnd();
+            }
         }
         
         //炎の揺らめき

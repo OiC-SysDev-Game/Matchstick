@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerIgniteMatch : MonoBehaviour
 {
@@ -22,14 +23,22 @@ public class PlayerIgniteMatch : MonoBehaviour
     private GameObject MatchGaugeImage;
     [SerializeField]
     private GameObject CanteraGaugeImage;
+    [SerializeField]
+    private Image GaugeImage;
+    [SerializeField]
+    private LightaMatch lightaMatch;
 
     [SerializeField] private Transform igniteCheck;
     [SerializeField] private LayerMask layerGimick;
 
     private PlayerCanteraCheck playerCanteraCheck;
 
-    float wait = 2;
+    float lightWait = 2;
+    float FlashingWait = 0;
 
+    bool cantFireGaugeFlg;
+
+    float cantFireGaugeTime = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -54,21 +63,55 @@ public class PlayerIgniteMatch : MonoBehaviour
             CanteraGaugeImage.SetActive(true);
         }
        
-        //マッチ着火
         if(!playerCanteraCheck.GetPlayerCanteraShowFlg())
         {
+            //マッチ着火
             if (Input.GetKeyDown("down"))
             {
-                if (wait <= 0)
+                if (lightWait <= 0 && lightaMatch.GetNumberOfMatch() > 0)
                 {
                     lightMatchFlg = (lightMatchFlg) ? false : true;
-                    wait = 2;
+                    lightWait = 2;
+                    
+                }
+                if (lightaMatch.GetNumberOfMatch() <= 0)
+                {
+                    cantFireGaugeFlg = true;
+
                 }
             }
-            if (wait > 0)
+            if (lightWait > 0)
             {
-                wait -= 1.5f * Time.deltaTime;
+                lightWait -= 1.5f * Time.deltaTime;
             }
+
+            //マッチがなく、着火できないときゲージを点滅させる
+            if(cantFireGaugeFlg)
+            {
+                if (FlashingWait < 0.5f)
+                {
+                    GaugeImage.color = Color.white;
+
+                }
+                else if (FlashingWait >= 0.5f)
+                {
+                    GaugeImage.color = Color.red;
+                }
+
+                if (cantFireGaugeTime > 0)
+                {
+                    FlashingWait = Mathf.Abs(Mathf.Sin(Time.time * 10));
+                    cantFireGaugeTime -= Time.deltaTime;
+                }
+                else if (cantFireGaugeTime <= 0)
+                {
+                    cantFireGaugeFlg = false;
+                    cantFireGaugeTime = 1;
+                    GaugeImage.color = Color.white;
+                }
+            }
+            
+           
         }
         
         var collider = Physics2D.OverlapBox(igniteCheck.position, igniteCheck.localScale,0,layerGimick);

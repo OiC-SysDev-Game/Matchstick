@@ -25,7 +25,6 @@ public class NumberOfMatchText : MonoBehaviour
     void Update()
     {
         numberOfMatch = lightaMatch.GetNumberOfMatch();
-        Debug.Log(numberOfMatch);
         numberOfMatchText.text = "Å~" + numberOfMatch;
     }
 }
