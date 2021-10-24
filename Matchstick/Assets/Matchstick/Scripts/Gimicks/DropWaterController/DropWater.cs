@@ -23,9 +23,9 @@ public class DropWater : MonoBehaviour
         //マッチの火を消す
         if (collision.gameObject.GetComponent<LightaMatch>())
         {
+            //プレイヤー側メソッドの呼び出し
             //collision.gameObject.GetComponent<LightaMatch>().CollideWater();
         }
-        //水滴本体を非アクティブにする
         gameObject.SetActive(false);
     }
 }
