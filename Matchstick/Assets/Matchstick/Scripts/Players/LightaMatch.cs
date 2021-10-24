@@ -9,6 +9,7 @@ public class LightaMatch : MonoBehaviour
     private Light2D pointLight;
     [SerializeField]
     private float lightTimeSeconds = 30;
+
     [SerializeField]
     private PlayerIgniteMatch playerIgnite;
     [SerializeField]
@@ -19,9 +20,13 @@ public class LightaMatch : MonoBehaviour
     private int numberOfMatch = 5;
     [SerializeField]
     private PlayerSE playerSE;
+    [SerializeField]
+    private LightaCantera lightaCantera;
 
+    private float matchGauge = 0;
 
-    public bool GetHaveMatch() { return haveMatchFlg; }
+    public float GetMatchGauge() { return matchGauge; }
+    public int GetNumberOfMatch() { return numberOfMatch; }
     public bool GetMatchIgnitFlg() { return matchIgnitFlg; }
 
     public bool GetCanHaveCantera() { return canHaveCanteraFlg; }
@@ -29,15 +34,16 @@ public class LightaMatch : MonoBehaviour
     private float lightTime = 0;
     private bool  onFire = false;
     private bool playFireSE = false;
-    private float matchGauge = 0;
-    private bool haveMatchFlg = true;
+  
     private float tmp_lightIntensity = 0;
     private float tmp_LightOuterRadius = 0;
     private bool matchIgnitFlg = false;
     private bool canteraIgnitFlg = false;
     private bool canHaveCanteraFlg = false;
 
-    private float oneSecond = 0;
+
+    [SerializeField]
+    private Color color = new Color32(236, 218, 208, 0);//追加
 
     //揺らめき用
     private float maxOuterRadius;
@@ -61,7 +67,8 @@ public class LightaMatch : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if((numberOfMatch > 1 || numberOfMatch <= 1 && matchGauge < 0))
+        //マッチが１より多い、またはマッチが１以上、ゲージが消費されていないとき
+        if(numberOfMatch > 1 || (numberOfMatch <= 1 && matchGauge < 0) )
         {
             canHaveCanteraFlg = true;
         }
@@ -69,14 +76,20 @@ public class LightaMatch : MonoBehaviour
         {
             canHaveCanteraFlg = false;
         }
+
         //カンテラを持っているときマッチを消す
         if (playerCanteraCheck.GetPlayerCanteraShowFlg() == true)
         {
             if (!canteraIgnitFlg && canHaveCanteraFlg == true)
             {
-                numberOfMatch--;
+                //カンテラゲージが無ければマッチ消費
+                if(lightaCantera.GetCanteraGauge() <= 0)
+                {
+                    numberOfMatch--;
+                }
                 Debug.Log(numberOfMatch);
                 canteraIgnitFlg = true;
+                //マッチがついていれば消す
                 if (playerIgnite.GetLightMatchFlg() == true)
                 {
                     if (playFireSE)
@@ -95,6 +108,8 @@ public class LightaMatch : MonoBehaviour
         {
             canteraIgnitFlg = false;
         }
+
+
         if (matchGauge <= 0 && onFire && playerIgnite.GetLightMatchFlg() == true)
         {
             playerIgnite.SetLightMatchFlg(false);
@@ -102,6 +117,9 @@ public class LightaMatch : MonoBehaviour
             numberOfMatch--;
             Debug.Log(numberOfMatch);
         }
+
+
+
         if (numberOfMatch > 0)
         {
             if(playerIgnite.GetLightMatchFlg() == true)
@@ -122,15 +140,7 @@ public class LightaMatch : MonoBehaviour
                 if (matchGauge > 0 && onFire)
                 {
                     //着火中処理
-                    oneSecond += Time.deltaTime * 0.8f;
-                    
-                    if (oneSecond >= 1)
-                    {
-
-                        oneSecond = 0;
-                        matchGauge--;
-                        Debug.Log(matchGauge);
-                    }
+                    matchGauge -= Time.deltaTime * 0.8f;
                     pointLight.intensity -= defaultLightIntensity / lightTime;
                     tmp_LightOuterRadius -= maxOuterRadius / lightTime /2 ;
                 }
@@ -149,9 +159,8 @@ public class LightaMatch : MonoBehaviour
             numberOfMatch = 0;
         }
         
-        //揺らめき
+        //炎の揺らめき
         time += Time.deltaTime * 1.5f;
-        //pointLight.pointLightOuterRadius = maxOuterRadius +  Mathf.Sin(time);
         pointLight.pointLightOuterRadius = tmp_LightOuterRadius + Mathf.Sin(time) * 0.1f;
         
 
@@ -160,7 +169,9 @@ public class LightaMatch : MonoBehaviour
 
     private void IgnitionStart()
     {
-        if(!playFireSE)
+        //明かりの色を変更
+        pointLight.color = color;
+        if (!playFireSE)
         {
             playerSE.PlayLightMatchSE();
             playFireSE = true;

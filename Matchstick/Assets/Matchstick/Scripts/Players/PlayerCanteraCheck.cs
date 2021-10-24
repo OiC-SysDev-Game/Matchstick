@@ -5,26 +5,23 @@ using UnityEngine;
 public class PlayerCanteraCheck : MonoBehaviour
 {
     [SerializeField]
-    private GameObject PlayerCantera;
-    [SerializeField]
     public bool GetPlayerCanteraShowFlg() { return showCantera; }
+    [SerializeField]
+    public void SetPlayerCanteraShowFlg(bool isShow) {showCantera = isShow; }
     [SerializeField]
     private PlayerIgniteMatch playerIgniteMatch;
     
+    private CanteraStand canteraStandObject;
 
     [SerializeField]private bool showCantera = false;
     [SerializeField] private Transform canteraCheck;
     [SerializeField] private LayerMask layerGimick;
     [SerializeField] private LightaMatch lightaMatch;
-
+    [SerializeField] private LightaCantera lightaCantera;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(!showCantera)
-        {
-            PlayerCantera.SetActive(false);
-        }
 
     }
 
@@ -38,6 +35,7 @@ public class PlayerCanteraCheck : MonoBehaviour
             {
                 Debug.Log("PlayerCanteraCheck");
                 var canteraStand = collider.gameObject.GetComponent<CanteraStand>();
+                canteraStandObject = collider.gameObject.GetComponent<CanteraStand>();
                 if (canteraStand != null)
                 {
                     //カンテラを持っていないとき
@@ -48,6 +46,8 @@ public class PlayerCanteraCheck : MonoBehaviour
                         {
                             canteraStand.SetOffCantera();
                             showCantera = true;
+                            playerIgniteMatch.SetLightCanteraFlg(true);
+                            
                         }
                     }
                     //カンテラを持っているとき
@@ -58,19 +58,27 @@ public class PlayerCanteraCheck : MonoBehaviour
                         {
                             canteraStand.SetOnCantera();
                             showCantera = false;
+                            playerIgniteMatch.SetLightCanteraFlg(false);
                         }
                     }
                 }
             }
         }
 
-        if(showCantera)
+        if(canteraStandObject != null)
         {
-            PlayerCantera.SetActive(true);
+            //カンテラを持っていない
+            if(!showCantera)
+            {
+                //カンテラ台にカンテラが無いなら
+                if (!canteraStandObject.OnCantera)
+                {
+                    canteraStandObject.SetOnCantera();
+                    showCantera = false;
+                    playerIgniteMatch.SetLightCanteraFlg(false);
+                }
+            }
         }
-        else
-        {
-            PlayerCantera.SetActive(false);
-        }
+
     }
 }
