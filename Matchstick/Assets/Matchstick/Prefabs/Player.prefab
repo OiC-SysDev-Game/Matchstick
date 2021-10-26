@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -481.41757, y: 206.89821}
-  m_SizeDelta: {x: -1151.1808, y: -483.7966}
+  m_AnchoredPosition: {x: -288.54, y: 124.8}
+  m_SizeDelta: {x: -1061.7107, y: -448.5953}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &34582805
 CanvasRenderer:
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5
+  m_text: "\xD75"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -93,8 +93,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 524621669}
   - component: {fileID: 524621668}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: GaugeCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -935,7 +935,7 @@ GameObject:
   - component: {fileID: 1763128270}
   m_Layer: 0
   m_Name: Point Light Cantera
-  m_TagString: Untagged
+  m_TagString: CanteraLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1177,7 +1177,7 @@ GameObject:
   - component: {fileID: 7276834348670152003}
   m_Layer: 0
   m_Name: Point Light Match
-  m_TagString: Untagged
+  m_TagString: MatchLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1402,6 +1402,8 @@ MonoBehaviour:
   InteractionText: {fileID: 1955030276}
   MatchGaugeImage: {fileID: 274026462}
   CanteraGaugeImage: {fileID: 631099128}
+  GaugeImage: {fileID: 444207227}
+  lightaMatch: {fileID: 6891924117352097895}
   igniteCheck: {fileID: 6697952740202305493}
   layerGimick:
     serializedVersion: 2
