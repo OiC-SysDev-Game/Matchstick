@@ -61,4 +61,9 @@ public class PointLight2DSensor : MonoBehaviour
 		}
 		return (Color)color;
 	}
+
+	public bool IsDarkness()
+	{
+		return this.GetLightColor() == (Color)Vector4.zero;
+	}
 }

@@ -30,7 +30,7 @@ public class FloatingText : MonoBehaviour
 		if (!canvas.activeSelf)
 		{
 
-			if(LightSensor.GetLightColor() != (Color)Vector4.zero)
+			if(LightSensor.IsDarkness() == false)
 			{
 				foreach (var light in LightSensor.PointLight2DObjectList)
 				{
@@ -44,7 +44,7 @@ public class FloatingText : MonoBehaviour
 		}
 		else
 		{
-			if (LightSensor.GetLightColor() == (Color)Vector4.zero)
+			if (LightSensor.IsDarkness() == true)
 			{
 				canvas.SetActive(false);
 			}
