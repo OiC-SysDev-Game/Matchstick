@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     [SerializeField]private EventSystem _eventSystem;
-    private GameObject selectedObject;
+    public GameObject selectedObject;
 
     //フェード部分とシーン読み込みは分割するべきかも
     [SerializeField] private Image fadeObject;
@@ -25,6 +25,7 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
+        _eventSystem.enabled = false;
         Button button = selectedObject.GetComponent<Button>();
         button.Select();
         CursorMove(button);
@@ -32,10 +33,13 @@ public class MenuController : MonoBehaviour
 
     void Update()
     {
-        //クリックで選択状態が外れるのを防ぐための処理
         if (!_eventSystem.currentSelectedGameObject)
         {
-            selectedObject.GetComponent<Selectable>().Select();
+            //クリックで選択状態が外れた場合戻れるようにするための処理
+            if (Input.GetAxisRaw("Vertical") > 0 || Input.GetAxisRaw("Vertical") < 0)
+            {
+                selectedObject.GetComponent<Selectable>().Select();
+            } 
         }
         else
         {
@@ -57,15 +61,15 @@ public class MenuController : MonoBehaviour
     }
 
     //ボタンの位置にカーソルを移動させるための関数
-    private void CursorMove(Button button)
+    public void CursorMove(Button button)
     {
         RectTransform rectTransform = button.GetComponent<RectTransform>();
         Vector2 size = rectTransform.sizeDelta;
         //一度アップデートを挟まないと座標を取得してもゼロになる
         Vector3 pos = rectTransform.position;
-        //Debug.Log(new Vector3(pos.x - size.x * 0.5f + cursorOffset, pos.y, pos.z));
+        Debug.Log(new Vector3(pos.x - size.x * 0.5f + cursorOffset, pos.y, pos.z));
         //Debug.Log(pos);
-        //Debug.Log(size);
+        Debug.Log(button.name);
         cursorObject.GetComponent<RectTransform>().position = new Vector3(pos.x - size.x * 0.5f + cursorOffset, pos.y, pos.z);
     }
 
@@ -75,8 +79,20 @@ public class MenuController : MonoBehaviour
         cursorUsingCount++;
         if (cursorUsingCount == 1)
         {
-            cursorObject.gameObject.SetActive(true);
             _eventSystem.enabled = true;
+            cursorObject.gameObject.SetActive(true);
+        }
+    }
+
+    //カーソルを使用するときに初期選択されてほしいUIがあるときに呼ぶ
+    public void CursorUse(Selectable obj)
+    {
+        cursorUsingCount++;
+        if (cursorUsingCount == 1)
+        {
+            _eventSystem.enabled = true;
+            obj.Select();
+            cursorObject.gameObject.SetActive(true);
         }
     }
 
@@ -92,8 +108,8 @@ public class MenuController : MonoBehaviour
         cursorUsingCount--;
         if(cursorUsingCount == 0)
         {
-            cursorObject.gameObject.SetActive(false);
             _eventSystem.enabled = false;
+            cursorObject.gameObject.SetActive(false);
         }
     }
 

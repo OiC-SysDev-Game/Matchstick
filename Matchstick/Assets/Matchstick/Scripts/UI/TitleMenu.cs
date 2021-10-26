@@ -21,6 +21,7 @@ public class TitleMenu : MonoBehaviour
             //ˆê“x’x‚ê‚Ä‚©‚ç‚¶‚á‚È‚¢‚Æ³Šm‚ÈUIÀ•W‚ªæ‚ê‚È‚¢‚½‚ß‚±‚Ìˆ—‚É‚µ‚Ä‚Ü‚·
             if (delayCount++ == 1)
             {
+                menuController.SelectReset();
                 menuController.CursorUse();
                 cursor = true;
             }

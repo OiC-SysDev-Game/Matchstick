@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameScene : MonoBehaviour
 {
 	public PointLight2DSensor sensor;
-	public GameObject GameOverUI;
+	public GameOverMenu gameOverMenu;
 
 	private Camera camera;
 	private Wolf wolf;
@@ -23,13 +23,13 @@ public class GameScene : MonoBehaviour
 	}
 
 
-private void Update()
+    private void Update()
 	{
-		if(wolf.nowAnim == Wolf.animType.Eat)
+        if (wolf.nowAnim == Wolf.animType.Eat)
 		{
-			if(GameOverUI.activeSelf == false)
+			if(gameOverMenu.IsActive() == false)
 			{
-				GameOverUI.SetActive(true);
+                gameOverMenu.Activate();
 				camera.orthographicSize *= 0.5f;
 			}
 			return;

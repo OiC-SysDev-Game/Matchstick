@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Canvas pauseMenuCanvas;
     [SerializeField] private List<Canvas> chilledMenuCanvasList;
     [SerializeField] private MenuController menuController;
+    [SerializeField] private GameOverMenu gameOverMenu;
 
     void Start()
     {
@@ -17,9 +18,12 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (gameOverMenu != null ? !gameOverMenu.IsActive() : true)
         {
-            Pause();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Pause();
+            }
         }
     }
 
