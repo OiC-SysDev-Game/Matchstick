@@ -9,16 +9,24 @@ public class VolumeController : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] private float volumeMin;
     [SerializeField] private float volumeMax;
+
     void Start()
     {
         slider.minValue = volumeMin;
         slider.maxValue = volumeMax;
-        slider.value = AudioManager.Instance.GetVolume(groupName);
+        slider.SetValueWithoutNotify(AudioManager.Instance.GetVolume(groupName));
         slider.onValueChanged.AddListener(delegate { ValueChanged(); });
     }
 
     void ValueChanged()
     {
-        AudioManager.Instance.SetVolume(groupName, slider.value);
+        if (slider.value == slider.minValue)
+        {
+            AudioManager.Instance.SetVolume(groupName, -80.0f);
+        }
+        else
+        {
+            AudioManager.Instance.SetVolume(groupName, slider.value);
+        }
     }
 }

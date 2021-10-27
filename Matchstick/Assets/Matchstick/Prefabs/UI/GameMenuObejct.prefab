@@ -2450,6 +2450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4027144159060326348}
   - component: {fileID: 4027144159060326349}
+  - component: {fileID: 5096876295754823519}
   m_Layer: 5
   m_Name: SEGroup
   m_TagString: Untagged
@@ -2504,6 +2505,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &5096876295754823519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4027144159060326339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25a13834588e2e43b6fc646e06a3fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groupName: 2
+  slider: {fileID: 4027144158855571481}
+  volumeMin: -10
+  volumeMax: 10
 --- !u!1 &4027144159065789631
 GameObject:
   m_ObjectHideFlags: 0
@@ -4996,6 +5013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventSystem: {fileID: 0}
+  selectedObject: {fileID: 0}
   fadeObject: {fileID: 4027144159270507647}
   fadeSpeed: 0.004
   cursorObject: {fileID: 4027144158995659156}
@@ -5621,8 +5639,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4027144160264839360}
   - component: {fileID: 4027144160264839361}
+  - component: {fileID: 6198213718704999816}
   m_Layer: 5
-  m_Name: BGMVLayoutGroup
+  m_Name: BGMGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5675,6 +5694,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &6198213718704999816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4027144160264839367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25a13834588e2e43b6fc646e06a3fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groupName: 1
+  slider: {fileID: 4027144160437670819}
+  volumeMin: -10
+  volumeMax: 10
 --- !u!1 &4027144160279433148
 GameObject:
   m_ObjectHideFlags: 0
@@ -6327,6 +6362,18 @@ MonoBehaviour:
       - m_Target: {fileID: 4027144160301559234}
         m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
         m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4027144160054579742}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: AudioVolumeSave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
