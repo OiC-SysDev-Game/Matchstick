@@ -34,12 +34,16 @@ public class LightaCantera : MonoBehaviour
     private float InitialLightSize = 3.0f;
     private float InnerLightSize;
 
+    private bool consumingMatchFlg = false;
+
+    public bool GetConsumingMatchFlg() { return consumingMatchFlg; }
+
     //揺らめき用
     private float maxOuterRadius;
     private float time;
 
     [SerializeField]
-    bool onCanteraStand;//カンテラ台に置かれているか
+    private LightaMatch lightaMatch;
     [SerializeField]
     private PlayerCanteraCheck canteraCheck;   
     [SerializeField]
@@ -59,7 +63,6 @@ public class LightaCantera : MonoBehaviour
 
         InitialLightSize = pointLight.pointLightOuterRadius;
         InnerLightSize = InitialLightSize;
-        //ColorUtility.TryParseHtmlString("#88E0D6", out color);
     }
 
     // Update is called once per frame
@@ -73,49 +76,58 @@ public class LightaCantera : MonoBehaviour
         {
             pointLight.intensity = 0;
         }
-            if (!onFire && canteraCheck.GetPlayerCanteraShowFlg())
-            {
-                //着火開始処理
-                IgnitionStart();
-                playerIgnite.SetLightCanteraFlg(true);
-                CanteraGage = lightTimeSeconds;
-                onFire = true;
-            }
-            else if (!canteraCheck.GetPlayerCanteraShowFlg())
-            {
-                if (CanteraGage < lightTimeSeconds)
-                {
-                    //カンテラゲージを回復
-                    CanteraGage += Time.deltaTime;
 
-                }
+        if (!onFire && canteraCheck.GetPlayerCanteraShowFlg())
+        {
+            //着火開始処理
+            IgnitionStart();
+            playerIgnite.SetLightCanteraFlg(true);
+            CanteraGage = lightTimeSeconds;
+            onFire = true;
+            //初めて使う、または壊れた後に再度使う際にマッチを1本消費する
+            if (!consumingMatchFlg)
+            {
+                consumingMatchFlg = true;
+                lightaMatch.SetNumberOfMatch(1);
             }
 
-            if (CanteraGage > Time.deltaTime && onFire && canteraCheck.GetPlayerCanteraShowFlg())
+        }
+        else if (!canteraCheck.GetPlayerCanteraShowFlg())
+        {
+            if (CanteraGage < lightTimeSeconds)
             {
-                //経過時間によってカンテラゲージを減らす
-                CanteraGage -= Time.deltaTime;
-                //ライトの大きさをカンテラゲージに合わせる
-                InnerLightSize = GetCanteraGageRatio() * InitialLightSize;
-                pointLight.pointLightInnerRadius = InnerLightSize;
-                pointLight.intensity = GetCanteraGageRatio();
-
-                //明かりの色を変更
-                pointLight.color = color;
+                //カンテラゲージを回復
+                CanteraGage += Time.deltaTime;
+                
             }
-            else if (CanteraGage <= Time.deltaTime && onFire && canteraCheck.GetPlayerCanteraShowFlg())
-            {
-                //着火終了処理
-                IgnitionEnd();
-                playerIgnite.SetLightCanteraFlg(false);
-                canteraCheck.SetPlayerCanteraShowFlg(false);
-                CanteraGage = 0;
-                onFire = false;
-            }
+        }
 
-            //揺らめき
-            //time += Time.deltaTime;
-            //pointLight.pointLightOuterRadius = maxOuterRadius + Mathf.Sin(time) * 0.1f;
+        if (CanteraGage > Time.deltaTime && onFire && canteraCheck.GetPlayerCanteraShowFlg())
+        {
+            //経過時間によってカンテラゲージを減らす
+            CanteraGage -= Time.deltaTime;
+            //ライトの大きさをカンテラゲージに合わせる
+            InnerLightSize = GetCanteraGageRatio() * InitialLightSize;
+            pointLight.pointLightInnerRadius = InnerLightSize;
+            pointLight.intensity = GetCanteraGageRatio();
+
+            //明かりの色を変更
+            pointLight.color = color;
+        }
+        else if (CanteraGage <= Time.deltaTime && onFire && canteraCheck.GetPlayerCanteraShowFlg())
+        {
+            //着火終了処理
+            IgnitionEnd();
+            playerIgnite.SetLightCanteraFlg(false);
+            canteraCheck.SetPlayerCanteraShowFlg(false);
+            CanteraGage = 0;
+            consumingMatchFlg = false;
+            onFire = false;
+        }
+
+        //揺らめき
+        //time += Time.deltaTime;
+        //pointLight.pointLightOuterRadius = maxOuterRadius + Mathf.Sin(time) * 0.1f;
         
     }
 

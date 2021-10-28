@@ -27,6 +27,7 @@ public class LightaMatch : MonoBehaviour
 
     public float GetMatchGauge() { return matchGauge; }
     public int GetNumberOfMatch() { return numberOfMatch; }
+    public void SetNumberOfMatch(int match) { numberOfMatch -= match; }
     public bool GetMatchIgnitFlg() { return matchIgnitFlg; }
 
     public bool GetCanHaveCantera() { return canHaveCanteraFlg; }
@@ -82,12 +83,6 @@ public class LightaMatch : MonoBehaviour
         {
             if (!canteraIgnitFlg && canHaveCanteraFlg == true)
             {
-                //カンテラゲージが無ければマッチ消費
-                if(lightaCantera.GetCanteraGauge() <= 0)
-                {
-                    numberOfMatch--;
-                }
-                Debug.Log(numberOfMatch);
                 canteraIgnitFlg = true;
                 //マッチがついていれば消す
                 if (playerIgnite.GetLightMatchFlg() == true)
