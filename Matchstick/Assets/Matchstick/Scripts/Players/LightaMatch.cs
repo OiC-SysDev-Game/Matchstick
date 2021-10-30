@@ -84,6 +84,7 @@ public class LightaMatch : MonoBehaviour
             if (!canteraIgnitFlg && canHaveCanteraFlg == true)
             {
                 canteraIgnitFlg = true;
+                matchIgnitFlg = false;
                 //マッチがついていれば消す
                 if (playerIgnite.GetLightMatchFlg() == true)
                 {
