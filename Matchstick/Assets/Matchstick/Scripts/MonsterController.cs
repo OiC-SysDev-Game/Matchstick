@@ -20,9 +20,11 @@ public class MonsterController : MonoBehaviour
 	private GameObject sprite;
     private float appearWaitTime;
 	private MonsterPosition popPosition;
+	private bool isMove;
 
 	private void UpdateMove()
 	{
+		if(isMove == false) { return; }
 		Vector3 force = Vector3.zero;
 		if (popPosition == MonsterPosition.east)
 		{
@@ -39,18 +41,20 @@ public class MonsterController : MonoBehaviour
 		}
 	}
 
+	private void StartMove()
+	{
+		isMove = true;
+	}
+
+	private void StopMove()
+	{
+		isMove = false;
+	}
+
 	private bool IsGameOver_LightSensor()
 	{
 		var distance = Vector3.Distance(this.transform.position, player.transform.position);
 		return distance <= sensorCollider.radius;
-	}
-
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
-		if(collision.gameObject.layer == LayerMask.NameToLayer("MonsterBarricade"))
-		{
-			// 歩行Animation停止
-		}
 	}
 
 	private void Awake()
@@ -61,6 +65,7 @@ public class MonsterController : MonoBehaviour
 		rigidbody2D = this.transform.GetComponent<Rigidbody2D>();
 		player = GameObject.Find("Player");
 		sprite = this.transform.Find("Sprite").gameObject;
+		isMove = false;
 	}
 
 	void Start()
@@ -71,6 +76,25 @@ public class MonsterController : MonoBehaviour
 		appearWaitTime = Random.Range(MinAppearTime, MaxAppearTime);
 	}
 
+	private void Update()
+	{
+		if (sprite.activeSelf)
+		{
+			var dir = popPosition == MonsterPosition.east ? Vector2.left : Vector2.right;
+			RaycastHit2D hit = Physics2D.Raycast(this.transform.position, dir, 10, LayerMask.NameToLayer("MonsterBarricade"));
+			if(hit && Vector3.Distance(this.transform.position, hit.transform.position) < 0.1)
+			{
+				StopMove();
+			}  
+		}
+
+		// 画面外判定
+		if (Vector3.Distance(player.transform.position, this.transform.position) >= 20)
+		{
+			sprite.SetActive(false);
+			StopMove();
+		}
+	}
 	private void FixedUpdate()
 	{
 		if (sprite.activeSelf == false)
@@ -96,6 +120,7 @@ public class MonsterController : MonoBehaviour
 				Debug.Log("怪物の咆哮「GAAAAA」");
 				// 表示
 				sprite.SetActive(true);
+				StartMove();
 			}
 		}
 		else
@@ -106,13 +131,8 @@ public class MonsterController : MonoBehaviour
 				if(light2DSensor.IsDarkness() == true)
 				{
 					Debug.Log("#### GameOver ####");
+					StopMove();
 				}
-			}
-
-			// 画面外判定
-			if(Vector3.Distance(player.transform.position, this.transform.position) >= 20)
-			{
-				sprite.SetActive(false);
 			}
 		}
 	}
