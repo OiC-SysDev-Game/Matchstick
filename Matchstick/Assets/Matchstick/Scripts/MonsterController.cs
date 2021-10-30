@@ -21,6 +21,8 @@ public class MonsterController : MonoBehaviour
     private float appearWaitTime;
 	private MonsterPosition popPosition;
 
+    [SerializeField] private GameManager gameManager;
+
 	private void UpdateMove()
 	{
 		Vector3 force = Vector3.zero;
@@ -61,6 +63,7 @@ public class MonsterController : MonoBehaviour
 		rigidbody2D = this.transform.GetComponent<Rigidbody2D>();
 		player = GameObject.Find("Player");
 		sprite = this.transform.Find("Sprite").gameObject;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 	}
 
 	void Start()
@@ -106,6 +109,7 @@ public class MonsterController : MonoBehaviour
 				if(light2DSensor.IsDarkness() == true)
 				{
 					Debug.Log("#### GameOver ####");
+                    gameManager.GameOver = true;
 				}
 			}
 
