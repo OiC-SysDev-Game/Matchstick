@@ -22,6 +22,8 @@ public class MonsterController : MonoBehaviour
 	private MonsterPosition popPosition;
 	private bool isMove;
 
+    [SerializeField] private GameManager gameManager;
+
 	private void UpdateMove()
 	{
 		if(isMove == false) { return; }
@@ -66,6 +68,7 @@ public class MonsterController : MonoBehaviour
 		player = GameObject.Find("Player");
 		sprite = this.transform.Find("Sprite").gameObject;
 		isMove = false;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 	}
 
 	void Start()
@@ -132,6 +135,7 @@ public class MonsterController : MonoBehaviour
 				{
 					Debug.Log("#### GameOver ####");
 					StopMove();
+                    gameManager.GameOver = true;
 				}
 			}
 		}

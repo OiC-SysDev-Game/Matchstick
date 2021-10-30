@@ -1,18 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] private UnityEvent GameOverEvents;
+    private bool gameOver = false;
+    public bool GameOver {
+        set {
+            if (gameOver != value)
+            {
+                gameOver = value;
+                if (value)
+                {
+                    Debug.Log("GameOver");
+                    GameOverEvents.Invoke();
+                }
+            }
+        }
+        get { return gameOver; }
     }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private UnityEvent GameClearEvents;
+    private bool gameClear = false;
+    public bool GameClear
     {
-        
+        set
+        {
+            if (gameClear != value)
+            {
+                gameClear = value;
+                if (value)
+                {
+                    GameClearEvents.Invoke();
+                }
+            }
+        }
+        get { return gameClear; }
+    }
+
+    private void Start()
+    {
+        GameOverEvents.AddListener(GameOverTimeStop);
+    }
+
+    void GameOverTimeStop()
+    {
+        Time.timeScale = 0;
     }
 }

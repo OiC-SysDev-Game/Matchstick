@@ -20,9 +20,9 @@ public class PlayerIgniteMatch : MonoBehaviour
     [SerializeField]
     private GameObject InteractionText;
     [SerializeField]
-    private GameObject MatchGaugeImage;
+    private GameObject MatchGauge;
     [SerializeField]
-    private GameObject CanteraGaugeImage;
+    private GameObject CanteraGauge;
     [SerializeField]
     private Image GaugeImage;
     [SerializeField]
@@ -59,13 +59,13 @@ public class PlayerIgniteMatch : MonoBehaviour
 
         if(!playerCanteraCheck.GetPlayerCanteraShowFlg())
         {
-            CanteraGaugeImage.SetActive(false);
-            MatchGaugeImage.SetActive(true);   
+            CanteraGauge.SetActive(false);
+            MatchGauge.SetActive(true);   
         }
         else
         {
-            MatchGaugeImage.SetActive(false);
-            CanteraGaugeImage.SetActive(true);
+            MatchGauge.SetActive(false);
+            CanteraGauge.SetActive(true);
         }
        
         if(!playerCanteraCheck.GetPlayerCanteraShowFlg())
@@ -129,7 +129,7 @@ public class PlayerIgniteMatch : MonoBehaviour
             InteractionText.SetActive(false);
         }
         //ギミック着火用コード
-        if (lightMatchFlg && Input.GetKeyDown(KeyCode.Z))
+        if (lightMatchFlg && Input.GetKeyDown(KeyCode.Space))
         {
             if(collider != null)
             {
