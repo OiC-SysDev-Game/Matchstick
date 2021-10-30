@@ -52,6 +52,11 @@ public class PlayerIgniteMatch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Time.timeScale == 0)
+        {
+            return;
+        }
+
         if(!playerCanteraCheck.GetPlayerCanteraShowFlg())
         {
             CanteraGaugeImage.SetActive(false);
