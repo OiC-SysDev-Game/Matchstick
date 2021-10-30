@@ -129,7 +129,7 @@ public class PlayerIgniteMatch : MonoBehaviour
             InteractionText.SetActive(false);
         }
         //ギミック着火用コード
-        if (lightMatchFlg && Input.GetKeyDown(KeyCode.Z))
+        if (lightMatchFlg && Input.GetKeyDown(KeyCode.Space))
         {
             if(collider != null)
             {
