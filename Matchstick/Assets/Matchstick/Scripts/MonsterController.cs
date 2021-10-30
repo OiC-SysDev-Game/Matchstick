@@ -41,7 +41,7 @@ public class MonsterController : MonoBehaviour
 
 	private bool IsGameOver_LightSensor()
 	{
-		var distance = Vector3.Distance(this.transform.position, sensor.position);
+		var distance = Vector3.Distance(this.transform.position, player.transform.position);
 		return distance <= sensorCollider.radius;
 	}
 
