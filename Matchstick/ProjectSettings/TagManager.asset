@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MoveLift
   - CanteraLight
+  - MatchLight
   layers:
   - Default
   - TransparentFX
