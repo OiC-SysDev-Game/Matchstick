@@ -108,6 +108,12 @@ public class MonsterController : MonoBehaviour
 					Debug.Log("#### GameOver ####");
 				}
 			}
+
+			// ‰æ–ÊŠO”»’è
+			if(Vector3.Distance(player.transform.position, this.transform.position) >= 20)
+			{
+				sprite.SetActive(false);
+			}
 		}
 	}
 }
