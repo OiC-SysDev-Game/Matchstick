@@ -72,6 +72,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Time.timeScale <= 0)
+        {
+            return;
+        }
         //キーを取得
         directionX = Input.GetAxis("Horizontal");
         if(Match.GetMatchIgnitFlg())
