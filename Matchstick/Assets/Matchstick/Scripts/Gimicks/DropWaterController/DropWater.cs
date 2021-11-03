@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class DropWater : MonoBehaviour
 {
+
+    public AudioSource se;
+
     void Start()
     {
-        
     }
 
     void Update()
@@ -24,6 +26,7 @@ public class DropWater : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerIgniteMatch>())
         {
             collision.gameObject.GetComponent<PlayerIgniteMatch>().SetLightMatchFlg(false);
+            se.Play();
         }
         //水滴本体を非アクティブにする
         gameObject.SetActive(false);

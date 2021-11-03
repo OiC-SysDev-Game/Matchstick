@@ -89,7 +89,7 @@ public class MonsterController : MonoBehaviour
 				if(popPosition == MonsterPosition.east){ offset.x *= -1; }
 				this.transform.position = player.transform.position + offset;
 				// ‰ö•¨‚ÌŒü‚«Šm’è
-				var x = this.transform.localScale.x;
+				var x = Mathf.Abs(this.transform.localScale.x);
 				if(popPosition == MonsterPosition.east) { x *= -1; }
 				this.transform.localScale = new Vector3(x, this.transform.localScale.y);
 				// SE
