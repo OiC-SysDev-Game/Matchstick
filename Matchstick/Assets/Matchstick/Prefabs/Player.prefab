@@ -1269,8 +1269,8 @@ MonoBehaviour:
   lightMatchFlg: 0
   lightCanteraFlg: 0
   InteractionText: {fileID: 1955030276}
-  MatchGaugeImage: {fileID: 274026462}
-  CanteraGaugeImage: {fileID: 8726998391156859570}
+  MatchGauge: {fileID: 5270475137302695405}
+  CanteraGauge: {fileID: 2695048883015268298}
   GaugeImage: {fileID: 444207227}
   lightaMatch: {fileID: 6891924117352097895}
   igniteCheck: {fileID: 6697952740202305493}
