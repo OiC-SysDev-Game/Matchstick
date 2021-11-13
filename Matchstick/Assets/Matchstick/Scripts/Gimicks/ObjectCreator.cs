@@ -8,7 +8,7 @@ public class ObjectCreator : MonoBehaviour
     public float IntervalTime = 1.0f;
     public bool isInfinite;
     public int Value = 1;
-    public bool isStart { get; protected set; }
+    public bool isStart = false;
 
     private float timer;
     private int count;
@@ -21,7 +21,6 @@ public class ObjectCreator : MonoBehaviour
     {
         timer = IntervalTime;
         count = 0;
-        isStart = true;
     }
 
     private void FixedUpdate()

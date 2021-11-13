@@ -26,9 +26,15 @@ public class PointLight2DSensor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (DebugLog)
+        ColliderUniqueCode uniqueCode = collision.gameObject.transform.GetComponent<ColliderUniqueCode>();
+        if(uniqueCode == false)
+        {
+            return;
+        }
+
+        if (DebugLog)
 		{
-			Debug.Log("Enter Object Path: " + collision.gameObject.transform.GetComponent<ColliderUniqueCode>().code);
+			Debug.Log("Enter Object Path: " + uniqueCode.code);
 		}
 		var lightObject = collision.gameObject.transform.parent.gameObject;
 		if (lightObject)
@@ -38,7 +44,13 @@ public class PointLight2DSensor : MonoBehaviour
 	}
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-		var ExitcCode = collision.gameObject.transform.GetComponent<ColliderUniqueCode>().code;
+        ColliderUniqueCode uniqueCode = collision.gameObject.transform.GetComponent<ColliderUniqueCode>();
+        if (uniqueCode == false)
+        {
+            return;
+        }
+
+        var ExitcCode = uniqueCode.code;
 		if (DebugLog)
 		{
 			Debug.Log("Exit Object Path: " + ExitcCode);
