@@ -12,7 +12,7 @@ public class StatuesController : MonoBehaviour
 
     private List<GameObject> StatueList;
     private List<GameObject> FloatingTextList;
-    private List<int> playerAnswer;
+    [SerializeField] private List<int> playerAnswer;
 
     [SerializeField] private bool DebugLog = true;
 
@@ -58,8 +58,9 @@ public class StatuesController : MonoBehaviour
 				}
                 if (DebugLog) { Debug.Log("GimmickMistake"); }
             }
+            Debug.Log(playerAnswer);
         }
-	}
+    }
 
 
 	private void GetStatues()

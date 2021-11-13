@@ -18,6 +18,7 @@ public class PlayerCanteraCheck : MonoBehaviour
     [SerializeField] private LayerMask layerGimick;
     [SerializeField] private LightaMatch lightaMatch;
     [SerializeField] private LightaCantera lightaCantera;
+    [SerializeField] private GameObject Cantera;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +48,7 @@ public class PlayerCanteraCheck : MonoBehaviour
                             canteraStand.SetOffCantera();
                             showCantera = true;
                             playerIgniteMatch.SetLightCanteraFlg(true);
-                            
+                            Cantera.SetActive(true);
                         }
                     }
                     //ƒJƒ“ƒeƒ‰‚ğ‚Á‚Ä‚¢‚é‚Æ‚«
@@ -59,6 +60,7 @@ public class PlayerCanteraCheck : MonoBehaviour
                             canteraStand.SetOnCantera();
                             showCantera = false;
                             playerIgniteMatch.SetLightCanteraFlg(false);
+                            Cantera.SetActive(false);
                         }
                     }
                 }
@@ -76,6 +78,7 @@ public class PlayerCanteraCheck : MonoBehaviour
                     canteraStandObject.SetOnCantera();
                     showCantera = false;
                     playerIgniteMatch.SetLightCanteraFlg(false);
+                    Cantera.SetActive(false);
                 }
             }
         }

@@ -10,21 +10,29 @@ public class Statue : MonoBehaviour
 	[HideInInspector]
 	public int No;
 
-	private StatuesController statuesController;
+    private StatuesController statuesController;
+
+    private bool ignited;
 
 	private void Awake()
 	{
-		statuesController = transform.parent.transform.GetComponent<StatuesController>();
+		statuesController = transform.parent.parent.GetComponent<StatuesController>();
 	}
 
 	public void Ignited()
 	{
+        if(ignited)
+        {
+            return;
+        }
+
 		if (statuesController)
 		{
 			statuesController.StatueIgnited(No);
 			IgnitedSE.Play();
 		}
-	}
+        ignited = true;
+    }
 
 	public void FireExtinguishing()
 	{
