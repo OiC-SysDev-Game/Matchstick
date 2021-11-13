@@ -11,6 +11,11 @@ public class MonsterController : MonoBehaviour
 	// 出現間隔[s]
 	public float MinAppearTime;
     public float MaxAppearTime;
+	// SE
+	public AudioSource Howling;
+	public AudioSource NoseBreath;
+	public float IntervalNoseBreath = 2.0f;
+	public AudioSource Footsteps;
 
 	private Transform sensor;
 	private PointLight2DSensor light2DSensor;
@@ -21,8 +26,9 @@ public class MonsterController : MonoBehaviour
     private float appearWaitTime;
 	private MonsterPosition popPosition;
 	private bool isMove;
+	private float howlingVolume;
 
-    [SerializeField] private GameManager gameManager;
+	[SerializeField] private GameManager gameManager;
 
 	private void UpdateMove()
 	{
@@ -46,11 +52,13 @@ public class MonsterController : MonoBehaviour
 	private void StartMove()
 	{
 		isMove = true;
+		Footsteps.UnPause();
 	}
 
 	private void StopMove()
 	{
 		isMove = false;
+		Footsteps.Pause();
 	}
 
 	private bool IsGameOver_LightSensor()
@@ -68,6 +76,12 @@ public class MonsterController : MonoBehaviour
 		player = GameObject.Find("Player");
 		sprite = this.transform.Find("Sprite").gameObject;
 		isMove = false;
+		howlingVolume = Howling.volume;
+		var v =  Footsteps.volume;
+		Footsteps.volume = 0;
+		Footsteps.Play();
+		Footsteps.Pause();
+		Footsteps.volume = v;
 	}
 
 	void Start()
@@ -76,6 +90,8 @@ public class MonsterController : MonoBehaviour
 		sprite.SetActive(false);
 		// 待機時間をリセット
 		appearWaitTime = Random.Range(MinAppearTime, MaxAppearTime);
+		// 鼻息
+		InvokeRepeating("RepeatNoseBreath", 0, IntervalNoseBreath);
 	}
 
 	private void Update()
@@ -119,7 +135,10 @@ public class MonsterController : MonoBehaviour
 				if(popPosition == MonsterPosition.east) { x *= -1; }
 				this.transform.localScale = new Vector3(x, this.transform.localScale.y);
 				// SE
-				Debug.Log("怪物の咆哮「GAAAAA」");
+				//Debug.Log("怪物の咆哮「GAAAAA」");
+				Howling.volume = howlingVolume;
+				Howling.Play();
+				InvokeRepeating("HowlingVolumeDown", 0, 0.075f);
 				// 表示
 				sprite.SetActive(true);
 				StartMove();
@@ -138,5 +157,17 @@ public class MonsterController : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	private void HowlingVolumeDown()
+	{
+		if(Howling.volume <= 0) { return; }
+		if (Howling.volume < 0.0001f) { Howling.volume = 0; }
+		Howling.volume = Howling.volume * 0.9f;
+	}
+
+	private void RepeatNoseBreath()
+	{
+		if (sprite.activeSelf) { NoseBreath.Play(); Debug.Log("鼻息"); }
 	}
 }
