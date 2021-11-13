@@ -212,6 +212,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1612669050, guid: fbe0cfece4086c5449c6a8fd5318d4c9, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1901200790}
     - target: {fileID: 896480125484040328, guid: fbe0cfece4086c5449c6a8fd5318d4c9, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -716,6 +720,7 @@ GameObject:
   - component: {fileID: 1901200785}
   - component: {fileID: 1901200788}
   - component: {fileID: 1901200789}
+  - component: {fileID: 1901200790}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -833,6 +838,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: d36ac5a9f3251c94599f518710a4caf0, type: 2}
+--- !u!114 &1901200790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901200784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b323b646ff75f419b9f520e3e9fa03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameOverEvents:
+    m_PersistentCalls:
+      m_Calls: []
+  GameClearEvents:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2008197955
 PrefabInstance:
   m_ObjectHideFlags: 0

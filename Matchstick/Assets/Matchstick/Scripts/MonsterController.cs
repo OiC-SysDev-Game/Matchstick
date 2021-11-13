@@ -68,7 +68,6 @@ public class MonsterController : MonoBehaviour
 		player = GameObject.Find("Player");
 		sprite = this.transform.Find("Sprite").gameObject;
 		isMove = false;
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 	}
 
 	void Start()
