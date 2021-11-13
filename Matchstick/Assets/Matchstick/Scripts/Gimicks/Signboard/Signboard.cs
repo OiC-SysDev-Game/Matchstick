@@ -12,7 +12,7 @@ public class Signboard : MonoBehaviour
 
 	private void Awake()
 	{
-		tmpText = transform.Find("Canvas/Text").GetComponent<TMP_Text>();
+		tmpText = transform.Find("SignboardCanvas/Text").GetComponent<TMP_Text>();
 		textColor = tmpText.color;
 	}
 
@@ -28,7 +28,7 @@ public class Signboard : MonoBehaviour
 		var enlargedText = transform.Find("EnlargedSignboard/EnlargedCanvas/Text").GetComponent<TMP_Text>();
 		if (enlargedText)
 		{
-			var TMP = transform.Find("Canvas/Text").GetComponent<TMP_Text>();
+			var TMP = transform.Find("SignboardCanvas/Text").GetComponent<TMP_Text>();
 			enlargedText = TMP;
 			enlargedText.color = textColor;
 		}

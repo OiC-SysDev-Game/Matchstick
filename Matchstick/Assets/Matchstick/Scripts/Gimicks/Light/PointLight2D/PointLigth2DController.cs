@@ -28,7 +28,7 @@ public class PointLigth2DController : MonoBehaviour
 		if(light.intensity > 0.001f)
 		{
 			if (!colliderObject.activeSelf) { colliderObject.SetActive(true); }
-			collider.radius = light.pointLightOuterRadius * Mathf.Min(light.intensity, 1);
+			collider.radius = light.pointLightOuterRadius - 0.1f;
 			colliderObject.transform.localScale = new Vector3(1.0f / transform.lossyScale.x, 1.0f / transform.lossyScale.y, 1);
 		}
 		else

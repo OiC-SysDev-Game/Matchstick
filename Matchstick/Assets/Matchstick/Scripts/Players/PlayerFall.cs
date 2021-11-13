@@ -12,11 +12,11 @@ public class PlayerFall : MonoBehaviour
 
     // Start is called before the first frame update
     [SerializeField]
-        private Transform playerTramsform;
-        [SerializeField]
-        private Vector2 respawnPoint;
-        [SerializeField]
-        private float fallPointY = -25;
+    private Transform playerTramsform;
+    public Vector2 respawnPoint;
+    [SerializeField]
+    private float fallPointY = -25;
+    
     void Start()
     {
         if (null == playerTramsform)

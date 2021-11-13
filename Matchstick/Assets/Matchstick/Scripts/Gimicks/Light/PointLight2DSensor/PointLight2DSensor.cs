@@ -9,12 +9,22 @@ public class PointLight2DSensor : MonoBehaviour
 	// 感知している光源
 	public List<GameObject> PointLight2DObjectList { get; protected set; }
 
+    //コライダーのオフセットに対応するため
+    private CircleCollider2D _circleCollider2D;
+    //オフセットが0の場合中心まで照らされないと暗闇判定 （プラスにすれば判定が緩くなる）
+    [SerializeField]private float lightOuterRadiusOffset = 0.0f;
+
 	PointLight2DSensor()
 	{
 		PointLight2DObjectList = new List<GameObject>();
 	}
 
-	private void OnTriggerEnter2D(Collider2D collision)
+    private void Awake()
+    {
+        _circleCollider2D = this.GetComponent<CircleCollider2D>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (DebugLog)
 		{
@@ -45,20 +55,26 @@ public class PointLight2DSensor : MonoBehaviour
 		}
 	}
 
-	public Color GetLightColor()
+    public Color GetLightColor()
 	{
 		Vector4 color = Vector4.zero;
 		foreach(var obj in PointLight2DObjectList)
 		{
 			var light2d = obj.transform.GetComponent<Light2D>();
-			var lightMaxRange = light2d.pointLightOuterRadius;
-			var fromLight = (this.gameObject.transform.position - obj.transform.position).magnitude;
-			if (fromLight >= lightMaxRange)
+			var lightMaxRange = light2d.pointLightOuterRadius + lightOuterRadiusOffset;
+            //コライダーのオフセットに対応するためコライダーから座標を取得
+            var fromLight = (_circleCollider2D.bounds.center - obj.transform.position).magnitude;
+            if (fromLight >= lightMaxRange)
 			{
 				continue;
 			}
 			color += (1 - fromLight / lightMaxRange) * (Vector4)light2d.color;
 		}
 		return (Color)color;
+	}
+
+	public bool IsDarkness()
+	{
+        return this.GetLightColor() == (Color)Vector4.zero;
 	}
 }

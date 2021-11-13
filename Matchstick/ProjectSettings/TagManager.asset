@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MoveLift
   - CanteraLight
+  - MatchLight
   layers:
   - Default
   - TransparentFX
@@ -37,8 +38,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - MonsterBarricade
+  - Monster
   m_SortingLayers:
   - name: Default
     uniqueID: 0

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class DropWater : MonoBehaviour
 {
+
+    public AudioSource se;
+
     void Start()
     {
-        //Destroy(this.gameObject,15)
     }
 
     void Update()
@@ -18,14 +20,16 @@ public class DropWater : MonoBehaviour
     }
 
     //衝突判定
-    void OnTriggerEnter2D (Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         //マッチの火を消す
-        if (collision.gameObject.GetComponent<LightaMatch>())
+        if (collision.gameObject.GetComponent<PlayerIgniteMatch>())
         {
-            //プレイヤー側メソッドの呼び出し
-            //collision.gameObject.GetComponent<LightaMatch>().CollideWater();
+            collision.gameObject.GetComponent<PlayerIgniteMatch>().SetLightMatchFlg(false);
+            se.Play();
         }
+        //水滴本体を非アクティブにする
         gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
 }

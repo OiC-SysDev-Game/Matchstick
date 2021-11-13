@@ -27,9 +27,13 @@ public class PlayerMovement : MonoBehaviour
     private PlayerSE PlayerSE;
     [SerializeField]
     private Animator anim;
+    [SerializeField]
+    private Transform sprite;
 
     private MoveObjcet moveObject;
     private PlayerIgniteMatch IgniteMatch;
+    [SerializeField]
+    private LightaMatch Match;
 
     private Vector2 Speed = Vector2.zero;
     private float directionX;
@@ -68,11 +72,20 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Time.timeScale <= 0)
+        {
+            return;
+        }
         //キーを取得
         directionX = Input.GetAxis("Horizontal");
+        if(Match.GetMatchIgnitFlg())
+        {
+            directionX = 0;
+        }
         if (Input.GetButtonDown("Jump") && !jumpFlg)
         {
             jumpFlg = true;
+            anim.SetBool("Jump", true);
         }
         //足音とカンテラSEを鳴らす間隔の処理
         if (footStepSETimeSpan > 0)
@@ -123,19 +136,20 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayJumpEndSE();
 
-        //地面についているとき重力をなくす
-        if (groundedFlg && !jumpFlg && Speed.y < 0 && !liftCollideFlg)
-        {
-            Speed.y = 0f;
-        }
+       
         //重力処理
         Speed.y += -gravity;
         if (Speed.y <= -15)
         {
             Speed.y = -15;
         }
-        
-        
+        //地面についているとき重力をなくす
+        if (groundedFlg && !jumpFlg && Speed.y < 0 && !liftCollideFlg)
+        {
+            Speed.y = 0f;
+        }
+
+
         //リフト分の加算移動量
         Vector2 addVelocity = Vector2.zero;
         if(moveObject != null)
@@ -153,16 +167,17 @@ public class PlayerMovement : MonoBehaviour
         {
             if (canJumpFlg)
             {
-                playerReverce = true;
-                if(rigidbody2d.velocity.x < -speed + 2)
-                {
-                    isMoving = true;
-                }
-                anim.SetBool("walk", true);
-                //マッチ所持時にアニメーション切り替え
-                MatchAnimationSwitching();
-                //カンテラ所持時にアニメーション切り替え
-                CanteraAnimationSwiching();
+                    playerReverce = true;
+                
+                    if (rigidbody2d.velocity.x < -speed + 2)
+                    {
+                        isMoving = true;
+                    }
+                    anim.SetBool("walk", true);
+                    //マッチ所持時にアニメーション切り替え
+                    MatchAnimationSwitching();
+                    //カンテラ所持時にアニメーション切り替え
+                    CanteraAnimationSwiching();
             }
             Speed.x = speed;
         }
@@ -180,7 +195,6 @@ public class PlayerMovement : MonoBehaviour
                 MatchAnimationSwitching();
                 //カンテラ所持時にアニメーション切り替え
                 CanteraAnimationSwiching();
-
             }
             Speed.x = speed;
         }
@@ -202,11 +216,11 @@ public class PlayerMovement : MonoBehaviour
         //向き変え処理
         if (playerReverce)
         {
-            transform.localScale = new Vector2(-1, 1);
+            sprite.transform.localScale = new Vector2(-1, 1);
         }
         else
         {
-            transform.localScale = new Vector2(1, 1);
+            sprite.transform.localScale = new Vector2(1, 1);
         }
 
 
@@ -235,8 +249,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if(groundedFlg)
         {
+            if(Speed.y <= 0)
+            {
+                anim.SetBool("Jump", false);
+            }
             canJumpFlg = true;
             jumpFlg = false;
+            
         }
         else
         {
@@ -264,6 +283,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Speed.y = jumpForce;
             }
+            
         }
     }
     
@@ -380,5 +400,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("cantera", false);
         }
     }
+
+
 
 }

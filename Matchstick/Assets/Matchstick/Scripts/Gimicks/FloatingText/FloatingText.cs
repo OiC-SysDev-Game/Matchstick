@@ -8,13 +8,13 @@ public class FloatingText : MonoBehaviour
 	[SerializeField] private PointLight2DSensor LightSensor;
 
 	private GameObject canvas;
-	private TMP_Text tmpText;
+	//private TMP_Text tmpText;
 	private TMP_Text tmpShadowText;
 
 	public void SetText(string text)
 	{
 		tmpShadowText.text = text;
-		tmpText.text = text;
+		//tmpText.text = text;
 	}
 
 	private void Awake()
@@ -22,7 +22,7 @@ public class FloatingText : MonoBehaviour
 		canvas = transform.Find("Canvas").gameObject;
 		canvas.SetActive(false);
 		tmpShadowText = canvas.transform.GetChild(0).GetComponent<TMP_Text>();
-		tmpText = canvas.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>();
+		//tmpText = canvas.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>();
 	}
 
 	private void Update()
@@ -30,7 +30,7 @@ public class FloatingText : MonoBehaviour
 		if (!canvas.activeSelf)
 		{
 
-			if(LightSensor.GetLightColor() != (Color)Vector4.zero)
+			if(LightSensor.IsDarkness() == false)
 			{
 				foreach (var light in LightSensor.PointLight2DObjectList)
 				{
@@ -44,7 +44,7 @@ public class FloatingText : MonoBehaviour
 		}
 		else
 		{
-			if (LightSensor.GetLightColor() == (Color)Vector4.zero)
+			if (LightSensor.IsDarkness() == true)
 			{
 				canvas.SetActive(false);
 			}

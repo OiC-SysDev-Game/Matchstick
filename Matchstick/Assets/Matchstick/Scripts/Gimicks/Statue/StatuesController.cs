@@ -12,7 +12,7 @@ public class StatuesController : MonoBehaviour
 
     private List<GameObject> StatueList;
     private List<GameObject> FloatingTextList;
-    private List<int> playerAnswer;
+    [SerializeField] private List<int> playerAnswer;
 
     [SerializeField] private bool DebugLog = true;
 
@@ -54,12 +54,13 @@ public class StatuesController : MonoBehaviour
                 playerAnswer.Clear();
                 foreach(var obj in StatueList)
 				{
-                    obj.transform.Find("Point Light 2D").gameObject.SetActive(false);
+                    obj.transform.GetComponent<Statue>().FireExtinguishing();
 				}
                 if (DebugLog) { Debug.Log("GimmickMistake"); }
             }
+            Debug.Log(playerAnswer);
         }
-	}
+    }
 
 
 	private void GetStatues()
