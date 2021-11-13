@@ -21,7 +21,7 @@ public class ObjectCreator : MonoBehaviour
     {
         timer = IntervalTime;
         count = 0;
-        isStart = false;
+        isStart = true;
     }
 
     private void FixedUpdate()
@@ -33,7 +33,7 @@ public class ObjectCreator : MonoBehaviour
 			if (isInfinite)
 			{
                 timer = IntervalTime;
-                Instantiate(Object);
+                Instantiate(Object, this.transform);
             }
             else if (count < Value)
             {

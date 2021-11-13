@@ -66,8 +66,11 @@ public class FragileBridge : MonoBehaviour
                 {
                     case "MatchLight":
                     case "CanteraLight":
-                        Debug.Log("‹´‚ª•ö‚ê‚é");
-                        IsBurning = true;
+                        if (!light2DSensor.IsDarkness())
+                        {
+                            Debug.Log("‹´‚ª•ö‚ê‚é");
+                            IsBurning = true;
+                        }
                         break;
                 }
             }

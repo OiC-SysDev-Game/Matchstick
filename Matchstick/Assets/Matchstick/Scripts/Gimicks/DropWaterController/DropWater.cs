@@ -27,5 +27,6 @@ public class DropWater : MonoBehaviour
         }
         //水滴本体を非アクティブにする
         gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
 }
