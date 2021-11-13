@@ -136,19 +136,20 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayJumpEndSE();
 
-        //地面についているとき重力をなくす
-        if (groundedFlg && !jumpFlg && Speed.y < 0 && !liftCollideFlg)
-        {
-            Speed.y = 0f;
-        }
+       
         //重力処理
         Speed.y += -gravity;
         if (Speed.y <= -15)
         {
             Speed.y = -15;
         }
-        
-        
+        //地面についているとき重力をなくす
+        if (groundedFlg && !jumpFlg && Speed.y < 0 && !liftCollideFlg)
+        {
+            Speed.y = 0f;
+        }
+
+
         //リフト分の加算移動量
         Vector2 addVelocity = Vector2.zero;
         if(moveObject != null)
