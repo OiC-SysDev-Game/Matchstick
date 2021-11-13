@@ -10,7 +10,9 @@ public class IcicleCollider : MonoBehaviour
         {
             //デメリット効果追記
         }
-
-        transform.parent.gameObject.SetActive(false);
+        if (collision.gameObject.layer == 6)
+        {
+            transform.parent.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        }
     }
 }

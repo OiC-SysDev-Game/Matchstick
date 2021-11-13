@@ -26,7 +26,7 @@ public class DropWater : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerIgniteMatch>())
         {
             collision.gameObject.GetComponent<PlayerIgniteMatch>().SetLightMatchFlg(false);
-            se.Play();
+            //se.Play();
         }
         //水滴本体を非アクティブにする
         gameObject.SetActive(false);

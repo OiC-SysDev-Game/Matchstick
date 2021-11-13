@@ -13,7 +13,7 @@ public class WaxObject : MonoBehaviour
     //トリガー使ってます レイヤーの都合で子オブジェクトに別途コライダー用意してください
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "CanteraLight") isCollide = true;
+        if (collision.tag == "MatchLight" || collision.tag == "CanteraLight") isCollide = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
