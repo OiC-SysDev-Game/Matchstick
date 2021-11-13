@@ -45,9 +45,9 @@ GameObject:
   - component: {fileID: 2124401682026648180}
   - component: {fileID: 2124401682026648169}
   - component: {fileID: 2124401682026648181}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lift
-  m_TagString: Untagged
+  m_TagString: MoveLift
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
