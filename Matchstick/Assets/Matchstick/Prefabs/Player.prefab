@@ -1254,7 +1254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTramsform: {fileID: 2180872509277607602}
   respawnPoint: {x: -5, y: 0}
-  fallPointY: -10
+  fallPointY: -25
 --- !u!114 &1115951624811457809
 MonoBehaviour:
   m_ObjectHideFlags: 0

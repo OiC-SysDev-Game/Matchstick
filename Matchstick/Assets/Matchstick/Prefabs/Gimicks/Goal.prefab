@@ -108,8 +108,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4166410465019615378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.407, y: -0.008, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1282951724732293678}
   - {fileID: 4166410464926938357}
@@ -239,6 +239,10 @@ PrefabInstance:
     - target: {fileID: 7684697290283421657, guid: 6a33475d45e648c44b4aab0e5d8b5de1, type: 3}
       propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ChangScene, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684697290283421657, guid: 6a33475d45e648c44b4aab0e5d8b5de1, type: 3}
+      propertyPath: Ignished.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: GameClearScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a33475d45e648c44b4aab0e5d8b5de1, type: 3}
