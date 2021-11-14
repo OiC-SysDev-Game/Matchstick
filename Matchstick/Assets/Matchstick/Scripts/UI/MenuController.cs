@@ -10,6 +10,8 @@ public class MenuController : MonoBehaviour
     [SerializeField]private EventSystem _eventSystem;
     public GameObject selectedObject;
 
+    [SerializeField] private bool fadeInStart = false;
+
     //フェード部分とシーン読み込みは分割するべきかも
     [SerializeField] private Image fadeObject;
     [SerializeField] private float fadeSpeed;
@@ -18,17 +20,33 @@ public class MenuController : MonoBehaviour
     [SerializeField] private float cursorOffset;
     private int cursorUsingCount = 0;
 
+    private bool isSceneChange = false;
+
     private void Awake()
     {
         selectedObject = _eventSystem.firstSelectedGameObject;
+        if (fadeInStart && fadeObject)
+        {
+            Color color = fadeObject.color;
+            color.a = 1;
+            fadeObject.color = color;
+        }
     }
 
     void Start()
     {
         _eventSystem.enabled = false;
-        Button button = selectedObject.GetComponent<Button>();
-        button.Select();
-        CursorMove(button);
+        if (selectedObject)
+        {
+            Button button = selectedObject.GetComponent<Button>();
+            button.Select();
+            CursorMove(button);
+        }
+
+        if (fadeInStart && fadeObject)
+        {
+            StartCoroutine(FadeIn());
+        }
     }
 
     void Update()
@@ -122,6 +140,11 @@ public class MenuController : MonoBehaviour
     //ゲームシーンへ遷移
     public void SceneChengeStart(string name)
     {
+        if (isSceneChange)
+        {
+            return;
+        }
+        isSceneChange = true;
         StartCoroutine(SceneChenge(name));
         _eventSystem.enabled = false;
     }
@@ -132,12 +155,24 @@ public class MenuController : MonoBehaviour
         scene.allowSceneActivation = false;
         yield return FadeOut();
         scene.allowSceneActivation = true;
+        isSceneChange = false;
+    }
+
+    private IEnumerator FadeIn()
+    {
+        Color color = fadeObject.color;
+        while (color.a >= 0)
+        {
+            color.a -= fadeSpeed;
+            fadeObject.color = color;
+            yield return null;
+        }
     }
 
     private IEnumerator FadeOut()
     {
         Color color = fadeObject.color;
-        while (color.a < 1)
+        while (color.a <= 1)
         {
             color.a += fadeSpeed;
             fadeObject.color = color;
