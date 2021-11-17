@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9162838309607898031}
   - component: {fileID: 6744323016037118779}
   - component: {fileID: 384759803339689921}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: CanteraStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}

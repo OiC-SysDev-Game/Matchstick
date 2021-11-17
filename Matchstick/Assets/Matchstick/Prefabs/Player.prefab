@@ -1311,7 +1311,7 @@ MonoBehaviour:
   canteraCheck: {fileID: 6697952740202305493}
   layerGimick:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 256
   lightaMatch: {fileID: 6891924117352097895}
   lightaCantera: {fileID: 1763128271}
   Cantera: {fileID: 3734119192246537985}

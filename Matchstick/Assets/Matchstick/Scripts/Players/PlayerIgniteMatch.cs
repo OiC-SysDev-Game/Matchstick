@@ -120,24 +120,56 @@ public class PlayerIgniteMatch : MonoBehaviour
         }
         
         var collider = Physics2D.OverlapBox(igniteCheck.position, igniteCheck.localScale,0,layerGimick);
-        if (collider != null && (lightMatchFlg || playerCanteraCheck.GetPlayerCanteraShowFlg()))
+        //インタラクト表示可否
+        if (collider != null)
         {
-            InteractionText.SetActive(true);
+            //マッチ
+            if (lightMatchFlg)
+            {
+                InteractionText.SetActive(true);
+            }
+            //カンテラ
+            else if (playerCanteraCheck.GetPlayerCanteraShowFlg())
+            {
+                //カンテラ台と看板だけ
+                var canteraStand = collider.gameObject.GetComponent<CanteraStand>();
+                var signBoard = collider.gameObject.GetComponentInParent<Signboard>();
+                if (canteraStand != null || signBoard != null)
+                {
+                    InteractionText.SetActive(true);
+                }
+            }
+            //無し
+            else
+            {
+                //カンテラ台と看板だけ
+                var canteraStand = collider.gameObject.GetComponent<CanteraStand>();
+                var signBoard = collider.gameObject.GetComponentInParent<Signboard>();
+                if (canteraStand != null || signBoard != null)
+                {
+                    InteractionText.SetActive(true);
+                }
+            }
         }
         else
         {
             InteractionText.SetActive(false);
         }
         //ギミック着火用コード
-        if (lightMatchFlg && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if(collider != null)
             {
-                var igniteGimick = collider.gameObject.GetComponent<IIgnitable>(); 
-                if(igniteGimick != null)
+                var igniteGimick = collider.gameObject.GetComponent<IIgnitable>();
+                var signBoard = collider.gameObject.GetComponentInParent<Signboard>();
+                if (lightMatchFlg || signBoard != null)
                 {
-                    igniteGimick.Ignition();
+                    if (igniteGimick != null)
+                    {
+                        igniteGimick.Ignition();
+                    }
                 }
+                
             }
         }
         
