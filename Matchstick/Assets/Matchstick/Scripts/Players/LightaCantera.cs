@@ -48,6 +48,8 @@ public class LightaCantera : MonoBehaviour
     private PlayerCanteraCheck canteraCheck;   
     [SerializeField]
     public Color color = new Color32(136, 224, 214, 0);
+    [SerializeField]
+    private float rechargeSpeed = 1;
 
     public float GetCanteraGauge() { return CanteraGage; }
 
@@ -97,7 +99,7 @@ public class LightaCantera : MonoBehaviour
             if (CanteraGage < lightTimeSeconds)
             {
                 //カンテラゲージを回復
-                CanteraGage += Time.deltaTime;
+                CanteraGage += Time.deltaTime * rechargeSpeed;
                 
             }
         }
