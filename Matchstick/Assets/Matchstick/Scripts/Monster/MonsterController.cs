@@ -8,9 +8,9 @@ public class MonsterController : MonoBehaviour
 	// 移動速度
 	public float MoveSpeed;
 	public float MoveMaxSpeed;
-	// 出現間隔[s]
-	public float MinAppearTime;
-    public float MaxAppearTime;
+	//// 出現間隔[s]
+	//public float MinAppearTime;
+ //   public float MaxAppearTime;
 	// SE
 	public AudioSource Howling;
 	public AudioSource NoseBreath;
@@ -23,9 +23,9 @@ public class MonsterController : MonoBehaviour
 	private Rigidbody2D rigidbody2D;
 	private GameObject player;
 	private GameObject sprite;
-    private float appearWaitTime;
+    //private float appearWaitTime;
 	private MonsterPosition popPosition;
-	private bool isMove;
+	public bool isMove;
 	private float howlingVolume;
 
 	[SerializeField] private GameManager gameManager;
@@ -49,8 +49,23 @@ public class MonsterController : MonoBehaviour
 		}
 	}
 
-	private void StartMove()
+	public void StartMove(Vector2 startPosition)
 	{
+		// 出現位置判断
+		transform.position = startPosition + Vector2.up * 3;
+		if(player.transform.position.x < startPosition.x) { popPosition = MonsterPosition.west; }
+		else { popPosition = MonsterPosition.east; }
+		// 怪物の向き確定
+		var x = Mathf.Abs(this.transform.localScale.x);
+		if (popPosition == MonsterPosition.east) { x *= -1; }
+		this.transform.localScale = new Vector3(x, this.transform.localScale.y);
+		// SE
+		//Debug.Log("怪物の咆哮「GAAAAA」");
+		Howling.volume = howlingVolume;
+		Howling.Play();
+		InvokeRepeating("HowlingVolumeDown", 0, 0.075f);
+		// 表示
+		sprite.SetActive(true);
 		isMove = true;
 		Footsteps.UnPause();
 	}
@@ -89,7 +104,7 @@ public class MonsterController : MonoBehaviour
 		// 非表示
 		sprite.SetActive(false);
 		// 待機時間をリセット
-		appearWaitTime = Random.Range(MinAppearTime, MaxAppearTime);
+		//appearWaitTime = Random.Range(MinAppearTime, MaxAppearTime);
 		// 鼻息
 		InvokeRepeating("RepeatNoseBreath", 0, IntervalNoseBreath);
 	}
@@ -103,48 +118,29 @@ public class MonsterController : MonoBehaviour
 			if(hit && Vector3.Distance(this.transform.position, hit.transform.position) < 0.1)
 			{
 				StopMove();
-			}  
+			}
+
+			// 画面外判定
+			if (Vector3.Distance(player.transform.position, this.transform.position) >= 20)
+			{
+				if(popPosition == MonsterPosition.east && player.transform.position.x - transform.position.x < 0)
+				{
+					sprite.SetActive(false);
+					StopMove();
+				}
+				else if (popPosition == MonsterPosition.west && player.transform.position.x - transform.position.x > 0)
+				{
+					sprite.SetActive(false);
+					StopMove();
+				}
+			}
 		}
 
-		// 画面外判定
-		if (Vector3.Distance(player.transform.position, this.transform.position) >= 20)
-		{
-			sprite.SetActive(false);
-			StopMove();
-		}
+		
 	}
 	private void FixedUpdate()
 	{
-		if (sprite.activeSelf == false)
-		{
-			if (appearWaitTime > 0)
-			{
-				appearWaitTime -= Time.deltaTime;
-			}
-			else
-			{
-				// 待機時間をリセット
-				appearWaitTime = Random.Range(MinAppearTime, MaxAppearTime);
-				// 出現位置確定
-				popPosition = (MonsterPosition)Random.Range(0, (int)MonsterPosition.count);
-				var offset = new Vector3(15, 3, 0); 
-				if(popPosition == MonsterPosition.east){ offset.x *= -1; }
-				this.transform.position = player.transform.position + offset;
-				// 怪物の向き確定
-				var x = Mathf.Abs(this.transform.localScale.x);
-				if(popPosition == MonsterPosition.east) { x *= -1; }
-				this.transform.localScale = new Vector3(x, this.transform.localScale.y);
-				// SE
-				//Debug.Log("怪物の咆哮「GAAAAA」");
-				Howling.volume = howlingVolume;
-				Howling.Play();
-				InvokeRepeating("HowlingVolumeDown", 0, 0.075f);
-				// 表示
-				sprite.SetActive(true);
-				StartMove();
-			}
-		}
-		else
+		if (sprite.activeSelf == true)
 		{
 			this.UpdateMove();
 			if (this.IsGameOver_LightSensor())
