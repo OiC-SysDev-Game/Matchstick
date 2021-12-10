@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7030631376267919360}
   - component: {fileID: 7030631376267919366}
   - component: {fileID: 7030631376267919361}
+  - component: {fileID: 5340351966133882567}
   m_Layer: 6
   m_Name: Rock_Rigidbody
   m_TagString: Untagged
@@ -70,6 +71,18 @@ CircleCollider2D:
   m_Offset: {x: 0.038101286, y: 0.041276366}
   serializedVersion: 2
   m_Radius: 0.2745674
+--- !u!114 &5340351966133882567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7030631376267919363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc36008a5b60c0b4c97ca12fd1dfc3e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7030631376788164292
 GameObject:
   m_ObjectHideFlags: 0
