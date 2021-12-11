@@ -158,7 +158,7 @@ public class MenuController : MonoBehaviour
         isSceneChange = false;
     }
 
-    private IEnumerator FadeIn()
+    public IEnumerator FadeIn()
     {
         Color color = fadeObject.color;
         while (color.a >= 0)
@@ -169,7 +169,7 @@ public class MenuController : MonoBehaviour
         }
     }
 
-    private IEnumerator FadeOut()
+    public IEnumerator FadeOut()
     {
         Color color = fadeObject.color;
         while (color.a <= 1)

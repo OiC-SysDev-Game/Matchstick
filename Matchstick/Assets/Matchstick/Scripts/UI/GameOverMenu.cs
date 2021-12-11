@@ -14,9 +14,9 @@ public class GameOverMenu : MonoBehaviour
         GameOverMenuCanvas.enabled = false;
     }
 
-    private void Update()
+    public void GameContinue()
     {
-
+        GameObject.Find("GameManager").GetComponent<GameManager>().GameContinueStart();
     }
 
     public void Activate()
