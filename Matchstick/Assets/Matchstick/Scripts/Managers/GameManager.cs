@@ -5,7 +5,9 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private UnityEvent GameOverEvents;
+    [SerializeField] private PlayerFall player;
+
+    public UnityEvent GameOverEvents;
     private bool gameOver = false;
     public bool GameOver {
         set {
@@ -22,7 +24,7 @@ public class GameManager : MonoBehaviour
         get { return gameOver; }
     }
 
-    [SerializeField] private UnityEvent GameClearEvents;
+    public UnityEvent GameClearEvents;
     private bool gameClear = false;
     public bool GameClear
     {
@@ -43,6 +45,24 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GameOverEvents.AddListener(GameOverTimeStop);
+    }
+
+    public void GameContinueStart()
+    {
+        StartCoroutine(GameContinue());
+    }
+
+    private IEnumerator GameContinue()
+    {
+        MenuController menuController = GameObject.Find("GameMenuObject").GetComponent<MenuController>();
+        yield return menuController.FadeOut();
+        //èâä˙âªèàóù
+        player.Respawn();
+        Time.timeScale = 1;
+        gameOver = false;
+
+        yield return new WaitForSeconds(1);
+        yield return menuController.FadeIn();
     }
 
     void GameOverTimeStop()

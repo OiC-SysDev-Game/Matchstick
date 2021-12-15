@@ -33,4 +33,9 @@ public class PlayerFall : MonoBehaviour
             playerTramsform.position = new Vector2(respawnPoint.x,respawnPoint.y);
         }
     }
+
+    public void Respawn()
+    {
+        playerTramsform.position = new Vector2(respawnPoint.x, respawnPoint.y);
+    }
 }
